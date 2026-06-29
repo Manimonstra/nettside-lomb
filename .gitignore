@@ -1,0 +1,34 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+
+# Node (if ever used)
+node_modules/
+
+# Claude Code project files (AI assistant — not part of the website)
+.claude/
+
+# Development artefacts not used on the site
+Screenshots/
+Stitch content/
+Website/
+*.gif
+
+# Website — unused assets
+# Add filenames here when a Picture, Beer image, or other asset is
+# removed from the site but not deleted from disk.
+# Example:
+# Pictures/OldPhoto.jpg
+# Beers/LOMB-DISCONTINUED-467x1024.png

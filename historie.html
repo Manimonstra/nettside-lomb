@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="dark" lang="no">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Historie — Lom Bryggeri</title>
+<meta name="description" content="Frå ein draum i fjelldalen til eit av Noregs mest særeigne handverksbrygggeri. Historia om Lom Bryggeri på Grjotheim."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0f0a07","surface":"#16130f","surface-dim":"#16130f","surface-container-low":"#1e1b17","surface-container":"#221f1b","surface-container-high":"#2d2925","surface-container-highest":"#383430","surface-container-lowest":"#100e0a","surface-bright":"#3c3934","surface-variant":"#383430","on-surface":"#e9e1da","on-surface-variant":"#d0c4be","on-background":"#e9e1da","background":"#16130f","primary":"#d0c4be","primary-fixed":"#ede0da","on-primary":"#362f2b","outline":"#998f89","outline-variant":"#4d4540"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"]}}}}
+</script>
+<style>
+  body{background-color:#0f0a07;margin:0;overflow-x:hidden;}
+  .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1px solid rgba(233,225,218,.28);background:rgba(233,225,218,.07);backdrop-filter:blur(8px);color:#e9e1da;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease;}
+  .btn-nav:hover{background:#e9e1da;color:#0f0a07;border-color:#e9e1da;transform:translateY(-2px);box-shadow:0 10px 28px -8px rgba(0,0,0,.5);}
+  .btn-nav:active{transform:translateY(-1px);}
+  .btn-nav:focus-visible{outline:2px solid #e9e1da;outline-offset:3px;}
+  .reveal{opacity:0;transform:translateY(1.5rem);}
+  .reveal.in{opacity:1;transform:none;transition:opacity 700ms ease-out,transform 700ms ease-out;}
+  .timeline-line{position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(208,196,190,.2) 10%,rgba(208,196,190,.2) 90%,transparent);}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}}
+  .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
+  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#e9e1da;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
+  .mobile-menu{position:fixed;inset:0;z-index:45;background:#0f0a07;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(233,225,218,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
+  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#e9e1da;}
+  .mobile-nav-link:focus-visible{outline:2px solid #e9e1da;outline-offset:4px;border-radius:2px;}
+</style>
+</head>
+<body class="bg-background text-on-background font-body">
+<a href="#hovudinnhald" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhald</a>
+
+<header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    </a>
+    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html" aria-current="page">Historie</a>
+    </div>
+    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="om-oss.html#kontakt">Ta kontakt</a>
+    <div class="md:hidden flex-1 flex justify-end">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
+        <span id="hbar1"></span>
+        <span id="hbar2"></span>
+        <span id="hbar3"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav class="flex flex-col" aria-label="Mobilmeny">
+    <a class="mobile-nav-link" href="index.html">Hjem</a>
+    <a class="mobile-nav-link" href="olene.html">Våre øl</a>
+    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="pub.html">Pub</a>
+    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="historie.html" aria-current="page">Historie</a>
+  </nav>
+  <div class="mt-auto pt-8 border-t border-white/10">
+    <a class="btn-nav inline-flex" href="om-oss.html#kontakt">Ta kontakt</a>
+    <address class="mt-6 not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-1.5">
+      <p>Liavegen 367, 2686 Lom</p>
+      <p><a class="hover:text-on-surface-variant transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+    </address>
+  </div>
+</div>
+
+<main id="hovudinnhald">
+
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden min-h-[55vh] flex items-end">
+    <div class="absolute inset-0 -z-10">
+      <img src="Pictures/oldvibes.webp" alt="Lom Bryggeri — frå starten" width="1920" height="1080" fetchpriority="high" class="w-full h-full object-cover object-center"/>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#0f0a07] via-[#0f0a07]/60 to-[#0f0a07]/15"></div>
+    </div>
+    <div class="max-w-container-max mx-auto px-margin-edge pb-16 pt-36 md:pb-20 w-full">
+      <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-white/50">Sidan 2016 · Grjotheim, Lom</span>
+      <h1 class="reveal font-display font-semibold tracking-tight text-white mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.2rem)">Vår historie</h1>
+      <p class="reveal font-body text-lg text-white/70 mt-5 max-w-xl leading-[1.7]">Frå ei gamal løe i Lom til eit av Noregs mest særeigne handverksbrygggeri — med fjellvatn, lokale urter og ei kjærleik til godt lager.</p>
+    </div>
+  </section>
+
+  <!-- Introduksjon -->
+  <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-4 md:pt-28 md:pb-6">
+    <div class="max-w-2xl">
+      <p class="reveal font-body text-xl text-on-surface-variant/80 leading-[1.85]">Lom Bryggeri vart starta av ein gjeng som elska godt handverksøl og trudde at Lom var den perfekte staden å lage det — midt i Jotunheimen, med reint fjellvatn rett frå fjellet og ei tradisjon for lokale råvarer som strekker seg langt tilbake.</p>
+    </div>
+  </section>
+
+  <!-- Tidslinje -->
+  <section class="max-w-container-max mx-auto px-margin-edge py-16 md:py-24">
+    <div class="relative pl-8 md:pl-12">
+      <div class="timeline-line" aria-hidden="true"></div>
+
+      <!-- 2015 -->
+      <div class="reveal mb-16 md:mb-20 relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-surface-container border border-white/20">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/60"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/40">2015</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Ideen tek form</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">Det heile starta med ein tanke: kvifor finst det ikkje eit skikkeleg handverksbrygggeri i Lom? Fjellbygda hadde alt — reint vatn, eit rikt urtetilfang og eit lokalsamfunn med stoltheit over eigen matkultur. Planlegging byrja i stille, og Grjotheim-garden vart valt som heim for bryggeriet.</p>
+      </div>
+
+      <!-- 2016 -->
+      <div class="reveal mb-16 md:mb-20 relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-surface-container border border-white/20">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/60"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/40">2016</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Bryggeriet opnar</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">Lom Bryggeri slo opp dørene i 2016. Dei første ølsortar var enkle lagar brygga på fjellvatn og byggmalt — reindyrka og utan unødvendige tilsetningar. Målet var klart frå starten: lag øl som smakjer av staden det kjem frå. Ljost og Raudt vart dei første fast sortiment-ølane, og tok raskt imot gode tilbakemeldingar frå lokalbefolkninga og tilreisande.</p>
+      </div>
+
+      <!-- Lokale urter -->
+      <div class="reveal mb-16 md:mb-20 relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-surface-container border border-white/20">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/60"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Inspirasjon</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Fjellnaturen som oppskrift</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">Rundt Lom finst det eit rikt tilfang av ville urter — fjellkvann, mjødurt, einer, krekling og bjørkeskot. Bryggarane begynte å eksperimentere med å bruke desse i øl, og det opna seg ein heilt ny smaksverden. Tradisjonell norsk bryggjekultur — der pors og einer var vanlege ingrediensar lenge før humla kom — fekk nytt liv. Kvar urt er ei forteljing om dalens natur, og kvar smak er ein stad å vere.</p>
+      </div>
+
+      <!-- Vekst -->
+      <div class="reveal mb-16 md:mb-20 relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-surface-container border border-white/20">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/60"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Vekst</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Frå to til tjue</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">Det gjekk ikkje lenge før sortimentet voks. Bryggarane ville hedre fjellheimen sin rikdom — og personane og stadene som høyrte til. Øl vart oppkalla etter lokale legender som Jo Gjende og Peer Gynt, etter fjellruter som Høgruta, og etter fjelltoppen Galdhøpiggen (2469 moh.). I dag tel sortimentet over 20 unike handverksøl, frå lettdrikkelige lagrar til kraftige vinterlagar.</p>
+      </div>
+
+      <!-- Pub og utsalg -->
+      <div class="reveal mb-16 md:mb-20 relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-surface-container border border-white/20">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/60"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Grjotheim</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Låven vert til pub</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">Bryggeriet fann raskt sin heim i den historiske låven på Grjotheim. Den romslege låven vart omgjort til ein pub der gjestene kan smake ølane på kran, og ein gardssalg der dei kan kjøpe med seg favorittane heim. Puben er ikkje berre eit skjenkested — det er eit møteplass for lokale og tilreisande, eit levande rom midt i det som eingong var arbeidsstastad på garden.</p>
+      </div>
+
+      <!-- I dag -->
+      <div class="reveal relative">
+        <div aria-hidden="true" class="absolute -left-8 md:-left-12 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-on-surface/20 border border-on-surface/40">
+          <div class="w-1.5 h-1.5 rounded-full bg-on-surface/80"></div>
+        </div>
+        <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface/60">I dag</span>
+        <h2 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.6rem,3.5vw,2.4rem)">Handverk frå fjellbygda</h2>
+        <p class="font-body text-on-surface-variant/70 mt-4 max-w-prose leading-[1.8]">I dag er Lom Bryggeri eit heiltidsbrygggeri med bryggar, pub, gardssalg og ølsmaking som oppleving. Vi bryggjer med tolmod, nyfikne og respekt for råvarene — og vi er stolte av å vere ein del av Lom sitt kulturliv. Kvar flaske er eit utsnitt av fjelldalen vi er glade i å kalle heimen vår.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sitat -->
+  <section class="border-y border-white/5 bg-surface-container-lowest">
+    <div class="max-w-container-max mx-auto px-margin-edge py-20 md:py-28">
+      <blockquote class="reveal max-w-3xl mx-auto text-center">
+        <p class="font-display font-medium text-on-surface leading-[1.3]" style="font-size:clamp(1.8rem,4vw,3rem)">"Brygga med tolmod, reint fjellvatn og lokale råvarer — midt i hjartet av Jotunheimen."</p>
+        <footer class="mt-8 font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/45">Lom Bryggeri · Est. 2016</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-container-max mx-auto px-margin-edge py-20 md:py-28">
+    <div class="reveal grid gap-5 sm:grid-cols-3">
+      <a href="olene.html" class="group relative overflow-hidden rounded-lg bg-surface-container border border-white/5 p-8 flex flex-col gap-4 hover:border-white/15 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface">
+        <span class="font-label text-[0.6rem] uppercase tracking-[0.22em] text-on-surface-variant/40">Smak historia</span>
+        <h3 class="font-display text-xl font-semibold text-on-surface leading-[1.15]">Sjå alle ølane våre</h3>
+        <span class="inline-flex items-center gap-1.5 font-label text-xs uppercase tracking-[0.14em] text-on-surface-variant/60 group-hover:text-on-surface transition-colors duration-300 mt-auto">
+          Gå til sortimentet
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="olsmaking.html" class="group relative overflow-hidden rounded-lg bg-surface-container border border-white/5 p-8 flex flex-col gap-4 hover:border-white/15 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface">
+        <span class="font-label text-[0.6rem] uppercase tracking-[0.22em] text-on-surface-variant/40">Oppleving</span>
+        <h3 class="font-display text-xl font-semibold text-on-surface leading-[1.15]">Book ølsmaking</h3>
+        <span class="inline-flex items-center gap-1.5 font-label text-xs uppercase tracking-[0.14em] text-on-surface-variant/60 group-hover:text-on-surface transition-colors duration-300 mt-auto">
+          Sjå datoar
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a href="om-oss.html" class="group relative overflow-hidden rounded-lg bg-surface-container border border-white/5 p-8 flex flex-col gap-4 hover:border-white/15 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface">
+        <span class="font-label text-[0.6rem] uppercase tracking-[0.22em] text-on-surface-variant/40">Folka bak ølet</span>
+        <h3 class="font-display text-xl font-semibold text-on-surface leading-[1.15]">Om oss</h3>
+        <span class="inline-flex items-center gap-1.5 font-label text-xs uppercase tracking-[0.14em] text-on-surface-variant/60 group-hover:text-on-surface transition-colors duration-300 mt-auto">
+          Les meir
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="relative bg-[#0f0a07] px-margin-edge pt-16 pb-8">
+  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(196,144,64,.4),transparent);"></div>
+  <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Snarveiar</h2>
+      <ul class="space-y-3">
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-6">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Kontakt</h2>
+      <address class="not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-2.5">
+        <p>Liavegen 367, 2686 Lom</p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="mailto:post@lomb.no">post@lomb.no</a></p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto mt-12 pt-6 border-t border-white/5">
+    <p class="font-body text-xs text-on-surface-variant/30">© 2026 Lom Bryggeri</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu
+  (function(){
+    var btn=document.getElementById('menuBtn');
+    var menu=document.getElementById('mobileMenu');
+    var b1=document.getElementById('hbar1');
+    var b2=document.getElementById('hbar2');
+    var b3=document.getElementById('hbar3');
+    if(!btn||!menu) return;
+    function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
+    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+    btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});
+  })();
+</script>
+</body>
+</html>

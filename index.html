@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html class="dark" lang="no">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lom Bryggeri — Bryggeri, ølsmaking og gardspub i Lom</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-container": "#0f0a07",
+          "surface": "#16130f",
+          "surface-dim": "#16130f",
+          "surface-container-low": "#1e1b17",
+          "surface-container": "#221f1b",
+          "surface-container-high": "#2d2925",
+          "surface-container-highest": "#383430",
+          "surface-container-lowest": "#100e0a",
+          "surface-bright": "#3c3934",
+          "surface-variant": "#383430",
+          "on-surface": "#e9e1da",
+          "on-surface-variant": "#d0c4be",
+          "on-background": "#e9e1da",
+          "background": "#16130f",
+          "primary": "#d0c4be",
+          "primary-fixed": "#ede0da",
+          "on-primary": "#362f2b",
+          "outline": "#998f89",
+          "outline-variant": "#4d4540"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "24px",
+          "stack-sm": "8px",
+          "stack-md": "16px",
+          "stack-lg": "32px",
+          "section-gap": "120px",
+          "container-max": "1440px",
+          "margin-edge": "40px"
+        },
+        "fontFamily": {
+          "display": ["Fraunces", "serif"],
+          "body": ["Work Sans", "sans-serif"],
+          "label": ["Space Grotesk", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #0f0a07;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                background-color 0.35s ease,
+                color 0.35s ease,
+                box-shadow 0.35s ease;
+  }
+  .btn-hero .arrow { transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+  .btn-hero:hover { background: #ffffff; color: #0f0a07; transform: translateY(-3px); box-shadow: 0 14px 34px -10px rgba(0,0,0,0.6); }
+  .btn-hero:hover .arrow { transform: translateX(5px); }
+  .btn-hero:active { transform: translateY(-1px); }
+  .btn-hero:focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
+
+  /* Header glass button — mirrors .btn-hero but tuned for nav context */
+  .btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(233, 225, 218, 0.28);
+    background: rgba(233, 225, 218, 0.07);
+    backdrop-filter: blur(8px);
+    color: #e9e1da;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                background 0.35s ease,
+                color 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+  }
+  .btn-nav:hover {
+    background: #e9e1da;
+    color: #0f0a07;
+    border-color: #e9e1da;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -8px rgba(0,0,0,0.5);
+  }
+  .btn-nav:active { transform: translateY(-1px); }
+  .btn-nav:focus-visible { outline: 2px solid #e9e1da; outline-offset: 3px; }
+
+  .reveal-hidden { opacity: 0; transform: translateY(2.5rem); }
+  .reveal-visible { opacity: 1; transform: translateY(0); transition: opacity 900ms ease-out, transform 900ms ease-out; }
+
+  /* ── Beer carousel ── */
+  .beer-scroll {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 12px;
+  }
+  .beer-scroll::-webkit-scrollbar { display: none; }
+
+  .beer-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+  }
+
+  .beer-card {
+    flex-shrink: 0;
+    width: 195px;
+    text-decoration: none;
+  }
+
+  .carousel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(208,196,190,0.3);
+    background: rgba(255,255,255,0.04);
+    color: #d0c4be;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .carousel-btn:hover:not(:disabled) { background: #d0c4be; color: #0f0a07; border-color: #d0c4be; transform: scale(1.06); }
+  .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .carousel-btn:focus-visible { outline: 2px solid #d0c4be; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    .reveal-hidden { opacity: 1 !important; transform: none !important; }
+  }
+
+  @media (max-width: 767px) {
+    .beer-card { width: 150px; }
+    .beer-scroll { padding-left: 48px; padding-right: 48px; }
+  }
+
+  /* ── Mobile menu ── */
+  .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
+  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#e9e1da;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
+  .mobile-menu{position:fixed;inset:0;z-index:45;background:#0f0a07;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(233,225,218,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
+  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#e9e1da;}
+  .mobile-nav-link:focus-visible{outline:2px solid #e9e1da;outline-offset:4px;border-radius:2px;}
+
+  /* ── Contact form ── */
+  .field label{display:block;font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(208,196,190,.60);margin-bottom:.4rem;}
+  .field input,.field textarea{width:100%;background:#1e1b17;border:1.5px solid rgba(208,196,190,.16);border-radius:.5rem;padding:.78rem .95rem;color:#e9e1da;font-family:'Work Sans',sans-serif;font-size:1rem;transition:border-color .2s ease,box-shadow .2s ease;box-sizing:border-box;}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(208,196,190,.35);}
+  .field input:focus,.field textarea:focus{outline:none;border-color:rgba(208,196,190,.6);box-shadow:0 0 0 3px rgba(208,196,190,.08);}
+  .field.is-valid input,.field.is-valid textarea{border-color:rgba(208,196,190,.4);}
+  .field.is-invalid input,.field.is-invalid textarea{border-color:rgba(220,100,80,.7);box-shadow:0 0 0 3px rgba(220,100,80,.12);}
+  .field .err{display:none;color:#e88e7e;font-size:.82rem;margin-top:.3rem;font-family:'Space Grotesk',sans-serif;}
+  .field.is-invalid .err{display:block;}
+  .btn-submit{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:9999px;background:#e9e1da;color:#0f0a07;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;position:relative;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;}
+  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 14px 28px -10px rgba(0,0,0,.5);}
+  .btn-submit:active{transform:translateY(-1px);}
+  .btn-submit:focus-visible{outline:2px solid #e9e1da;outline-offset:3px;}
+  .btn-submit[aria-disabled="true"]{opacity:.5;cursor:not-allowed;pointer-events:none;}
+  .btn-submit.is-loading{color:transparent!important;pointer-events:none;}
+  .btn-submit.is-loading::after{content:"";position:absolute;width:1.1em;height:1.1em;border:2px solid #0f0a07;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body class="bg-background text-on-background font-body">
+
+<!-- Header — centered nav -->
+<header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+
+    <!-- Logo -->
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    </a>
+
+    <!-- Desktop nav — centered with flex-1 -->
+    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-current="page">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#kontakt">Ta kontakt</a>
+
+    <!-- Mobile hamburger -->
+    <div class="md:hidden flex-1 flex justify-end">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
+        <span id="hbar1"></span>
+        <span id="hbar2"></span>
+        <span id="hbar3"></span>
+      </button>
+    </div>
+
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav class="flex flex-col" aria-label="Mobilmeny">
+    <a class="mobile-nav-link" href="index.html" aria-current="page">Hjem</a>
+    <a class="mobile-nav-link" href="olene.html">Våre øl</a>
+    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="pub.html">Pub</a>
+    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="historie.html">Historie</a>
+  </nav>
+  <div class="mt-auto pt-8 border-t border-white/10">
+    <a class="btn-nav inline-flex" href="#kontakt">Ta kontakt</a>
+    <address class="mt-6 not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-1.5">
+      <p>Liavegen 367, 2686 Lom</p>
+      <p><a class="hover:text-on-surface-variant transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+    </address>
+  </div>
+</div>
+
+<main>
+
+<!-- Hero — Explore grid -->
+<section class="bg-[#0f0a07] text-white overflow-hidden" id="explore-section">
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full reveal-hidden" id="explore-grid">
+
+    <!-- Panel 1 -->
+    <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
+      <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
+        <source src="https://videos.pexels.com/video-files/5538051/5538051-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
+      </video>
+      <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Lager øl</h2>
+      <a href="olene.html" class="btn-hero relative z-10">se alle sorter<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group border-y md:border-y-0 md:border-x border-white/10">
+      <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
+        <source src="https://videos.pexels.com/video-files/5530399/5530399-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
+      </video>
+      <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Ølsmaking</h2>
+      <a href="olsmaking.html#book" class="btn-hero relative z-10">book her<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
+      <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
+        <source src="https://videos.pexels.com/video-files/29966866/12860203_2160_3840_30fps.mp4" type="video/mp4"/>
+      </video>
+      <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gardspub</h2>
+      <a href="pub.html" class="btn-hero relative z-10">se agenda<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Feature strips -->
+<section id="bilde-seksjon" class="bg-background">
+
+  <!-- Strip 1: Bryggeriet — image left, text right -->
+  <div class="grid md:grid-cols-2">
+    <div class="relative overflow-hidden" style="min-height:520px;">
+      <img src="Pictures/brygg.jpg" alt="Bryggemiljø hjå Lom Bryggeri" width="800" height="1060" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+    </div>
+    <div class="flex flex-col justify-center px-10 py-20 md:px-16 lg:px-20 bg-surface-container-lowest">
+      <span class="font-label text-[0.62rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Bryggeriet</span>
+      <h2 class="font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2rem,4vw,3rem)">Handverk i kvart steg</h2>
+      <p class="font-body text-on-surface-variant/70 mt-5 leading-[1.75] max-w-sm">Frå innkjøp av lokale råvarer til siste tappekran — kvar detalj er laga med omtanke og stoltheit i Lom sidan 2016.</p>
+      <a href="om-oss.html" class="inline-flex items-center gap-2 mt-8 font-label text-xs uppercase tracking-[0.16em] text-on-surface border-b border-on-surface/25 pb-1 w-fit hover:border-on-surface transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface">
+        Om bryggeriet <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Strip 2: Ølsmaking — text left, image right -->
+  <div class="grid md:grid-cols-2">
+    <div class="flex flex-col justify-center px-10 py-20 md:px-16 lg:px-20 bg-surface-container order-2 md:order-1">
+      <span class="font-label text-[0.62rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Oppleving</span>
+      <h2 class="font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2rem,4vw,3rem)">Ølsmaking i låven</h2>
+      <p class="font-body text-on-surface-variant/70 mt-5 leading-[1.75] max-w-sm">Set deg ned, smak deg gjennom fem til seks øl og høyr korleis dei blir til — fortalt av dei som faktisk bryggar dei. For grupper frå seks personar.</p>
+      <a href="olsmaking.html" class="inline-flex items-center gap-2 mt-8 font-label text-xs uppercase tracking-[0.16em] text-on-surface border-b border-on-surface/25 pb-1 w-fit hover:border-on-surface transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface">
+        Book ei smaking <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="relative overflow-hidden order-1 md:order-2" style="min-height:520px;">
+      <img src="Pictures/Ølsmaking.jpg" alt="Ølsmaking hjå Lom Bryggeri" width="800" height="600" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center"/>
+    </div>
+  </div>
+
+  <!-- Strip 3: Sortiment — image left, text right -->
+  <div class="grid md:grid-cols-2">
+    <div class="relative overflow-hidden" style="min-height:520px;">
+      <img src="Pictures/classics.webp" alt="Klassiske Lom Bryggeri-øl" width="800" height="600" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+    </div>
+    <div class="flex flex-col justify-center px-10 py-20 md:px-16 lg:px-20 bg-surface-container-lowest">
+      <span class="font-label text-[0.62rem] uppercase tracking-[0.28em] text-on-surface-variant/40">Sortiment</span>
+      <h2 class="font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2rem,4vw,3rem)">Over 20 handverksøl</h2>
+      <p class="font-body text-on-surface-variant/70 mt-5 leading-[1.75] max-w-sm">Lager frå lyst til mørkt, alle brygga i Lom. Frå 2469 meter på Galdhøpiggen til reinsjegaren Jo Gjende — kvar flaske fortel si eiga historie.</p>
+      <a href="olene.html" class="inline-flex items-center gap-2 mt-8 font-label text-xs uppercase tracking-[0.16em] text-on-surface border-b border-on-surface/25 pb-1 w-fit hover:border-on-surface transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface">
+        Sjå alle øla <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Beer carousel -->
+<section class="relative pt-16 pb-20 overflow-hidden" id="vare-ol">
+  <!-- Atmospheric background -->
+  <div aria-hidden="true" class="absolute inset-0 -z-10" style="background:#0d0a07;"></div>
+  <div aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none" style="background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(196,144,64,.07) 0%,transparent 65%);"></div>
+  <!-- Top + bottom depth shading -->
+  <div aria-hidden="true" class="absolute top-0 inset-x-0 h-20 pointer-events-none z-0" style="background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent);"></div>
+  <div aria-hidden="true" class="absolute bottom-0 inset-x-0 h-16 pointer-events-none z-0" style="background:linear-gradient(to top,rgba(0,0,0,.35),transparent);"></div>
+
+  <div class="max-w-container-max mx-auto relative">
+
+    <!-- Section header -->
+    <div class="px-margin-edge mb-10">
+      <span class="font-label text-xs uppercase tracking-[0.22em] text-on-surface-variant/50">Sortiment</span>
+      <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mt-3 leading-[1.1]">Alle våre øl</h2>
+    </div>
+
+    <!-- Carousel strip with side arrows -->
+    <div class="relative" id="carousel-wrap" role="group" aria-label="Navigasjon for ølkarusell">
+
+      <!-- Left arrow -->
+      <button class="carousel-btn" id="beer-prev" aria-label="Rull tilbake" disabled
+        style="position:absolute;left:8px;top:42%;transform:translateY(-50%);z-index:20;">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+
+      <div class="beer-scroll" id="beer-scroll">
+        <div class="beer-track" id="beer-track">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+
+      <!-- Right arrow -->
+      <button class="carousel-btn" id="beer-next" aria-label="Rull vidare"
+        style="position:absolute;right:8px;top:42%;transform:translateY(-50%);z-index:20;">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Om oss -->
+<section class="bg-background px-margin-edge py-24 md:py-32" id="om-oss">
+  <div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <div>
+      <span class="font-label text-xs uppercase tracking-[0.22em] text-on-surface-variant/60">Om oss</span>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold tracking-tight text-on-surface mt-4 leading-[1.1]">Handverk frå fjellbygda Lom</h2>
+      <p class="font-body text-lg leading-[1.7] text-on-surface-variant/80 mt-6 max-w-prose">Sidan 2016 har vi brygga lager på gamlemåten — med tolmod, reint fjellvatn og lokale råvarer. Kvar tank fortel ei historie om handverk, tradisjon og kjærleik til godt øl, midt i hjartet av Jotunheimen.</p>
+      <a class="inline-flex items-center gap-2 mt-8 font-label text-sm uppercase tracking-[0.16em] text-on-surface border-b border-on-surface/40 pb-1 hover:border-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">
+        Les heile historia
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="relative overflow-hidden rounded-lg aspect-[4/5] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)]">
+      <img alt="Raudt Lomb-øl med rustikke trekassar" src="Pictures/oldvibes.webp" width="800" height="900" loading="lazy" class="w-full h-full object-cover"/>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent mix-blend-multiply"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Kontakt -->
+<section id="kontakt" class="bg-surface-container-lowest border-t border-white/5 scroll-mt-24">
+  <div class="max-w-container-max mx-auto px-margin-edge py-20 md:py-28 grid gap-14 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <span class="font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">Praktisk</span>
+      <h2 class="font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.1]" style="font-size:clamp(2rem,5vw,3.2rem)">Ta kontakt</h2>
+      <dl class="mt-8 divide-y divide-white/8 border-y border-white/10 font-body text-on-surface-variant/80">
+        <div class="py-4"><dt class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-on-surface-variant/50 mb-1">Besøksadresse</dt><dd class="font-semibold">Liavegen 367, 2686 Lom</dd></div>
+        <div class="py-4"><dt class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-on-surface-variant/50 mb-1">E-post</dt><dd class="font-semibold"><a class="hover:text-on-surface transition-colors duration-300 underline underline-offset-2 decoration-white/25" href="mailto:post@lomb.no">post@lomb.no</a></dd></div>
+        <div class="py-4"><dt class="font-label text-[0.6rem] uppercase tracking-[0.12em] text-on-surface-variant/50 mb-1">Telefon</dt><dd class="font-semibold"><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></dd></div>
+      </dl>
+    </div>
+    <div class="lg:col-span-7">
+      <div class="rounded-lg bg-surface-container border border-white/8 p-7 sm:p-9 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
+        <h2 class="font-display text-2xl md:text-3xl font-semibold text-on-surface">Skriv til oss</h2>
+        <p class="font-body text-on-surface-variant/65 mt-2 leading-relaxed">Spørsmål, bestilling eller berre ein hilsen — vi svarar så fort vi rekk.</p>
+        <form id="kontaktForm" class="mt-7 grid gap-5 sm:grid-cols-2" novalidate aria-describedby="kStatus">
+          <div class="field sm:col-span-1"><label for="knavn">Namn <span class="text-[#c49040]" aria-hidden="true">*</span></label><input id="knavn" name="namn" type="text" autocomplete="name" required aria-required="true" placeholder="Ola Nordmann"/><p class="err">Fyll inn namn.</p></div>
+          <div class="field sm:col-span-1"><label for="kepost">E-post <span class="text-[#c49040]" aria-hidden="true">*</span></label><input id="kepost" name="epost" type="email" autocomplete="email" required aria-required="true" placeholder="deg@epost.no"/><p class="err">Skriv inn ei gyldig e-postadresse.</p></div>
+          <div class="field sm:col-span-2"><label for="kmelding">Melding <span class="text-[#c49040]" aria-hidden="true">*</span></label><textarea id="kmelding" name="melding" rows="4" required aria-required="true" placeholder="Kva gjeld det?"></textarea><p class="err">Skriv ein kort melding.</p></div>
+          <div class="sm:col-span-2 flex flex-col items-start gap-3">
+            <button type="submit" id="kSubmit" class="btn-submit">Send</button>
+            <p id="kStatus" role="status" aria-live="polite" class="font-body text-sm text-on-surface-variant/70"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="relative bg-[#0f0a07] px-margin-edge pt-16 pb-8">
+  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(196,144,64,.4),transparent);"></div>
+  <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Snarveiar</h2>
+      <ul class="space-y-3">
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-6">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Kontakt</h2>
+      <address class="not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-2.5">
+        <p>Liavegen 367, 2686 Lom</p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="mailto:post@lomb.no">post@lomb.no</a></p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto mt-12 pt-6 border-t border-white/5">
+    <p class="font-body text-xs text-on-surface-variant/30">© 2026 Lom Bryggeri</p>
+  </div>
+</footer>
+
+<script>
+  // ── Hero reveal ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const exploreGrid = document.getElementById('explore-grid');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('reveal-hidden');
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(exploreGrid);
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
+    }
+
+    // ── Beer carousel ──
+    const beers = [
+      { name: '2469',        file: 'LOMB-2469-vanlig-1-467x1024.png' },
+      { name: '4 Korn',      file: 'LOMB-4_KORN-vanlig-467x1024.png' },
+      { name: 'Bjørk',       file: 'LOMB-BJORK-vanlig-467x1024.png' },
+      { name: 'Døl',         file: 'LOMB-DOL-vanlig-2-467x1024.png' },
+      { name: 'Eine',        file: 'LOMB-EINE-vanlig-1-467x1024.png' },
+      { name: 'Fest',        file: 'LOMB-FEST-vanlig-1-467x1024.png' },
+      { name: 'Fjellkvann',  file: 'LOMB-FJELLKVANN-vanlig-1-467x1024.png' },
+      { name: 'Jo Gjende',   file: 'LOMB-JO-GJENDE-vanlig-1-467x1024.png' },
+      { name: 'Ljost',       file: 'LOMB-LJOST-vanlig-467x1024.png' },
+      { name: 'Mjødurt',     file: 'LOMB-MJODURT-vanlig-467x1024.png' },
+      { name: 'Myrt',        file: 'LOMB-MYRT-vanlig-1-467x1024.png' },
+      { name: 'Peer Gynt',   file: 'LOMB-PEER_GYNT-vanlig-1-467x1024.png' },
+      { name: 'Raudt',       file: 'LOMB-RAUDT-vanlig-2-467x1024.png' },
+      { name: 'Skei',        file: 'LOMB-SKEI-vanlig-467x1024.png' },
+      { name: 'Skjåk',       file: 'LOMB-SKJAAK-vanlig-467x1024.png' },
+      { name: 'Vagle',       file: 'LOMB-VAGLE-vanlig-467x1024.png' },
+      { name: 'Vinternatt',  file: 'LOMB-VINTERNATT-vanlig-1-467x1024.png' },
+      { name: 'Høgruta',     file: 'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png' },
+    ];
+
+    const track = document.getElementById('beer-track');
+    const beerScroll = document.getElementById('beer-scroll');
+    const prevBtn = document.getElementById('beer-prev');
+    const nextBtn = document.getElementById('beer-next');
+
+    // Render cards
+    beers.forEach(({ name, file }) => {
+      const a = document.createElement('a');
+      a.href = `olene.html?beer=${encodeURIComponent(name)}`;
+      a.className = 'beer-card group';
+      a.setAttribute('aria-label', name);
+      a.innerHTML = `
+        <div class="h-[360px] flex items-end justify-center">
+          <img
+            src="Beers/${file}"
+            alt="${name}"
+            width="467" height="1024"
+            loading="lazy"
+            class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-2"
+          />
+        </div>
+        <p class="mt-3 text-center font-label text-[0.65rem] uppercase tracking-[0.2em] text-on-surface-variant/50 group-hover:text-on-surface transition-colors duration-300">${name}</p>
+      `;
+      track.appendChild(a);
+    });
+
+    // Button state
+    function updateButtons() {
+      prevBtn.disabled = beerScroll.scrollLeft <= 2;
+      nextBtn.disabled = beerScroll.scrollLeft >= beerScroll.scrollWidth - beerScroll.clientWidth - 2;
+    }
+
+    beerScroll.addEventListener('scroll', updateButtons, { passive: true });
+    // Call after layout so scrollWidth is correct
+    requestAnimationFrame(updateButtons);
+
+    // Drag-to-scroll using mouse events so <a> clicks still fire normally
+    var _drag = { on: false, startX: 0, scrollStart: 0, moved: false };
+    beerScroll.style.cursor = 'grab';
+    beerScroll.style.userSelect = 'none';
+    beerScroll.addEventListener('mousedown', function(e) {
+      _drag.on = true; _drag.moved = false;
+      _drag.startX = e.pageX; _drag.scrollStart = beerScroll.scrollLeft;
+      beerScroll.style.cursor = 'grabbing';
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (!_drag.on) return;
+      var dx = e.pageX - _drag.startX;
+      if (Math.abs(dx) > 5) _drag.moved = true;
+      beerScroll.scrollLeft = _drag.scrollStart - dx;
+    });
+    document.addEventListener('mouseup', function() {
+      if (!_drag.on) return;
+      _drag.on = false;
+      beerScroll.style.cursor = 'grab';
+    });
+    beerScroll.addEventListener('click', function(e) {
+      if (_drag.moved) { e.preventDefault(); e.stopPropagation(); _drag.moved = false; }
+    }, true);
+
+    function getScrollAmount() {
+      const card = track.querySelector('.beer-card');
+      if (!card) return 600;
+      return (card.offsetWidth + 16) * 3;
+    }
+
+    function smoothScrollTo(el, target, duration) {
+      const start = el.scrollLeft;
+      const dist = Math.max(0, Math.min(target, el.scrollWidth - el.clientWidth)) - start;
+      if (Math.abs(dist) < 1) return;
+      let startTime = null;
+      function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        const elapsed = ts - startTime;
+        const t = Math.min(elapsed / duration, 1);
+        el.scrollLeft = start + dist * easeOutCubic(t);
+        if (t < 1) requestAnimationFrame(step);
+        else { el.scrollLeft = start + dist; updateButtons(); }
+      }
+      requestAnimationFrame(step);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      smoothScrollTo(beerScroll, beerScroll.scrollLeft + getScrollAmount(), 480);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      smoothScrollTo(beerScroll, beerScroll.scrollLeft - getScrollAmount(), 480);
+    });
+  });
+
+  // ── Mobile menu ──
+  (function(){
+    var btn=document.getElementById('menuBtn');
+    var menu=document.getElementById('mobileMenu');
+    var b1=document.getElementById('hbar1');
+    var b2=document.getElementById('hbar2');
+    var b3=document.getElementById('hbar3');
+    if(!btn||!menu) return;
+    function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
+    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+    btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});
+  })();
+
+  // ── Contact form ──
+  (function(){
+    var form=document.getElementById('kontaktForm');
+    if(!form) return;
+    var kStatus=document.getElementById('kStatus');
+    function setState(field,ok){field.classList.toggle('is-invalid',!ok);field.classList.toggle('is-valid',ok);var i=field.querySelector('input,textarea');if(i)i.setAttribute('aria-invalid',ok?'false':'true');}
+    function validateField(input){var field=input.closest('.field');var val=input.value.trim();var ok=true;if(input.hasAttribute('required')&&!val)ok=false;else if(input.type==='email'&&val)ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);setState(field,ok);return ok;}
+    form.querySelectorAll('input,textarea').forEach(function(input){input.addEventListener('blur',function(){if(input.value.trim()||input.hasAttribute('required'))validateField(input);});input.addEventListener('input',function(){if(input.closest('.field').classList.contains('is-invalid'))validateField(input);});});
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var inputs=Array.from(form.querySelectorAll('input,textarea'));var allOk=true;var firstBad=null;
+      inputs.forEach(function(input){var ok=validateField(input);if(!ok&&!firstBad)firstBad=input;if(!ok)allOk=false;});
+      if(!allOk){kStatus.textContent='Sjekk dei markerte felta.';if(firstBad)firstBad.focus();return;}
+      var btn=document.getElementById('kSubmit');btn.classList.add('is-loading');btn.setAttribute('aria-disabled','true');kStatus.textContent='';
+      setTimeout(function(){btn.classList.remove('is-loading');btn.removeAttribute('aria-disabled');form.reset();form.querySelectorAll('.field').forEach(function(f){f.classList.remove('is-valid','is-invalid');});kStatus.textContent='Takk for meldinga — vi svarar så fort vi rekk.';},1100);
+    });
+  })();
+</script>
+</body>
+</html>

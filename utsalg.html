@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="dark" lang="no">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gardsutsalg — Lom Bryggeri</title>
+<meta name="description" content="Kjøp øl, lokal mat og diverse direkte frå bryggeriet på Grjotheim i Lom."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0f0a07","surface":"#16130f","surface-dim":"#16130f","surface-container-low":"#1e1b17","surface-container":"#221f1b","surface-container-high":"#2d2925","surface-container-highest":"#383430","surface-container-lowest":"#100e0a","surface-bright":"#3c3934","surface-variant":"#383430","on-surface":"#e9e1da","on-surface-variant":"#d0c4be","on-background":"#e9e1da","background":"#16130f","primary":"#d0c4be","primary-fixed":"#ede0da","on-primary":"#362f2b","outline":"#998f89","outline-variant":"#4d4540"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"]}}}}
+</script>
+<style>
+  body{background-color:#0f0a07;margin:0;overflow-x:hidden;}
+  .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1px solid rgba(233,225,218,.28);background:rgba(233,225,218,.07);backdrop-filter:blur(8px);color:#e9e1da;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease;}
+  .btn-nav:hover{background:#e9e1da;color:#0f0a07;border-color:#e9e1da;transform:translateY(-2px);box-shadow:0 10px 28px -8px rgba(0,0,0,.5);}
+  .btn-nav:active{transform:translateY(-1px);}
+  .btn-nav:focus-visible{outline:2px solid #e9e1da;outline-offset:3px;}
+  .btn-hero-sm{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:9999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,box-shadow .35s ease;}
+  .btn-hero-sm:hover{background:#fff;color:#0f0a07;transform:translateY(-3px);box-shadow:0 14px 34px -10px rgba(0,0,0,.6);}
+  .btn-hero-sm:focus-visible{outline:2px solid #fff;outline-offset:4px;}
+  .reveal{opacity:0;transform:translateY(1.5rem);}
+  .reveal.in{opacity:1;transform:none;transition:opacity 700ms ease-out,transform 700ms ease-out;}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}}
+  .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
+  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#e9e1da;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
+  .mobile-menu{position:fixed;inset:0;z-index:45;background:#0f0a07;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(233,225,218,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
+  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#e9e1da;}
+  .mobile-nav-link:focus-visible{outline:2px solid #e9e1da;outline-offset:4px;border-radius:2px;}
+</style>
+</head>
+<body class="bg-background text-on-background font-body">
+<a href="#hovudinnhald" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhald</a>
+
+<header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    </a>
+    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html" aria-current="page">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
+    </div>
+    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#her-er-vi">Finn oss</a>
+    <div class="md:hidden flex-1 flex justify-end">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
+        <span id="hbar1"></span>
+        <span id="hbar2"></span>
+        <span id="hbar3"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav class="flex flex-col" aria-label="Mobilmeny">
+    <a class="mobile-nav-link" href="index.html">Hjem</a>
+    <a class="mobile-nav-link" href="olene.html">Våre øl</a>
+    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
+    <a class="mobile-nav-link" href="utsalg.html" aria-current="page">Utsalg</a>
+    <a class="mobile-nav-link" href="pub.html">Pub</a>
+    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="historie.html">Historie</a>
+  </nav>
+  <div class="mt-auto pt-8 border-t border-white/10">
+    <a class="btn-nav inline-flex" href="om-oss.html#kontakt">Ta kontakt</a>
+    <address class="mt-6 not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-1.5">
+      <p>Liavegen 367, 2686 Lom</p>
+      <p><a class="hover:text-on-surface-variant transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+    </address>
+  </div>
+</div>
+
+<main id="hovudinnhald">
+
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden min-h-[62vh] flex items-end">
+    <div class="absolute inset-0 -z-10">
+      <img src="Pictures/Butikk.jpg" alt="Gardsutsalget hjå Lom Bryggeri" width="1920" height="1080" fetchpriority="high" class="w-full h-full object-cover"/>
+      <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#0f0a07] via-[#0f0a07]/65 to-[#0f0a07]/10"></div>
+    </div>
+    <div class="max-w-container-max mx-auto px-margin-edge pb-16 pt-40 md:pb-20 w-full">
+      <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-white/50">Gardsutsalg · Grjotheim, Lom</span>
+      <h1 class="reveal font-display font-semibold tracking-tight text-white mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.4rem)">Butikk <span style="font-weight:400;font-size:.65em;font-style:italic;vertical-align:.08em">&amp;</span> Gardsutsalg</h1>
+      <p class="reveal font-body text-lg text-white/75 mt-5 max-w-xl leading-[1.7]">I underetasjen har vi utsalg av et bredt utvalg kjøtt & fe, samt hele sortimentet med drikke rett fra kilden.</p>
+      <div class="reveal flex flex-wrap gap-4 mt-8">
+        <a href="#sortiment" class="btn-hero-sm">Kva vi sel</a>
+        <a href="#her-er-vi" class="btn-hero-sm">Finn oss</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kva vi sel -->
+  <section id="sortiment" class="bg-[#100e0a] border-b border-white/5 scroll-mt-24">
+    <div class="max-w-container-max mx-auto px-margin-edge py-20 md:py-28">
+      <div class="max-w-2xl">
+        <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">I butikken</span>
+        <h2 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.2rem,5vw,3.8rem)">Alt du treng — rett frå garden</h2>
+        <p class="reveal font-body text-lg text-on-surface-variant/70 mt-5 leading-[1.75]">I underetasjen finn du øl, mat og lokale produkt direkte frå kjelda — utan mellomledd.</p>
+      </div>
+
+      <div class="mt-14 border-y border-white/8 divide-y divide-white/8">
+
+        <div class="reveal flex flex-col sm:flex-row sm:items-center gap-6 py-9">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant/35 border border-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.44.5-3 .5"/><path d="M6 4h12l1 3.5H5L6 4z"/><path d="M5 7.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7.5"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-display text-2xl font-semibold text-on-surface">Øl</h3>
+            <p class="font-body text-on-surface-variant/60 mt-1 leading-relaxed">Enkeltflasker og kasser — bland sjølv frå heile sortimentet på over 20 handverksøl. Sesongøl og slipp når dei kjem.</p>
+          </div>
+          <a href="olene.html" class="shrink-0 inline-flex items-center gap-2 font-label text-xs uppercase tracking-[0.16em] text-on-surface border-b border-on-surface/25 pb-1 hover:border-on-surface transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface whitespace-nowrap">
+            Sjå sortimentet
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal flex flex-col sm:flex-row sm:items-center gap-6 py-9">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant/35 border border-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-display text-2xl font-semibold text-on-surface">Kjøtt &amp; gardsmat</h3>
+            <p class="font-body text-on-surface-variant/60 mt-1 leading-relaxed">Eit breitt utval kjøtt og fe frå lokale produsentar i dalen. Fersk råvare frå garden til borden — variert etter sesong.</p>
+          </div>
+          <span class="shrink-0 font-label text-[0.6rem] uppercase tracking-[0.14em] text-on-surface-variant/30 whitespace-nowrap">Variert etter sesong</span>
+        </div>
+
+        <div class="reveal flex flex-col sm:flex-row sm:items-center gap-6 py-9">
+          <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant/35 border border-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-display text-2xl font-semibold text-on-surface">Gåvesettar &amp; merch</h3>
+            <p class="font-body text-on-surface-variant/60 mt-1 leading-relaxed">Gåvesettar med øl og glas, bryggerimerch, pins og souvenirs — perfekt å ta med heim frå Lom.</p>
+          </div>
+          <span class="shrink-0 font-label text-[0.6rem] uppercase tracking-[0.14em] text-on-surface-variant/30 whitespace-nowrap">Sjekk kva som er inne</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Opningstider + Finn oss -->
+  <section id="her-er-vi" class="scroll-mt-24">
+    <div class="max-w-container-max mx-auto px-margin-edge py-20 md:py-28">
+      <div class="grid gap-16 lg:grid-cols-2 lg:items-start">
+
+        <!-- Opningstider -->
+        <div>
+          <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">Opningstider</span>
+          <h2 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.1]" style="font-size:clamp(2rem,4.5vw,3rem)">Stikk innom</h2>
+          <p class="reveal font-body text-on-surface-variant/70 mt-5 leading-[1.75]">Utsalget har same opningstider som puben — du finn oss i låven på Grjotheim.</p>
+          <div class="reveal mt-8 grid grid-cols-2 gap-px bg-white/5 rounded-lg overflow-hidden border border-white/5">
+            <div class="bg-surface-container p-6 flex flex-col gap-1">
+              <p class="font-label text-[0.65rem] uppercase tracking-[0.14em] text-on-surface-variant/40">Mån–ons</p>
+              <p class="font-display text-2xl text-on-surface-variant/30">Stengt</p>
+            </div>
+            <div class="bg-surface-container p-6 flex flex-col gap-1">
+              <p class="font-label text-[0.65rem] uppercase tracking-[0.14em] text-on-surface-variant/40">Tor–fre</p>
+              <p class="font-display text-2xl text-on-surface">14 – 20</p>
+            </div>
+            <div class="bg-surface-container p-6 flex flex-col gap-1">
+              <p class="font-label text-[0.65rem] uppercase tracking-[0.14em] text-on-surface-variant/40">Laurdag</p>
+              <p class="font-display text-2xl text-on-surface">11 – 18</p>
+            </div>
+            <div class="bg-surface-container p-6 flex flex-col gap-1">
+              <p class="font-label text-[0.65rem] uppercase tracking-[0.14em] text-on-surface-variant/40">Søndag</p>
+              <p class="font-display text-2xl text-on-surface">12 – 17</p>
+            </div>
+          </div>
+          <ul class="reveal mt-7 divide-y divide-white/8 border-y border-white/10 font-body text-sm text-on-surface-variant/70">
+            <li class="flex items-baseline gap-4 py-3"><span class="text-on-surface-variant/25" aria-hidden="true">—</span>Betaling med kort og Vipps</li>
+            <li class="flex items-baseline gap-4 py-3"><span class="text-on-surface-variant/25" aria-hidden="true">—</span>Parkering rett utanfor låven</li>
+            <li class="flex items-baseline gap-4 py-3"><span class="text-on-surface-variant/25" aria-hidden="true">—</span>Ta gjerne med eigne kassar</li>
+          </ul>
+        </div>
+
+        <!-- Adresse -->
+        <div>
+          <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">Besøk oss</span>
+          <h2 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.1]" style="font-size:clamp(2rem,4.5vw,3rem)">Her finn du oss</h2>
+          <p class="reveal font-body text-on-surface-variant/70 mt-5 leading-[1.75]">Vi held til på Grjotheim i Lom, like ved E15 mellom Otta og Grotli — midt i hjartet av Jotunheimen. Enkelt å stikke innom på veg forbi.</p>
+          <address class="reveal not-italic mt-8 space-y-6 font-body">
+            <div>
+              <p class="font-label text-[0.6rem] uppercase tracking-[0.14em] text-on-surface-variant/40 mb-1.5">Besøksadresse</p>
+              <p class="text-on-surface-variant/80">Liavegen 367, 2686 Lom</p>
+            </div>
+            <div>
+              <p class="font-label text-[0.6rem] uppercase tracking-[0.14em] text-on-surface-variant/40 mb-1.5">Telefon</p>
+              <p><a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+            </div>
+            <div>
+              <p class="font-label text-[0.6rem] uppercase tracking-[0.14em] text-on-surface-variant/40 mb-1.5">E-post</p>
+              <p><a class="text-on-surface-variant/80 hover:text-on-surface transition-colors duration-300 underline underline-offset-2 decoration-on-surface-variant/25" href="mailto:post@lomb.no">post@lomb.no</a></p>
+            </div>
+          </address>
+          <a href="https://maps.google.com/?q=Liavegen+367+Lom" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 mt-8 btn-nav">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Opne i Google Maps
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="relative bg-[#0f0a07] px-margin-edge pt-16 pb-8">
+  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(196,144,64,.4),transparent);"></div>
+  <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Snarveiar</h2>
+      <ul class="space-y-3">
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-6">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Kontakt</h2>
+      <address class="not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-2.5">
+        <p>Liavegen 367, 2686 Lom</p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="mailto:post@lomb.no">post@lomb.no</a></p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto mt-12 pt-6 border-t border-white/5">
+    <p class="font-body text-xs text-on-surface-variant/30">© 2026 Lom Bryggeri</p>
+  </div>
+</footer>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // Mobile menu
+  (function(){
+    var btn=document.getElementById('menuBtn');
+    var menu=document.getElementById('mobileMenu');
+    var b1=document.getElementById('hbar1');
+    var b2=document.getElementById('hbar2');
+    var b3=document.getElementById('hbar3');
+    if(!btn||!menu) return;
+    function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
+    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+    btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});
+  })();
+</script>
+</body>
+</html>

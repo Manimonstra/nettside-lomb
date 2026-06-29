@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="dark" lang="no">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ølene våre — Lom Bryggeri</title>
+<meta name="description" content="Rundt tjue handverksøl frå Lom Bryggeri. Dei fleste på 4,7 prosent, nokre sterkare."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0f0a07","surface":"#16130f","surface-dim":"#16130f","surface-container-low":"#1e1b17","surface-container":"#221f1b","surface-container-high":"#2d2925","surface-container-highest":"#383430","surface-container-lowest":"#100e0a","surface-bright":"#3c3934","surface-variant":"#383430","on-surface":"#e9e1da","on-surface-variant":"#d0c4be","on-background":"#e9e1da","background":"#16130f","primary":"#d0c4be","primary-fixed":"#ede0da","on-primary":"#362f2b","outline":"#998f89","outline-variant":"#4d4540"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"]}}}}
+</script>
+<style>
+  body{background-color:#0f0a07;margin:0;overflow-x:hidden;}
+  .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1px solid rgba(233,225,218,.28);background:rgba(233,225,218,.07);backdrop-filter:blur(8px);color:#e9e1da;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease;}
+  .btn-nav:hover{background:#e9e1da;color:#0f0a07;border-color:#e9e1da;transform:translateY(-2px);box-shadow:0 10px 28px -8px rgba(0,0,0,.5);}
+  .btn-nav:active{transform:translateY(-1px);}
+  .btn-nav:focus-visible{outline:2px solid #e9e1da;outline-offset:3px;}
+  .reveal{opacity:0;transform:translateY(1.5rem);}
+  .reveal.in{opacity:1;transform:none;transition:opacity 700ms ease-out,transform 700ms ease-out;}
+  .chip{border:1.5px solid rgba(208,196,190,.22);border-radius:9999px;padding:.42rem 1.1rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(208,196,190,.5);cursor:pointer;background:transparent;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+  .chip:hover{border-color:rgba(208,196,190,.5);color:#d0c4be;}
+  .chip:focus-visible{outline:2px solid #d0c4be;outline-offset:3px;border-radius:9999px;}
+  .chip[aria-pressed="true"]{background:#d0c4be;border-color:#d0c4be;color:#0f0a07;}
+  .beer-item{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;cursor:pointer;}
+  .beer-item:hover{transform:translateY(-5px);box-shadow:0 20px 40px -20px rgba(0,0,0,.7);}
+  .beer-item:focus-visible{outline:2px solid #d0c4be;outline-offset:3px;border-radius:.5rem;}
+  /* Modal */
+  #beerModal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+  #beerModal.open{opacity:1;pointer-events:auto;}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(4px);}
+  .modal-panel{position:relative;width:100%;max-width:54rem;background:#221f1b;border-radius:.75rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px -20px rgba(0,0,0,.9);display:grid;grid-template-columns:1fr;overflow:hidden;max-height:calc(100vh - 2rem);transform:scale(.96) translateY(10px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s ease;}
+  #beerModal.open .modal-panel{transform:none;opacity:1;}
+  .modal-info{overflow-y:auto;max-height:calc(100vh - 2rem);}
+  @media(min-width:640px){.modal-panel{grid-template-columns:220px 1fr;}.modal-info{max-height:none;overflow-y:visible;}}
+  @media(min-width:768px){.modal-panel{grid-template-columns:260px 1fr;}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}.beer-item:hover{transform:none;}}
+  .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
+  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#e9e1da;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
+  .mobile-menu{position:fixed;inset:0;z-index:45;background:#0f0a07;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(233,225,218,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
+  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#e9e1da;}
+  .mobile-nav-link:focus-visible{outline:2px solid #e9e1da;outline-offset:4px;border-radius:2px;}
+</style>
+</head>
+<body class="bg-background text-on-background font-body">
+<a href="#hovudinnhald" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhald</a>
+
+<header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    </a>
+    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html" aria-current="page">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
+    </div>
+    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#kontakt">Ta kontakt</a>
+    <div class="md:hidden flex-1 flex justify-end">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
+        <span id="hbar1"></span>
+        <span id="hbar2"></span>
+        <span id="hbar3"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+  <nav class="flex flex-col" aria-label="Mobilmeny">
+    <a class="mobile-nav-link" href="index.html">Hjem</a>
+    <a class="mobile-nav-link" href="olene.html" aria-current="page">Våre øl</a>
+    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="pub.html">Pub</a>
+    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="historie.html">Historie</a>
+  </nav>
+  <div class="mt-auto pt-8 border-t border-white/10">
+    <a class="btn-nav inline-flex" href="om-oss.html#kontakt">Ta kontakt</a>
+    <address class="mt-6 not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-1.5">
+      <p>Liavegen 367, 2686 Lom</p>
+      <p><a class="hover:text-on-surface-variant transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+    </address>
+  </div>
+</div>
+
+<main id="hovudinnhald">
+
+  <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-12 md:pt-28 md:pb-16">
+    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">Sortiment</span>
+    <h1 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Ølene våre</h1>
+    <p class="reveal font-body text-lg text-on-surface-variant/75 mt-5 max-w-xl leading-[1.7]">Vi har rundt tjue lager i sortimentet. Dei fleste ligg på 4,7 prosent, nokre er sterkare. Namna har vi henta frå fjell, stader og folk her i Lom.</p>
+    <div class="reveal flex flex-wrap items-center gap-3 mt-8" role="group" aria-label="Filtrer ølene">
+      <button class="chip" data-filter="alle" aria-pressed="true">Alle</button>
+      <button class="chip" data-filter="fast" aria-pressed="false">Fast sortiment</button>
+      <button class="chip" data-filter="spesial" aria-pressed="false">Spesialøl</button>
+      <button class="chip" data-filter="sterk" aria-pressed="false">Sterkøl</button>
+    </div>
+  </section>
+
+  <section class="max-w-container-max mx-auto px-margin-edge pb-24 md:pb-32">
+    <ul id="beerGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5" role="list"></ul>
+    <p id="tomtSvar" class="hidden py-16 text-center font-body text-on-surface-variant/50">Ingen øl i denne kategorien.</p>
+  </section>
+
+  <section class="bg-surface-container-lowest border-t border-white/5">
+    <div class="max-w-container-max mx-auto px-margin-edge py-16 md:py-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <h2 class="reveal font-display font-semibold tracking-tight text-on-surface leading-[1.1]" style="font-size:clamp(1.8rem,4vw,2.8rem)">Smaker best på kran i låven</h2>
+      <div class="reveal flex flex-wrap gap-4">
+        <a href="olsmaking.html#book" class="btn-nav">Book ølsmaking</a>
+        <a href="pub.html" class="btn-nav">Besøk puben</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Beer detail modal -->
+<div id="beerModal" role="dialog" aria-modal="true" aria-labelledby="modalBeerName">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-panel">
+
+    <button id="modalClose"
+      class="absolute top-3 right-3 z-20 w-9 h-9 rounded-full border border-white/20 bg-surface-container-highest/90 backdrop-blur-sm flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-white/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface"
+      aria-label="Lukk">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <!-- Bottle image column -->
+    <div id="modalImgWrap" class="flex items-end justify-center bg-surface-container-low px-8 pt-12 pb-0 min-h-[260px]"></div>
+
+    <!-- Info column -->
+    <div class="modal-info p-8 md:p-10 flex flex-col gap-5">
+      <div>
+        <div class="flex items-start justify-between gap-3 pr-6">
+          <h2 id="modalBeerName" class="font-display font-semibold text-on-surface leading-[1.1]" style="font-size:clamp(1.8rem,3vw,2.4rem)"></h2>
+          <span id="modalAbv" class="shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full whitespace-nowrap"></span>
+        </div>
+        <p id="modalStyle" class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/40 mt-1.5"></p>
+      </div>
+      <p id="modalDesc" class="font-body text-sm md:text-[0.95rem] text-on-surface-variant/75 leading-[1.8]"></p>
+      <div class="pt-5 border-t border-white/8">
+        <p class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/35 mb-2">Råvarer</p>
+        <p id="modalIng" class="font-body text-sm text-on-surface-variant/55 leading-relaxed"></p>
+      </div>
+      <div class="pt-5 border-t border-white/8">
+        <p class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/35 mb-2">Passar til</p>
+        <p id="modalFood" class="font-body text-sm text-on-surface-variant/55 leading-relaxed"></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="relative bg-[#0f0a07] px-margin-edge pt-16 pb-8">
+  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(196,144,64,.4),transparent);"></div>
+  <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Snarveiar</h2>
+      <ul class="space-y-3">
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-6">
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Kontakt</h2>
+      <address class="not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-2.5">
+        <p>Liavegen 367, 2686 Lom</p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
+        <p><a class="hover:text-on-surface transition-colors duration-300" href="mailto:post@lomb.no">post@lomb.no</a></p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto mt-12 pt-6 border-t border-white/5">
+    <p class="font-body text-xs text-on-surface-variant/30">© 2026 Lom Bryggeri</p>
+  </div>
+</footer>
+
+<script>
+const BEERS = [
+  { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Lys lager',
+    desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkelig og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
+  { name:'Skei', file:'LOMB-SKEI-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Pils',
+    desc:'Ein tørr og frisk pils. Klassisk og reindyrka — utan unødvendige tilsetningar.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Stekt fisk, chips, lett kvardagsmat' },
+  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Pale lager',
+    desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
+    ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
+  { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bjørkelager',
+    desc:'Lyst og frisk øl, smaksett med bjørkeskotkonsentrat. Skota gjev ein søtare og delikat smak samanlikna med ferdig utspungne blad.',
+    ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskotkonsentrat, gjær', food:'Grillmat, kylling, gardsmat' },
+  { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Einerlager',
+    desc:'Brygga etter tradisjonell oppskrift med einerbær. Bæra gjev ein naturleg bitter smak og er eit av dei eldste bryggingsingrediensane vi kjenner til. Gullgul og tørr i avslutinga.',
+    ing:'Vatn, byggmalt, humle, einerbær, gjær', food:'Vilt, kraftig ost, smørbrød' },
+  { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Porslager',
+    desc:'Mørk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
+    ing:'Vatn, byggmalt, pors, gjær', food:'Røkt kjøtt, sterk ost, mørk sjokolade' },
+  { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Kvannlager',
+    desc:'Krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
+    ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
+  { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Urtelager',
+    desc:'Lys lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
+    ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
+  { name:'4 Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Fire-kornlager',
+    desc:'Fire korn i same brygg: bygg, havre, rug og kveite. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
+    ing:'Vatn, byggmalt, havremalt, rugmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, kjøtt og potet' },
+  { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Hvetelager',
+    desc:'Mjukt og fyldig, brygga på kveite. Ein lagar av den avslappa sorten — rund og lettdrikkelig.',
+    ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
+  { name:'Skjåk', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bygglager',
+    desc:'Brygga på malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bønder sjølv styrer vatnet. Maltet kjem frå Malteriet på Kongsberg.',
+    ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøtt' },
+  { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Blond lager',
+    desc:'Mild og rund i smaken. Ein lagar for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
+  { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber lager',
+    desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ein mjuk avslutning.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgerar' },
+  { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Raudlager',
+    desc:'Fem forskjellige byggmalt som mellom anna gjev ølet ei fin raudfarge. Mild humle og eit snev av sødme frå malten.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Kjøtt, vilt, kraftige ostar' },
+  { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+    desc:'Mørk og brødaktig, brygga på bygg dyrka i den tørre dalbotnen i Skjåk. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
+    ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Røkt mat, sterk ost, viltgryte' },
+  { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+    desc:'Krydra med krekling og einer — dei mest vanlege vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
+    ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, røkt reinkjøtt, sterk ost' },
+  { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+    desc:'Krydra med krekling og einer frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
+    ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, tradisjonsnorsk mat, sterk ost' },
+  { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Sterk lager',
+    desc:'Sterk og fyldig lager, oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, rett her i Lom kommune. 2469 meter over havet.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Sjokoladedessert, kraftige ostar, nøtter' },
+  { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Vinterlager',
+    desc:'Mørk og krydra vinterlager. Brygga til dei lange, mørke nettene i fjelldalen — best servert ved peisen.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Julemiddag, ribbegryte, mørk sjokolade' },
+  { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Festlager',
+    desc:'Sterk og fyldig festlager. Til dei gongene noko verkeleg skal feirast.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Festmat, ost- og kjøtbord, dessert' },
+];
+
+function renderGrid() {
+  const grid = document.getElementById('beerGrid');
+  grid.innerHTML = BEERS.map(b => {
+    const sterk = b.cat === 'sterk';
+    const abvBadge = sterk
+      ? `<span class="shrink-0 font-label text-[0.58rem] uppercase tracking-[0.1em] text-[#c49040] bg-[#c49040]/12 px-2 py-1 rounded-full mt-0.5">${b.abv}</span>`
+      : `<span class="shrink-0 font-label text-[0.58rem] uppercase tracking-[0.1em] text-on-surface-variant/60 bg-surface-container-high px-2 py-1 rounded-full mt-0.5">${b.abv}</span>`;
+    const imgWrap = b.file
+      ? `<div class="h-[220px] flex items-end justify-center bg-surface-container-low px-5 pt-5"><img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="lazy" class="max-h-full w-auto object-contain"/></div>`
+      : `<div class="h-[220px] flex items-center justify-center bg-surface-container-low"><span class="font-display leading-none text-on-surface-variant/8 select-none" style="font-size:5.5rem">${b.name[0]}</span></div>`;
+    const shortDesc = b.desc.split(/[.!?]/)[0] + '.';
+    return `<li class="beer-item reveal rounded-lg overflow-hidden bg-surface-container border border-white/5"
+        data-cat="${b.cat}" data-name="${b.name}"
+        tabindex="0" role="button" aria-label="Sjå meir om ${b.name}">
+      ${imgWrap}
+      <div class="p-4">
+        <div class="flex items-start justify-between gap-2">
+          <h2 class="font-display text-xl font-semibold text-on-surface">${b.name}</h2>${abvBadge}
+        </div>
+        <p class="font-label text-[0.58rem] uppercase tracking-[0.14em] text-on-surface-variant/40 mt-1">${b.style}</p>
+        <p class="font-body text-sm text-on-surface-variant/65 mt-2 leading-relaxed" style="-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden">${shortDesc}</p>
+      </div>
+    </li>`;
+  }).join('');
+}
+renderGrid();
+
+// Reveal
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px -4% 0px' });
+    els.forEach(el => io.observe(el));
+  }
+}
+initReveal();
+
+// Filter chips
+const chips = document.querySelectorAll('.chip');
+const empty = document.getElementById('tomtSvar');
+chips.forEach(chip => chip.addEventListener('click', () => {
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+  chip.setAttribute('aria-pressed', 'true');
+  const f = chip.dataset.filter;
+  let count = 0;
+  document.querySelectorAll('.beer-item').forEach(b => {
+    const vis = f === 'alle' || b.dataset.cat === f || (f === 'spesial' && b.dataset.cat === 'sterk');
+    b.style.display = vis ? '' : 'none';
+    if (vis) count++;
+  });
+  empty.classList.toggle('hidden', count > 0);
+}));
+
+// Modal
+const modal = document.getElementById('beerModal');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(name) {
+  const b = BEERS.find(x => x.name === name);
+  if (!b) return;
+  const sterk = b.cat === 'sterk';
+  document.getElementById('modalBeerName').textContent = b.name;
+  document.getElementById('modalStyle').textContent = b.style;
+  document.getElementById('modalDesc').textContent = b.desc;
+  document.getElementById('modalIng').textContent = b.ing;
+  const foodEl = document.getElementById('modalFood');
+  if (foodEl) foodEl.textContent = b.food || '';
+  const abvEl = document.getElementById('modalAbv');
+  abvEl.textContent = b.abv;
+  abvEl.className = sterk
+    ? 'shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full text-[#c49040] bg-[#c49040]/12'
+    : 'shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full text-on-surface-variant/60 bg-surface-container-high';
+  const wrap = document.getElementById('modalImgWrap');
+  wrap.innerHTML = b.file
+    ? `<img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="eager" class="max-h-[340px] w-auto object-contain"/>`
+    : `<span class="font-display leading-none text-on-surface-variant/8 select-none" style="font-size:8rem">${b.name[0]}</span>`;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => modalClose.focus(), 50);
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('beerGrid').addEventListener('click', e => {
+  const item = e.target.closest('.beer-item');
+  if (item) openModal(item.dataset.name);
+});
+document.getElementById('beerGrid').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const item = e.target.closest('.beer-item');
+  if (item) { e.preventDefault(); openModal(item.dataset.name); }
+});
+modalClose.addEventListener('click', closeModal);
+document.getElementById('modalBackdrop').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+// Auto-open beer from URL ?beer=Name param
+const urlBeer = new URLSearchParams(window.location.search).get('beer');
+if (urlBeer) { requestAnimationFrame(() => openModal(urlBeer)); }
+
+// Mobile menu
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var menu=document.getElementById('mobileMenu');
+  var b1=document.getElementById('hbar1');
+  var b2=document.getElementById('hbar2');
+  var b3=document.getElementById('hbar3');
+  if(!btn||!menu) return;
+  function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
+  function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+  btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});
+})();
+</script>
+</body>
+</html>
