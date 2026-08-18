@@ -6,42 +6,123 @@
 <title>Ølene våre — Lom Bryggeri</title>
 <meta name="description" content="Rundt tjue handverksøl frå Lom Bryggeri. Dei fleste på 4,7 prosent, nokre sterkare."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0f0a07","surface":"#16130f","surface-dim":"#16130f","surface-container-low":"#1e1b17","surface-container":"#221f1b","surface-container-high":"#2d2925","surface-container-highest":"#383430","surface-container-lowest":"#100e0a","surface-bright":"#3c3934","surface-variant":"#383430","on-surface":"#e9e1da","on-surface-variant":"#d0c4be","on-background":"#e9e1da","background":"#16130f","primary":"#d0c4be","primary-fixed":"#ede0da","on-primary":"#362f2b","outline":"#998f89","outline-variant":"#4d4540"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"]}}}}
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#15181a","surface":"#12160f","surface-dim":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-highest":"#3d4345","surface-container-lowest":"#171410","surface-bright":"#454b4d","surface-variant":"#313638","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","primary-fixed":"#e8ddc0","on-primary":"#22201a","outline":"#8a8578","outline-variant":"#3a3f41","kraft":"#ddd7c4"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
 <style>
-  body{background-color:#0f0a07;margin:0;overflow-x:hidden;}
-  .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1px solid rgba(233,225,218,.28);background:rgba(233,225,218,.07);backdrop-filter:blur(8px);color:#e9e1da;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease;}
-  .btn-nav:hover{background:#e9e1da;color:#0f0a07;border-color:#e9e1da;transform:translateY(-2px);box-shadow:0 10px 28px -8px rgba(0,0,0,.5);}
+  body{background-color:#12160f;margin:0;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}
+  .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1.5px solid rgba(242,237,224,.3);background:rgba(242,237,224,.04);color:#f2ede0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease;}
+  .btn-nav:hover{background:#c3b393;color:#22201a;border-color:#c3b393;transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(0,0,0,.5);}
   .btn-nav:active{transform:translateY(-1px);}
-  .btn-nav:focus-visible{outline:2px solid #e9e1da;outline-offset:3px;}
+  .btn-nav:focus-visible{outline:2px solid #c3b393;outline-offset:3px;}
   .reveal{opacity:0;transform:translateY(1.5rem);}
   .reveal.in{opacity:1;transform:none;transition:opacity 700ms ease-out,transform 700ms ease-out;}
-  .chip{border:1.5px solid rgba(208,196,190,.22);border-radius:9999px;padding:.42rem 1.1rem;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(208,196,190,.5);cursor:pointer;background:transparent;transition:background .2s ease,color .2s ease,border-color .2s ease;}
-  .chip:hover{border-color:rgba(208,196,190,.5);color:#d0c4be;}
-  .chip:focus-visible{outline:2px solid #d0c4be;outline-offset:3px;border-radius:9999px;}
-  .chip[aria-pressed="true"]{background:#d0c4be;border-color:#d0c4be;color:#0f0a07;}
-  .beer-item{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease;cursor:pointer;}
-  .beer-item:hover{transform:translateY(-5px);box-shadow:0 20px 40px -20px rgba(0,0,0,.7);}
-  .beer-item:focus-visible{outline:2px solid #d0c4be;outline-offset:3px;border-radius:.5rem;}
-  /* Modal */
-  #beerModal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s ease;}
-  #beerModal.open{opacity:1;pointer-events:auto;}
-  .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(4px);}
-  .modal-panel{position:relative;width:100%;max-width:54rem;background:#221f1b;border-radius:.75rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px -20px rgba(0,0,0,.9);display:grid;grid-template-columns:1fr;overflow:hidden;max-height:calc(100vh - 2rem);transform:scale(.96) translateY(10px);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .35s ease;}
-  #beerModal.open .modal-panel{transform:none;opacity:1;}
-  .modal-info{overflow-y:auto;max-height:calc(100vh - 2rem);}
-  @media(min-width:640px){.modal-panel{grid-template-columns:220px 1fr;}.modal-info{max-height:none;overflow-y:visible;}}
-  @media(min-width:768px){.modal-panel{grid-template-columns:260px 1fr;}}
-  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}.beer-item:hover{transform:none;}}
+
+  /* Category tabs */
+  .cat-tabs{display:flex;gap:2.25rem;flex-wrap:wrap;border-bottom:1px solid rgba(242,237,224,.14);}
+  .cat-tab{background:none;border:none;padding:0 0 1rem;margin:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,224,.42);cursor:pointer;position:relative;transition:color .25s ease;}
+  .cat-tab .count{opacity:.55;font-weight:500;margin-left:.35em;}
+  .cat-tab::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:transparent;transition:background .25s ease;}
+  .cat-tab:hover{color:#f2ede0;}
+  .cat-tab[aria-pressed="true"]{color:#f2ede0;}
+  .cat-tab[aria-pressed="true"]::after{background:#c3b393;}
+  .cat-tab:focus-visible{outline:2px solid #c3b393;outline-offset:4px;border-radius:2px;}
+
+  /* Label tickets */
+  .ticket-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;list-style:none;margin:0;padding:0;}
+  @media(min-width:640px){.ticket-grid{grid-template-columns:repeat(3,1fr);gap:30px 20px;}}
+  @media(min-width:900px){.ticket-grid{grid-template-columns:repeat(4,1fr);}}
+  @media(min-width:1200px){.ticket-grid{grid-template-columns:repeat(5,1fr);}}
+  .ticket{position:relative;display:block;width:100%;background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;}
+  .ticket:focus-visible{outline:2px solid var(--ink);outline-offset:6px;border-radius:2px;}
+  .ticket:active{background:none;}
+
+  .ticket-shape{position:relative;display:flex;flex-direction:column;background-color:#ddd7c4;clip-path:polygon(0 22px,50% 0,100% 22px,100% 100%,0 100%);transition:transform .4s cubic-bezier(.22,1,.36,1),filter .3s ease;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,.22),
+      0 10px 16px -8px rgba(0,0,0,.4),
+      0 24px 40px -20px rgba(0,0,0,.6);
+  }
+  .ticket-shape::after{
+    content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;pointer-events:none;z-index:2;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+  .ticket:hover .ticket-shape,.ticket:focus-visible .ticket-shape{transform:translateY(-6px);}
+
+  /* Roof glyph — the logo's gable, redrawn to fit exactly inside the card's own
+     peaked cut (clip-path notch above matches this element's height 1:1). */
+  .ticket-roof-inside{position:absolute;top:0;left:0;width:100%;height:22px;z-index:3;pointer-events:none;}
+  .ticket-roof-inside svg{display:block;width:100%;height:100%;}
+  .ticket-roof-inside polygon{fill:#221f19;fill-opacity:.22;}
+
+  .ticket-photo{position:relative;flex:0 0 auto;height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
+  .ticket-photo img{position:relative;max-height:100%;max-width:82%;width:auto;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(34,31,25,.28));}
+  .ticket-icon{position:relative;color:#221f19;opacity:.35;height:76%;width:auto;}
+
+  .ticket-info{position:relative;padding:0 16px 22px;}
+  .ticket-rule{position:relative;height:3px;background:var(--ink);margin:0 0 11px;}
+  .ticket-name{position:relative;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.01em;text-transform:uppercase;color:#221f19;line-height:1.05;}
+  .ticket-foot{position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:.7rem;color:rgba(34,31,25,.62);margin-top:8px;line-height:1.4;}
+
+  .ticket-item{list-style:none;}
+
+  /* Showcase — a floating layer above the grid. Clicking a card pops it up
+     into a bigger version of itself, growing outward from the spot it was
+     clicked (a lightweight FLIP: start transformed to match the source
+     card's rect, then let the transform animate back to identity). The rest
+     of the grid never moves — it just dims behind a blurred backdrop. */
+  .showcase-backdrop{position:fixed;inset:0;z-index:90;background:rgba(9,8,6,.62);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s ease;}
+  .showcase-backdrop.open{opacity:1;pointer-events:auto;}
+
+  .showcase-layer{position:fixed;inset:0;z-index:91;display:flex;align-items:center;justify-content:center;padding:5vh 5vw;pointer-events:none;}
+  .showcase-card{position:relative;width:min(920px,100%);max-height:90vh;overflow:hidden;pointer-events:none;opacity:0;
+    background-color:#ddd7c4;border-radius:8px;
+    box-shadow:0 60px 100px -30px rgba(0,0,0,.7),0 20px 40px -15px rgba(0,0,0,.5);
+    transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .3s ease;
+    display:grid;grid-template-columns:1fr;
+  }
+  .showcase-card.open{pointer-events:auto;opacity:1;}
+  @media(min-width:720px){.showcase-card{grid-template-columns:300px 1fr;max-height:min(640px,90vh);}}
+
+  .showcase-close{position:absolute;top:16px;right:16px;z-index:5;width:2.25rem;height:2.25rem;border-radius:9999px;
+    border:1px solid rgba(34,31,25,.15);background:rgba(255,255,255,.35);backdrop-filter:blur(4px);color:rgba(34,31,25,.65);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;transition:color .2s ease,background .2s ease,transform .2s ease;
+  }
+  .showcase-close:hover{color:#221f19;background:rgba(255,255,255,.6);transform:scale(1.06);}
+  .showcase-close:focus-visible{outline:2px solid #221f19;outline-offset:2px;}
+
+  .showcase-photo{position:relative;height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;
+    background:linear-gradient(180deg,rgba(0,0,0,.05),transparent 40%);
+  }
+  .showcase-photo img{max-height:88%;max-width:70%;width:auto;object-fit:contain;filter:drop-shadow(0 16px 20px rgba(34,31,25,.3));}
+  @media(min-width:720px){.showcase-photo{height:100%;}}
+
+  /* Fresh info side — no ticket/perforation motif. A big translucent ABV
+     numeral anchors the corner like a stamp; ingredients and food pairing
+     read as tag chips instead of paragraphs, on a quiet off-white ground. */
+  .showcase-info{position:relative;padding:30px 28px 28px;overflow-y:auto;background:#f4f0e6;}
+  @media(min-width:720px){.showcase-info{padding:40px 44px 36px;}}
+  .showcase-abv-stamp{position:absolute;top:18px;right:18px;font-family:'Fraunces',serif;font-weight:600;font-size:2.6rem;line-height:1;color:var(--ink);opacity:.14;pointer-events:none;letter-spacing:-.02em;}
+  .showcase-eyebrow{display:inline-flex;align-items:center;gap:.5em;font-family:'Space Grotesk',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);}
+  .showcase-eyebrow::before{content:'';width:18px;height:2px;background:var(--ink);display:inline-block;}
+  .showcase-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:.01em;text-transform:uppercase;color:#1a1712;line-height:1;margin-top:.6rem;}
+  .showcase-desc{font-family:'Work Sans',sans-serif;font-size:1rem;line-height:1.75;color:rgba(26,23,18,.78);margin-top:1.1rem;max-width:46ch;}
+
+  .showcase-tags-label{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,23,18,.4);margin-top:1.6rem;margin-bottom:.6rem;}
+  .showcase-tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .showcase-tag{display:inline-flex;align-items:center;padding:.4rem .85rem;border-radius:9999px;border:1px solid rgba(34,31,25,.3);background:rgba(34,31,25,.06);color:#1a1712;font-family:'Work Sans',sans-serif;font-size:.78rem;font-weight:500;white-space:nowrap;
+    border-color:color-mix(in srgb, var(--ink) 45%, transparent);background:color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}.ticket:hover .ticket-shape{transform:none;}}
   .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
-  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#e9e1da;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
-  .mobile-menu{position:fixed;inset:0;z-index:45;background:#0f0a07;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
+  .hamburger-btn span{display:block;width:22px;height:1.5px;background:#f2ede0;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
+  .mobile-menu{position:fixed;inset:0;z-index:45;background:#15181a;padding:5.5rem 2.5rem 2.5rem;opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity 0.28s ease,transform 0.35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;overflow-y:auto;}
   .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateY(0);}
-  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(233,225,218,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
-  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#e9e1da;}
-  .mobile-nav-link:focus-visible{outline:2px solid #e9e1da;outline-offset:4px;border-radius:2px;}
+  .mobile-nav-link{font-family:'Fraunces',serif;font-size:2rem;font-weight:500;color:rgba(242,237,224,0.65);text-decoration:none;line-height:1.25;padding:0.5rem 0;display:block;transition:color 0.2s ease;}
+  .mobile-nav-link:hover,.mobile-nav-link[aria-current="page"]{color:#c3b393;}
+  .mobile-nav-link:focus-visible{outline:2px solid #c3b393;outline-offset:4px;border-radius:2px;}
 </style>
 </head>
 <body class="bg-background text-on-background font-body">
@@ -61,7 +142,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#kontakt">Ta kontakt</a>
+    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="index.html#kontakt">Ta kontakt</a>
     <div class="md:hidden flex-1 flex justify-end">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span>
@@ -84,7 +165,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
     <a class="mobile-nav-link" href="historie.html">Historie</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
-    <a class="btn-nav inline-flex" href="om-oss.html#kontakt">Ta kontakt</a>
+    <a class="btn-nav inline-flex" href="index.html#kontakt">Ta kontakt</a>
     <address class="mt-6 not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-1.5">
       <p>Liavegen 367, 2686 Lom</p>
       <p><a class="hover:text-on-surface-variant transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
@@ -94,28 +175,22 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
 
 <main id="hovudinnhald">
 
-  <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-12 md:pt-28 md:pb-16">
-    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-on-surface-variant/50">Sortiment</span>
+  <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-14 md:pt-28 md:pb-16">
+    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-primary/70">Sortiment</span>
     <h1 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Ølene våre</h1>
-    <p class="reveal font-body text-lg text-on-surface-variant/75 mt-5 max-w-xl leading-[1.7]">Vi har rundt tjue lager i sortimentet. Dei fleste ligg på 4,7 prosent, nokre er sterkare. Namna har vi henta frå fjell, stader og folk her i Lom.</p>
-    <div class="reveal flex flex-wrap items-center gap-3 mt-8" role="group" aria-label="Filtrer ølene">
-      <button class="chip" data-filter="alle" aria-pressed="true">Alle</button>
-      <button class="chip" data-filter="fast" aria-pressed="false">Fast sortiment</button>
-      <button class="chip" data-filter="spesial" aria-pressed="false">Spesialøl</button>
-      <button class="chip" data-filter="sterk" aria-pressed="false">Sterkøl</button>
-    </div>
+    <p class="reveal font-body text-lg text-on-surface-variant/75 mt-5 max-w-xl leading-[1.7]">Vi har rundt tjue lager i sortimentet. Dei fleste ligg på 4,7 prosent, nokre er sterkare. Kvar øl ber sin eigen trykkfarge — same idé som på etikettane på flaska.</p>
   </section>
 
   <section class="max-w-container-max mx-auto px-margin-edge pb-24 md:pb-32">
-    <ul id="beerGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5" role="list"></ul>
-    <p id="tomtSvar" class="hidden py-16 text-center font-body text-on-surface-variant/50">Ingen øl i denne kategorien.</p>
+    <div class="reveal cat-tabs" id="catTabs" role="group" aria-label="Vel sortiment"></div>
+    <ul class="ticket-grid mt-10" id="ticketGrid"></ul>
   </section>
 
   <section class="bg-surface-container-lowest border-t border-white/5">
     <div class="max-w-container-max mx-auto px-margin-edge py-16 md:py-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-      <h2 class="reveal font-display font-semibold tracking-tight text-on-surface leading-[1.1]" style="font-size:clamp(1.8rem,4vw,2.8rem)">Smaker best på kran i låven</h2>
+      <h2 class="reveal font-display font-semibold tracking-tight text-on-surface leading-[1.1]" style="font-size:clamp(1.8rem,4vw,2.8rem)">Vil du prøve fleire på ein gong?</h2>
       <div class="reveal flex flex-wrap gap-4">
-        <a href="olsmaking.html#book" class="btn-nav">Book ølsmaking</a>
+        <a href="olsmaking.html" class="btn-nav">Book ølsmaking</a>
         <a href="pub.html" class="btn-nav">Besøk puben</a>
       </div>
     </div>
@@ -123,45 +198,29 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
 
 </main>
 
-<!-- Beer detail modal -->
-<div id="beerModal" role="dialog" aria-modal="true" aria-labelledby="modalBeerName">
-  <div class="modal-backdrop" id="modalBackdrop"></div>
-  <div class="modal-panel">
-
-    <button id="modalClose"
-      class="absolute top-3 right-3 z-20 w-9 h-9 rounded-full border border-white/20 bg-surface-container-highest/90 backdrop-blur-sm flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-white/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface"
-      aria-label="Lukk">
-      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+<!-- Showcase — a floating layer above the grid, not a modal dialog -->
+<div class="showcase-backdrop" id="showcaseBackdrop"></div>
+<div class="showcase-layer" aria-hidden="true">
+  <div class="showcase-card" id="showcaseCard" role="dialog" aria-modal="true" aria-labelledby="showcaseTitle">
+    <button type="button" class="showcase-close" id="showcaseClose" aria-label="Lukk">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-
-    <!-- Bottle image column -->
-    <div id="modalImgWrap" class="flex items-end justify-center bg-surface-container-low px-8 pt-12 pb-0 min-h-[260px]"></div>
-
-    <!-- Info column -->
-    <div class="modal-info p-8 md:p-10 flex flex-col gap-5">
-      <div>
-        <div class="flex items-start justify-between gap-3 pr-6">
-          <h2 id="modalBeerName" class="font-display font-semibold text-on-surface leading-[1.1]" style="font-size:clamp(1.8rem,3vw,2.4rem)"></h2>
-          <span id="modalAbv" class="shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full whitespace-nowrap"></span>
-        </div>
-        <p id="modalStyle" class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/40 mt-1.5"></p>
-      </div>
-      <p id="modalDesc" class="font-body text-sm md:text-[0.95rem] text-on-surface-variant/75 leading-[1.8]"></p>
-      <div class="pt-5 border-t border-white/8">
-        <p class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/35 mb-2">Råvarer</p>
-        <p id="modalIng" class="font-body text-sm text-on-surface-variant/55 leading-relaxed"></p>
-      </div>
-      <div class="pt-5 border-t border-white/8">
-        <p class="font-label text-[0.62rem] uppercase tracking-[0.18em] text-on-surface-variant/35 mb-2">Passar til</p>
-        <p id="modalFood" class="font-body text-sm text-on-surface-variant/55 leading-relaxed"></p>
-      </div>
+    <div class="showcase-photo" id="showcasePhoto"></div>
+    <div class="showcase-info">
+      <span class="showcase-abv-stamp" id="showcaseAbvStamp" aria-hidden="true"></span>
+      <span class="showcase-eyebrow" id="showcaseStyle"></span>
+      <h2 class="showcase-title" id="showcaseTitle"></h2>
+      <p class="showcase-desc" id="showcaseDesc"></p>
+      <p class="showcase-tags-label">Råvarer</p>
+      <div class="showcase-tags" id="showcaseIng"></div>
+      <p class="showcase-tags-label">Passar til</p>
+      <div class="showcase-tags" id="showcaseFood"></div>
     </div>
-
   </div>
 </div>
 
-<footer class="relative bg-[#0f0a07] px-margin-edge pt-16 pb-8">
-  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(196,144,64,.4),transparent);"></div>
+<footer class="relative bg-[#171410] px-margin-edge pt-16 pb-8">
+  <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(195,179,147,.4),transparent);"></div>
   <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
     <div class="md:col-span-4">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
@@ -172,7 +231,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
       </div>
     </div>
     <div class="md:col-span-2">
-      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Snarveiar</h2>
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-primary/70 mb-5">Snarveiar</h2>
       <ul class="space-y-3">
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
@@ -183,7 +242,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
       </ul>
     </div>
     <div class="md:col-span-6">
-      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c49040]/60 mb-5">Kontakt</h2>
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-primary/70 mb-5">Kontakt</h2>
       <address class="not-italic font-body text-sm text-on-surface-variant/60 leading-relaxed space-y-2.5">
         <p>Liavegen 367, 2686 Lom</p>
         <p><a class="hover:text-on-surface transition-colors duration-300" href="tel:+4795844455">+47 95 84 44 55</a></p>
@@ -198,94 +257,211 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#0
 
 <script>
 const BEERS = [
-  { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Lys lager',
+  { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Lys lager', ink:'#3f9fc7',
     desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkelig og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
-  { name:'Skei', file:'LOMB-SKEI-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Pils',
+  { name:'Skei', file:'LOMB-SKEI-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Pils', ink:'#d4b942',
     desc:'Ein tørr og frisk pils. Klassisk og reindyrka — utan unødvendige tilsetningar.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Stekt fisk, chips, lett kvardagsmat' },
-  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Pale lager',
+  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Pale lager', ink:'#3f7a45', imgScale:0.92, imgShiftX:24, imgShiftY:6,
     desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
     ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
-  { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bjørkelager',
+  { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bjørkelager', ink:'#93a13c',
     desc:'Lyst og frisk øl, smaksett med bjørkeskotkonsentrat. Skota gjev ein søtare og delikat smak samanlikna med ferdig utspungne blad.',
     ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskotkonsentrat, gjær', food:'Grillmat, kylling, gardsmat' },
-  { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Einerlager',
+  { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Einerlager', ink:'#2f9098',
     desc:'Brygga etter tradisjonell oppskrift med einerbær. Bæra gjev ein naturleg bitter smak og er eit av dei eldste bryggingsingrediensane vi kjenner til. Gullgul og tørr i avslutinga.',
     ing:'Vatn, byggmalt, humle, einerbær, gjær', food:'Vilt, kraftig ost, smørbrød' },
-  { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Porslager',
+  { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Porslager', ink:'#6b2438',
     desc:'Mørk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
     ing:'Vatn, byggmalt, pors, gjær', food:'Røkt kjøtt, sterk ost, mørk sjokolade' },
-  { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Kvannlager',
+  { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Kvannlager', ink:'#4a8f3f',
     desc:'Krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
     ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
-  { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Urtelager',
+  { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Urtelager', ink:'#d81b60',
     desc:'Lys lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
     ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
-  { name:'4 Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Fire-kornlager',
+  { name:'4 Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Fire-kornlager', ink:'#d9722a',
     desc:'Fire korn i same brygg: bygg, havre, rug og kveite. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
     ing:'Vatn, byggmalt, havremalt, rugmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, kjøtt og potet' },
-  { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Hvetelager',
+  { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Hvetelager', ink:'#d9c15a',
     desc:'Mjukt og fyldig, brygga på kveite. Ein lagar av den avslappa sorten — rund og lettdrikkelig.',
     ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
-  { name:'Skjåk', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bygglager',
+  { name:'Skjåk', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bygglager', ink:'#a89a3a',
     desc:'Brygga på malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bønder sjølv styrer vatnet. Maltet kjem frå Malteriet på Kongsberg.',
     ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøtt' },
-  { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Blond lager',
+  { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Blond lager', ink:'#c9ac5a',
     desc:'Mild og rund i smaken. Ein lagar for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
-  { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber lager',
+  { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber lager', ink:'#4a8f4a',
     desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ein mjuk avslutning.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgerar' },
-  { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Raudlager',
+  { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Raudlager', ink:'#e0185a',
     desc:'Fem forskjellige byggmalt som mellom anna gjev ølet ei fin raudfarge. Mild humle og eit snev av sødme frå malten.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Kjøtt, vilt, kraftige ostar' },
-  { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+  { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#a08a3a',
     desc:'Mørk og brødaktig, brygga på bygg dyrka i den tørre dalbotnen i Skjåk. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
     ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Røkt mat, sterk ost, viltgryte' },
-  { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+  { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#9c3b28',
     desc:'Krydra med krekling og einer — dei mest vanlege vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
     ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, røkt reinkjøtt, sterk ost' },
-  { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager',
+  { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#a8422c',
     desc:'Krydra med krekling og einer frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
     ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, tradisjonsnorsk mat, sterk ost' },
-  { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Sterk lager',
+  { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Sterk lager', ink:'#a8422c',
     desc:'Sterk og fyldig lager, oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, rett her i Lom kommune. 2469 meter over havet.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Sjokoladedessert, kraftige ostar, nøtter' },
-  { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Vinterlager',
+  { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Vinterlager', ink:'#5b3f7a',
     desc:'Mørk og krydra vinterlager. Brygga til dei lange, mørke nettene i fjelldalen — best servert ved peisen.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Julemiddag, ribbegryte, mørk sjokolade' },
-  { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Festlager',
+  { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Festlager', ink:'#4a2620',
     desc:'Sterk og fyldig festlager. Til dei gongene noko verkeleg skal feirast.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Festmat, ost- og kjøtbord, dessert' },
 ];
 
-function renderGrid() {
-  const grid = document.getElementById('beerGrid');
-  grid.innerHTML = BEERS.map(b => {
-    const sterk = b.cat === 'sterk';
-    const abvBadge = sterk
-      ? `<span class="shrink-0 font-label text-[0.58rem] uppercase tracking-[0.1em] text-[#c49040] bg-[#c49040]/12 px-2 py-1 rounded-full mt-0.5">${b.abv}</span>`
-      : `<span class="shrink-0 font-label text-[0.58rem] uppercase tracking-[0.1em] text-on-surface-variant/60 bg-surface-container-high px-2 py-1 rounded-full mt-0.5">${b.abv}</span>`;
-    const imgWrap = b.file
-      ? `<div class="h-[220px] flex items-end justify-center bg-surface-container-low px-5 pt-5"><img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="lazy" class="max-h-full w-auto object-contain"/></div>`
-      : `<div class="h-[220px] flex items-center justify-center bg-surface-container-low"><span class="font-display leading-none text-on-surface-variant/8 select-none" style="font-size:5.5rem">${b.name[0]}</span></div>`;
-    const shortDesc = b.desc.split(/[.!?]/)[0] + '.';
-    return `<li class="beer-item reveal rounded-lg overflow-hidden bg-surface-container border border-white/5"
-        data-cat="${b.cat}" data-name="${b.name}"
-        tabindex="0" role="button" aria-label="Sjå meir om ${b.name}">
-      ${imgWrap}
-      <div class="p-4">
-        <div class="flex items-start justify-between gap-2">
-          <h2 class="font-display text-xl font-semibold text-on-surface">${b.name}</h2>${abvBadge}
-        </div>
-        <p class="font-label text-[0.58rem] uppercase tracking-[0.14em] text-on-surface-variant/40 mt-1">${b.style}</p>
-        <p class="font-body text-sm text-on-surface-variant/65 mt-2 leading-relaxed" style="-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden">${shortDesc}</p>
-      </div>
-    </li>`;
+const CATS = [
+  { key:'alle', label:'Alle' },
+  { key:'fast', label:'Fast sortiment' },
+  { key:'spesial', label:'Spesialøl' },
+  { key:'sterk', label:'Sterkøl' },
+];
+let activeCat = 'alle';
+
+// Simple line-art bottle, used when a beer has no product photo yet
+const BOTTLE_ICON = '<svg class="ticket-icon" viewBox="0 0 40 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h8v10l5 8v58a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V22l5-8V4Z"/><path d="M13 34h14"/></svg>';
+
+// The logo's gable — two flat beams meeting at a peak, reused as a roof cap
+const ROOF_GLYPH = '<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg>';
+
+
+function renderTabs() {
+  const row = document.getElementById('catTabs');
+  row.innerHTML = CATS.map(c => {
+    const count = c.key === 'alle' ? BEERS.length : BEERS.filter(b => b.cat === c.key).length;
+    const pressed = c.key === activeCat;
+    return `<button type="button" class="cat-tab" data-cat="${c.key}" aria-pressed="${pressed}">${c.label}<span class="count">${count}</span></button>`;
   }).join('');
+  row.querySelectorAll('.cat-tab').forEach(t => t.addEventListener('click', () => setActiveCat(t.dataset.cat)));
 }
+
+function ticketHTML(b) {
+  const scale = b.imgScale || 1;
+  const shiftX = b.imgShiftX || 0;
+  const shiftY = b.imgShiftY || 0;
+  const photo = b.file
+    ? `<img src="Beers/${b.file}" alt="" width="467" height="1024" loading="lazy" style="transform:translate(${shiftX}px,${shiftY}px) scale(${scale})" />`
+    : BOTTLE_ICON;
+  return `<li class="ticket-item">
+    <button type="button" class="ticket" data-name="${b.name}" style="--ink:${b.ink}" aria-haspopup="dialog" aria-label="Les meir om ${b.name}">
+      <span class="ticket-shape block">
+        <span class="ticket-roof-inside" aria-hidden="true">${ROOF_GLYPH}</span>
+        <span class="ticket-photo block">${photo}</span>
+        <span class="ticket-info block">
+          <span class="ticket-rule block"></span>
+          <span class="ticket-name block">${b.name}</span>
+          <span class="ticket-foot block">${b.style} · ${b.abv}</span>
+        </span>
+      </span>
+    </button>
+  </li>`;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('ticketGrid');
+  const beers = activeCat === 'alle' ? BEERS : BEERS.filter(b => b.cat === activeCat);
+  grid.innerHTML = beers.map(ticketHTML).join('');
+}
+
+function setActiveCat(key) {
+  activeCat = key;
+  renderTabs();
+  renderGrid();
+}
+
+renderTabs();
 renderGrid();
+
+// Showcase — a floating layer above the grid, popped open with a lightweight
+// FLIP animation so it visually grows from the card that was clicked instead
+// of just fading in centered.
+const showcaseBackdrop = document.getElementById('showcaseBackdrop');
+const showcaseCard = document.getElementById('showcaseCard');
+const showcaseClose = document.getElementById('showcaseClose');
+let lastTicketBtn = null;
+
+function tagRow(el, text) {
+  const items = (text || '').split(',').map(s => s.trim()).filter(Boolean);
+  el.innerHTML = items.map(i => `<span class="showcase-tag">${i}</span>`).join('');
+}
+
+function openShowcase(name, sourceBtn) {
+  const b = BEERS.find(x => x.name === name);
+  if (!b) return;
+  lastTicketBtn = sourceBtn || null;
+
+  showcaseCard.style.setProperty('--ink', b.ink);
+  document.getElementById('showcaseStyle').textContent = b.style;
+  document.getElementById('showcaseTitle').textContent = b.name;
+  document.getElementById('showcaseDesc').textContent = b.desc;
+  document.getElementById('showcaseAbvStamp').textContent = b.abv;
+  tagRow(document.getElementById('showcaseIng'), b.ing);
+  tagRow(document.getElementById('showcaseFood'), b.food);
+  const photoWrap = document.getElementById('showcasePhoto');
+  const scale = b.imgScale || 1;
+  photoWrap.innerHTML = b.file
+    ? `<img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="eager" style="transform:scale(${scale})"/>`
+    : `<span class="font-display leading-none select-none" style="font-size:7rem;color:${b.ink}33">${b.name[0]}</span>`;
+
+  showcaseBackdrop.classList.add('open');
+  showcaseCard.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // FLIP: jump to match the source card's on-screen box (no transition),
+  // then release it back to identity on the next frame so it *animates*
+  // from that spot into its full centered size. Duration scales with travel
+  // distance so a card clicked near the top of the grid and one clicked five
+  // rows down feel like the same *speed* of motion, not the same fixed time
+  // over very different distances.
+  if (sourceBtn && !prefersReduced) {
+    const from = sourceBtn.getBoundingClientRect();
+    showcaseCard.style.transition = 'none';
+    requestAnimationFrame(() => {
+      const to = showcaseCard.getBoundingClientRect();
+      const dx = (from.left + from.width / 2) - (to.left + to.width / 2);
+      const dy = (from.top + from.height / 2) - (to.top + to.height / 2);
+      const sx = from.width / to.width;
+      const sy = from.height / to.height;
+      const dist = Math.hypot(dx, dy);
+      const dur = Math.min(650, Math.max(320, dist * 0.55));
+      showcaseCard.style.transform = `translate(${dx}px,${dy}px) scale(${sx},${sy})`;
+      requestAnimationFrame(() => {
+        showcaseCard.style.transition = `transform ${dur}ms cubic-bezier(.16,1,.3,1), opacity .3s ease`;
+        showcaseCard.style.transform = '';
+        setTimeout(() => { showcaseCard.style.transition = ''; }, dur + 60);
+      });
+    });
+  }
+
+  setTimeout(() => showcaseClose.focus(), 60);
+}
+
+function closeShowcase() {
+  showcaseBackdrop.classList.remove('open');
+  showcaseCard.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastTicketBtn) { lastTicketBtn.focus(); lastTicketBtn = null; }
+}
+
+document.getElementById('ticketGrid').addEventListener('click', e => {
+  const btn = e.target.closest('.ticket');
+  if (btn) openShowcase(btn.dataset.name, btn);
+});
+
+showcaseClose.addEventListener('click', closeShowcase);
+showcaseBackdrop.addEventListener('click', closeShowcase);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && showcaseCard.classList.contains('open')) closeShowcase();
+});
 
 // Reveal
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -302,71 +478,13 @@ function initReveal() {
 }
 initReveal();
 
-// Filter chips
-const chips = document.querySelectorAll('.chip');
-const empty = document.getElementById('tomtSvar');
-chips.forEach(chip => chip.addEventListener('click', () => {
-  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
-  chip.setAttribute('aria-pressed', 'true');
-  const f = chip.dataset.filter;
-  let count = 0;
-  document.querySelectorAll('.beer-item').forEach(b => {
-    const vis = f === 'alle' || b.dataset.cat === f || (f === 'spesial' && b.dataset.cat === 'sterk');
-    b.style.display = vis ? '' : 'none';
-    if (vis) count++;
-  });
-  empty.classList.toggle('hidden', count > 0);
-}));
-
-// Modal
-const modal = document.getElementById('beerModal');
-const modalClose = document.getElementById('modalClose');
-
-function openModal(name) {
-  const b = BEERS.find(x => x.name === name);
-  if (!b) return;
-  const sterk = b.cat === 'sterk';
-  document.getElementById('modalBeerName').textContent = b.name;
-  document.getElementById('modalStyle').textContent = b.style;
-  document.getElementById('modalDesc').textContent = b.desc;
-  document.getElementById('modalIng').textContent = b.ing;
-  const foodEl = document.getElementById('modalFood');
-  if (foodEl) foodEl.textContent = b.food || '';
-  const abvEl = document.getElementById('modalAbv');
-  abvEl.textContent = b.abv;
-  abvEl.className = sterk
-    ? 'shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full text-[#c49040] bg-[#c49040]/12'
-    : 'shrink-0 font-label text-xs mt-1.5 px-3 py-1.5 rounded-full text-on-surface-variant/60 bg-surface-container-high';
-  const wrap = document.getElementById('modalImgWrap');
-  wrap.innerHTML = b.file
-    ? `<img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="eager" class="max-h-[340px] w-auto object-contain"/>`
-    : `<span class="font-display leading-none text-on-surface-variant/8 select-none" style="font-size:8rem">${b.name[0]}</span>`;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => modalClose.focus(), 50);
-}
-
-function closeModal() {
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('beerGrid').addEventListener('click', e => {
-  const item = e.target.closest('.beer-item');
-  if (item) openModal(item.dataset.name);
-});
-document.getElementById('beerGrid').addEventListener('keydown', e => {
-  if (e.key !== 'Enter' && e.key !== ' ') return;
-  const item = e.target.closest('.beer-item');
-  if (item) { e.preventDefault(); openModal(item.dataset.name); }
-});
-modalClose.addEventListener('click', closeModal);
-document.getElementById('modalBackdrop').addEventListener('click', closeModal);
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-
-// Auto-open beer from URL ?beer=Name param
+// Auto-open beer from URL ?beer=Name param — switches to the right tab first
 const urlBeer = new URLSearchParams(window.location.search).get('beer');
-if (urlBeer) { requestAnimationFrame(() => openModal(urlBeer)); }
+if (urlBeer) {
+  const found = BEERS.find(x => x.name === urlBeer);
+  if (found) { activeCat = found.cat; renderTabs(); renderGrid(); }
+  requestAnimationFrame(() => openShowcase(urlBeer, null));
+}
 
 // Mobile menu
 (function(){

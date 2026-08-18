@@ -25,6 +25,8 @@ Screenshots/
 Stitch content/
 Website/
 *.gif
+_design-drafts/
+Inspiration/
 
 # Website — unused assets
 # Add filenames here when a Picture, Beer image, or other asset is
@@ -32,3 +34,8 @@ Website/
 # Example:
 # Pictures/OldPhoto.jpg
 # Beers/LOMB-DISCONTINUED-467x1024.png
+Pictures/cf9bb72097683be545c084ef247198b3177397f8-1533x862.avif
+Pictures/bardisk.avif
+Pictures/bardisk2.avif
+Pictures/beersontap.avif
+Pictures/oldvibes.webp
