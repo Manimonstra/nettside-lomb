@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ølene våre — Lom Bryggeri</title>
-<meta name="description" content="Rundt tjue handverksøl frå Lom Bryggeri. Dei fleste på 4,7 prosent, nokre sterkare."/>
+<title>Våre øl — Lom Bryggeri</title>
+<meta name="description" content="Lom Bryggeri brygger lagerøl under merkevara Lomb. Fast sortimang, spesialøl, sterkøl, fat og områdespesifikke øl — og kvar du får tak i dei."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -19,6 +19,13 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .reveal{opacity:0;transform:translateY(1.5rem);}
   .reveal.in{opacity:1;transform:none;transition:opacity 700ms ease-out,transform 700ms ease-out;}
 
+  /* The English version of the intro reads as a margin note beside the
+     Norwegian one — same words, quieter voice, never a second headline. */
+  .intro-en{position:relative;padding-left:1.4rem;border-left:1px solid rgba(195,179,147,.28);
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:1rem;line-height:1.7;color:rgba(206,190,172,.52);}
+  .intro-en-tag{display:block;font-family:'Space Grotesk',sans-serif;font-style:normal;font-size:.58rem;font-weight:600;
+    letter-spacing:.22em;text-transform:uppercase;color:rgba(195,179,147,.55);margin-bottom:.7rem;}
+
   /* Category tabs */
   .cat-tabs{display:flex;gap:2.25rem;flex-wrap:wrap;border-bottom:1px solid rgba(242,237,224,.14);}
   .cat-tab{background:none;border:none;padding:0 0 1rem;margin:0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,224,.42);cursor:pointer;position:relative;transition:color .25s ease;}
@@ -28,17 +35,26 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .cat-tab[aria-pressed="true"]{color:#f2ede0;}
   .cat-tab[aria-pressed="true"]::after{background:#c3b393;}
   .cat-tab:focus-visible{outline:2px solid #c3b393;outline-offset:4px;border-radius:2px;}
+  /* Seven tabs now — tighten the row so it still reads as one line of labels
+     on a phone rather than a stack of loose words. */
+  @media(max-width:700px){.cat-tabs{gap:1.15rem 1.35rem;}.cat-tab{font-size:.68rem;padding-bottom:.85rem;}}
 
   /* Label tickets */
   .ticket-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;list-style:none;margin:0;padding:0;}
+  /* display:grid would otherwise beat the UA [hidden] rule on the Distribusjon tab */
+  .ticket-grid[hidden]{display:none;}
   @media(min-width:640px){.ticket-grid{grid-template-columns:repeat(3,1fr);gap:30px 20px;}}
   @media(min-width:900px){.ticket-grid{grid-template-columns:repeat(4,1fr);}}
   @media(min-width:1200px){.ticket-grid{grid-template-columns:repeat(5,1fr);}}
-  .ticket{position:relative;display:block;width:100%;background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;}
+  /* The brewer's style names run from "Ljos Lager" to "Amber Lager brygga med
+     eine og krekling", so the caption is one or two lines depending on the
+     beer. Cards stretch to the tallest in the row and the photo area absorbs
+     the difference, keeping the kraft edges on one line across the grid. */
+  .ticket{position:relative;display:block;width:100%;height:100%;background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;}
   .ticket:focus-visible{outline:2px solid var(--ink);outline-offset:6px;border-radius:2px;}
   .ticket:active{background:none;}
 
-  .ticket-shape{position:relative;display:flex;flex-direction:column;background-color:#ddd7c4;clip-path:polygon(0 22px,50% 0,100% 22px,100% 100%,0 100%);transition:transform .4s cubic-bezier(.22,1,.36,1),filter .3s ease;
+  .ticket-shape{position:relative;display:flex;flex-direction:column;height:100%;box-sizing:border-box;background-color:#ddd7c4;clip-path:polygon(0 22px,50% 0,100% 22px,100% 100%,0 100%);transition:transform .4s cubic-bezier(.22,1,.36,1),filter .3s ease;
     box-shadow:
       0 1px 2px rgba(0,0,0,.22),
       0 10px 16px -8px rgba(0,0,0,.4),
@@ -56,16 +72,44 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .ticket-roof-inside svg{display:block;width:100%;height:100%;}
   .ticket-roof-inside polygon{fill:#221f19;fill-opacity:.22;}
 
-  .ticket-photo{position:relative;flex:0 0 auto;height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
+  .ticket-photo{position:relative;flex:1 0 auto;min-height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
   .ticket-photo img{position:relative;max-height:100%;max-width:82%;width:auto;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(34,31,25,.28));}
   .ticket-icon{position:relative;color:#221f19;opacity:.35;height:76%;width:auto;}
 
   .ticket-info{position:relative;padding:0 16px 22px;}
   .ticket-rule{position:relative;height:3px;background:var(--ink);margin:0 0 11px;}
   .ticket-name{position:relative;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.01em;text-transform:uppercase;color:#221f19;line-height:1.05;}
-  .ticket-foot{position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:.7rem;color:rgba(34,31,25,.62);margin-top:8px;line-height:1.4;}
+  .ticket-foot{position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:.7rem;color:rgba(34,31,25,.62);margin-top:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 
   .ticket-item{list-style:none;}
+
+  /* ── Distribusjon: not a beer, so not a ticket. The same kraft stock and
+     gable cut at panel scale, with the wholesalers set as stamped names. ── */
+  .dist-sheet{position:relative;background:#ddd7c4;color:#241e17;--peak:44px;
+    clip-path:polygon(0 var(--peak),50% 0,100% var(--peak),100% 100%,0 100%);
+    box-shadow:0 2px 4px rgba(0,0,0,.25),0 24px 40px -18px rgba(0,0,0,.55),0 60px 90px -40px rgba(0,0,0,.65);}
+  @media(max-width:640px){.dist-sheet{--peak:26px;}}
+  .dist-sheet::after{content:"";position:absolute;inset:0;opacity:.42;mix-blend-mode:multiply;pointer-events:none;z-index:2;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");}
+  .dist-roof{position:absolute;top:0;left:0;width:100%;height:var(--peak);z-index:3;pointer-events:none;}
+  .dist-roof svg{display:block;width:100%;height:100%;}
+  .dist-roof polygon{fill:#241e17;fill-opacity:.15;}
+  .dist-inner{position:relative;z-index:1;padding:calc(var(--peak) + 2.25rem) 1.75rem 2.75rem;}
+  @media(min-width:768px){.dist-inner{padding:calc(var(--peak) + 2.75rem) 3.5rem 3.25rem;}}
+  .dist-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#4b3621;}
+  .dist-title{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#1a1712;font-size:clamp(1.8rem,4.2vw,2.8rem);margin-top:1rem;}
+  .dist-rule{height:3px;background:#4b3621;border:0;margin:1.6rem 0 0;max-width:5.5rem;}
+  .dist-lead{font-family:'Work Sans',sans-serif;color:rgba(36,30,23,.74);line-height:1.85;font-size:1.0625rem;max-width:58ch;margin-top:1.9rem;}
+  .dist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem 2rem;list-style:none;margin:2.6rem 0 0;padding:0;}
+  @media(min-width:640px){.dist-grid{grid-template-columns:repeat(3,1fr);gap:1.9rem 2.5rem;}}
+  .dist-line{display:block;height:3px;background:#4b3621;margin-bottom:.75rem;}
+  .dist-name{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.15rem;letter-spacing:.02em;text-transform:uppercase;color:#1a1712;line-height:1.1;}
+  .dist-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.6rem;padding:.85rem 1.6rem;border-radius:9999px;background:#241e17;color:#ddd7c4;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+    transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s ease,box-shadow .3s ease;}
+  .dist-cta:hover{background:#4b3621;transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(0,0,0,.6);}
+  .dist-cta:active{transform:translateY(-1px);}
+  .dist-cta:focus-visible{outline:2px solid #241e17;outline-offset:3px;}
 
   /* Showcase — a floating layer above the grid. Clicking a card pops it up
      into a bigger version of itself, growing outward from the spot it was
@@ -134,13 +178,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
     <div class="hidden md:flex flex-1 items-center justify-center gap-5">
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html" aria-current="page">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsal</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
     </div>
     <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="index.html#kontakt">Ta kontakt</a>
     <div class="md:hidden flex-1 flex justify-end">
@@ -156,13 +199,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <!-- Mobile menu -->
 <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
   <nav class="flex flex-col" aria-label="Mobilmeny">
-    <a class="mobile-nav-link" href="index.html">Hjem</a>
+    <a class="mobile-nav-link" href="index.html">Heim</a>
     <a class="mobile-nav-link" href="olene.html" aria-current="page">Våre øl</a>
     <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
-    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsal</a>
     <a class="mobile-nav-link" href="pub.html">Pub</a>
     <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
-    <a class="mobile-nav-link" href="historie.html">Historie</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
     <a class="btn-nav inline-flex" href="index.html#kontakt">Ta kontakt</a>
@@ -176,14 +218,19 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <main id="hovudinnhald">
 
   <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-14 md:pt-28 md:pb-16">
-    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-primary/70">Sortiment</span>
-    <h1 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Ølene våre</h1>
-    <p class="reveal font-body text-lg text-on-surface-variant/75 mt-5 max-w-xl leading-[1.7]">Vi har rundt tjue lager i sortimentet. Dei fleste ligg på 4,7 prosent, nokre er sterkare. Kvar øl ber sin eigen trykkfarge — same idé som på etikettane på flaska.</p>
+    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-primary/70">Sortimang</span>
+    <h1 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Våre øl</h1>
+
+    <div class="mt-8 grid gap-9 lg:grid-cols-12 lg:gap-14 lg:items-start">
+      <p class="reveal font-body text-lg text-on-surface-variant/80 leading-[1.75] lg:col-span-7">Lom bryggeri brygger lagerøl under merkevara Lomb. Me forsøker å få til eit mest mogleg lokalt preg på våre ølsortar både når det gjeld innhald, namn og profil. Det vart tidleg gjort eit val at me utelukkande skulle brygge lagerøl av forskjellige variantar. Dette er noko me stolt fortsett med i dag.</p>
+      <p class="reveal intro-en lg:col-span-5" lang="en"><span class="intro-en-tag">In English</span>Lom Bryggeri brews lager under the Lomb label. We want every beer to carry as much of this place as it can — in what goes into it, in the name it gets, and in the way it tastes. Early on we settled on brewing nothing but lager, in as many variations as we could find. We are still proud to do exactly that.</p>
+    </div>
   </section>
 
   <section class="max-w-container-max mx-auto px-margin-edge pb-24 md:pb-32">
-    <div class="reveal cat-tabs" id="catTabs" role="group" aria-label="Vel sortiment"></div>
+    <div class="reveal cat-tabs" id="catTabs" role="group" aria-label="Vel sortimang"></div>
     <ul class="ticket-grid mt-10" id="ticketGrid"></ul>
+    <div class="mt-10" id="distPanel" hidden></div>
   </section>
 
   <section class="bg-surface-container-lowest border-t border-white/5">
@@ -211,9 +258,9 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <span class="showcase-eyebrow" id="showcaseStyle"></span>
       <h2 class="showcase-title" id="showcaseTitle"></h2>
       <p class="showcase-desc" id="showcaseDesc"></p>
-      <p class="showcase-tags-label">Råvarer</p>
+      <p class="showcase-tags-label" id="showcaseIngLabel">Råvarer</p>
       <div class="showcase-tags" id="showcaseIng"></div>
-      <p class="showcase-tags-label">Passar til</p>
+      <p class="showcase-tags-label" id="showcaseFoodLabel">Passar til</p>
       <div class="showcase-tags" id="showcaseFood"></div>
     </div>
   </div>
@@ -235,10 +282,9 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <ul class="space-y-3">
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsal</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
       </ul>
     </div>
     <div class="md:col-span-6">
@@ -257,75 +303,120 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
 <script>
 const BEERS = [
-  { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Lys lager', ink:'#3f9fc7',
-    desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkelig og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
+  // ── Alle: dei øla som er å få tak i gjennom grossist, frå ljosast til myrkast ──
+  { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f9fc7',
+    desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkeleg og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
-  { name:'Skei', file:'LOMB-SKEI-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Pils', ink:'#d4b942',
-    desc:'Ein tørr og frisk pils. Klassisk og reindyrka — utan unødvendige tilsetningar.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Stekt fisk, chips, lett kvardagsmat' },
-  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Pale lager', ink:'#3f7a45', imgScale:0.92, imgShiftX:24, imgShiftY:6,
+  { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager', ink:'#c9ac5a',
+    desc:'Mild og rund i smaken. Ein lager for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
+  { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med mjødurt', ink:'#d81b60',
+    desc:'Ljos lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
+    ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
+  { name:'Skjaak', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager med lokal malt frå Skjåk', ink:'#a89a3a',
+    desc:'Ljos lager brygga med lokal malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bøndene sjølve styrer vatnet.',
+    ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøt' },
+  { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med bjørkeskot', ink:'#93a13c',
+    desc:'Ljos og frisk lager, smaksett med bjørkeskot. Skota gjev ein søtare og meir delikat smak enn ferdig utspungne blad.',
+    ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskot, gjær', food:'Grillmat, kylling, gardsmat' },
+  { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med kveitemalt', ink:'#d9c15a',
+    desc:'Mjukt og fyldig, brygga med kveitemalt. Ein lager av den avslappa sorten — rund og lettdrikkeleg.',
+    ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
+  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.92, imgShiftX:24, imgShiftY:6,
     desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
     ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
-  { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bjørkelager', ink:'#93a13c',
-    desc:'Lyst og frisk øl, smaksett med bjørkeskotkonsentrat. Skota gjev ein søtare og delikat smak samanlikna med ferdig utspungne blad.',
-    ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskotkonsentrat, gjær', food:'Grillmat, kylling, gardsmat' },
-  { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Einerlager', ink:'#2f9098',
-    desc:'Brygga etter tradisjonell oppskrift med einerbær. Bæra gjev ein naturleg bitter smak og er eit av dei eldste bryggingsingrediensane vi kjenner til. Gullgul og tørr i avslutinga.',
-    ing:'Vatn, byggmalt, humle, einerbær, gjær', food:'Vilt, kraftig ost, smørbrød' },
-  { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Porslager', ink:'#6b2438',
-    desc:'Mørk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
-    ing:'Vatn, byggmalt, pors, gjær', food:'Røkt kjøtt, sterk ost, mørk sjokolade' },
-  { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Kvannlager', ink:'#4a8f3f',
-    desc:'Krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
-    ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
-  { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Urtelager', ink:'#d81b60',
-    desc:'Lys lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
-    ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
-  { name:'4 Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Fire-kornlager', ink:'#d9722a',
-    desc:'Fire korn i same brygg: bygg, havre, rug og kveite. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
-    ing:'Vatn, byggmalt, havremalt, rugmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, kjøtt og potet' },
-  { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Hvetelager', ink:'#d9c15a',
-    desc:'Mjukt og fyldig, brygga på kveite. Ein lagar av den avslappa sorten — rund og lettdrikkelig.',
-    ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
-  { name:'Skjåk', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Bygglager', ink:'#a89a3a',
-    desc:'Brygga på malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bønder sjølv styrer vatnet. Maltet kjem frå Malteriet på Kongsberg.',
-    ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøtt' },
-  { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Blond lager', ink:'#c9ac5a',
-    desc:'Mild og rund i smaken. Ein lagar for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
-  { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber lager', ink:'#4a8f4a',
-    desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ein mjuk avslutning.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgerar' },
-  { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Raudlager', ink:'#e0185a',
+  { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager', ink:'#4a8f4a',
+    desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ei mjuk avslutning.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgarar' },
+  { name:'4-Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med fire kornsortar', ink:'#d9722a',
+    desc:'Fire kornsortar i same brygg: bygg, kveite, rug og spelt. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
+    ing:'Vatn, byggmalt, kveitemalt, rugmalt, speltmalt, humle, gjær', food:'Pizza, pasta, kjøt og potet' },
+  { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Gyllen Lager', ink:'#a08a3a',
+    desc:'Gyllen lager brygga utelukkande med norsk malt. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
+    ing:'Vatn, norsk byggmalt, humle, gjær', food:'Røykt mat, sterk ost, viltgryte' },
+  { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Eine Lager', ink:'#2f9098',
+    desc:'Brygga etter tradisjonell oppskrift med einebær. Bæra gjev ein naturleg bitter smak og er ein av dei eldste bryggjeingrediensane vi kjenner til. Gullgul og tørr i avslutninga.',
+    ing:'Vatn, byggmalt, humle, einebær, gjær', food:'Vilt, kraftig ost, smørbrød' },
+  { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#a8422c',
+    desc:'Amber lager krydra med eine og krekling frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
+    ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, tradisjonell norsk mat, sterk ost' },
+  { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#9c3b28',
+    desc:'Amber lager krydra med eine og krekling — dei vanlegaste vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
+    ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, røykt reinkjøt, sterk ost' },
+  { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#b8543a',
+    desc:'Amber lager krydra med eine og krekling. Oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, her i Lom kommune. 2469 meter over havet.',
+    ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, kraftige ostar, nøtter' },
+  { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Amber Lager', ink:'#e0185a',
     desc:'Fem forskjellige byggmalt som mellom anna gjev ølet ei fin raudfarge. Mild humle og eit snev av sødme frå malten.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Kjøtt, vilt, kraftige ostar' },
-  { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#a08a3a',
-    desc:'Mørk og brødaktig, brygga på bygg dyrka i den tørre dalbotnen i Skjåk. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
-    ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Røkt mat, sterk ost, viltgryte' },
-  { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#9c3b28',
-    desc:'Krydra med krekling og einer — dei mest vanlege vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
-    ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, røkt reinkjøtt, sterk ost' },
-  { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Mørk lager', ink:'#a8422c',
-    desc:'Krydra med krekling og einer frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
-    ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, tradisjonsnorsk mat, sterk ost' },
-  { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Sterk lager', ink:'#a8422c',
-    desc:'Sterk og fyldig lager, oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, rett her i Lom kommune. 2469 meter over havet.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Sjokoladedessert, kraftige ostar, nøtter' },
-  { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Vinterlager', ink:'#5b3f7a',
-    desc:'Mørk og krydra vinterlager. Brygga til dei lange, mørke nettene i fjelldalen — best servert ved peisen.',
-    ing:'Vatn, byggmalt, humle, gjær', food:'Julemiddag, ribbegryte, mørk sjokolade' },
-  { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'sterk', abv:'6,5 %', style:'Festlager', ink:'#4a2620',
-    desc:'Sterk og fyldig festlager. Til dei gongene noko verkeleg skal feirast.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Kjøt, vilt, kraftige ostar' },
+  { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lager brygga med fjellkvann', ink:'#4a8f3f',
+    desc:'Myrk lager krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
+    ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
+  { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Myrk Lager', ink:'#6b2438',
+    desc:'Myrk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
+    ing:'Vatn, byggmalt, pors, gjær', food:'Røykt kjøt, sterk ost, myrk sjokolade' },
+  { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lager', ink:'#5b3f7a',
+    desc:'Myrk lager med ein maserasjon av økologiske appelsin, ceylonkanel, stjerneanis og nellikspikar.',
+    ing:'Vatn, byggmalt, humle, appelsin, ceylonkanel, stjerneanis, nellikspikar, gjær', food:'Julemat, ribbe, myrk sjokolade' },
+  { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lagerøl', ink:'#4a2620',
+    desc:'Myrk lagerøl. Til dei gongene noko verkeleg skal feirast.',
     ing:'Vatn, byggmalt, humle, gjær', food:'Festmat, ost- og kjøtbord, dessert' },
+
+  // ── Sterkøl: same øla, brygga til 6,5 % ──
+  { name:'Ljost 6,5 %', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'sterk', inAll:false, abv:'6,5 %', style:'Ljos Lagerøl', ink:'#3f9fc7',
+    desc:'Ljos lagerøl på 6,5 %.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
+  { name:'Vinternatt 6,5 %', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'sterk', inAll:false, abv:'6,5 %', style:'Myrk Lagerøl', ink:'#5b3f7a',
+    desc:'Myrk lagerøl på 6,5 % med ein maserasjon av økologiske appelsin, ceylonkanel, stjerneanis og nellikspikar.',
+    ing:'Vatn, byggmalt, humle, appelsin, ceylonkanel, stjerneanis, nellikspikar, gjær', food:'Julemat, ribbe, myrk sjokolade' },
+  { name:'Fest 6,5 %', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'sterk', inAll:false, abv:'6,5 %', style:'Særs Myrk Lagerøl', ink:'#4a2620',
+    desc:'Særs myrk lagerøl på 6,5 %.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Festmat, ost- og kjøtbord, dessert' },
+
+  // ── Fat ──
+  { name:'Festival', file:null, cat:'fat', inAll:false, abv:'4,7 %', style:'Ljos Lagerøl', ink:'#c6952c', foot:'Fat · 30 liter',
+    desc:'Ljos lagerøl på 30-liters fat.',
+    ing:'Vatn, byggmalt, humle, gjær', food:'Festival, selskap, store lag' },
+
+  // ── Områdespesifikke øl: berre å få tak i på staden, eller her på bryggeriet ──
+  { name:'Bryllup Lager', file:null, cat:'omrade', inAll:false, abv:'', style:'Ljos Lagerøl', ink:'#b58aa8', foot:'Til bestilling',
+    desc:'Ljos lagerøl, kan bestillast til ditt eige bryllup.', ing:'', food:'' },
+  { name:'Besseggen Lager', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#3f7a8c', foot:'Memurubu · bryggeriet',
+    desc:'Kan kjøpast på Memurubu eller her på bryggeriet.', ing:'', food:'' },
+  { name:'Leirvassbu', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#5a7f6b', foot:'Leirvassbu · bryggeriet',
+    desc:'Kan kjøpast på Leirvassbu eller her på bryggeriet.', ing:'', food:'' },
+  { name:'Høvringen Lager', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#8a6a3c', foot:'Høvringen · bryggeriet',
+    desc:'Kan kjøpast på Høvringen eller her på bryggeriet.', ing:'', food:'' },
+  { name:'Gjendebu', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#2f7d6e', foot:'Gjendebu · bryggeriet',
+    desc:'Kan kjøpast på Gjendebu eller her på bryggeriet.', ing:'', food:'' },
+  { name:'Grimse', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#7a6a9c', foot:'Grimsdalshytta',
+    desc:'Kan kjøpast på Grimsdalshytta.', ing:'', food:'' },
+  { name:'Lundes', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#b5563f', foot:'Kiwi Lundes',
+    desc:'Kan kjøpast på Kiwi Lundes.', ing:'', food:'' },
+  { name:'Bakarens Øl', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#c08a3e', foot:'Bakeriet i Lom · bryggeriet',
+    desc:'Kan kjøpast på Bakeriet i Lom eller her på bryggeriet.', ing:'', food:'' },
+  { name:'Spiterstulen', file:null, cat:'omrade', inAll:false, abv:'', style:'Områdespesifikk', ink:'#4d6b8a', foot:'Spiterstulen · bryggeriet',
+    desc:'Kan kjøpast på Spiterstulen eller her på bryggeriet.', ing:'', food:'' },
 ];
+
+// Grossistledd og kjeder som fører Lomb — eigen fane, etter alle ølfanene.
+const DISTRIBUSJON = ['ASKO', 'Gudbrandsdalsmat', 'Godt Lokalt', 'Coop', 'Gulating', 'Lokalmat'];
 
 const CATS = [
   { key:'alle', label:'Alle' },
-  { key:'fast', label:'Fast sortiment' },
+  { key:'fast', label:'Fast sortimang' },
   { key:'spesial', label:'Spesialøl' },
   { key:'sterk', label:'Sterkøl' },
+  { key:'fat', label:'Fat' },
+  { key:'omrade', label:'Områdespesifikke' },
+  { key:'distribusjon', label:'Distribusjon' },
 ];
 let activeCat = 'alle';
+
+function beersIn(key) {
+  if (key === 'alle') return BEERS.filter(b => b.inAll !== false);
+  return BEERS.filter(b => b.cat === key);
+}
 
 // Simple line-art bottle, used when a beer has no product photo yet
 const BOTTLE_ICON = '<svg class="ticket-icon" viewBox="0 0 40 90" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h8v10l5 8v58a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V22l5-8V4Z"/><path d="M13 34h14"/></svg>';
@@ -337,8 +428,8 @@ const ROOF_GLYPH = '<svg viewBox="0 0 200 40" preserveAspectRatio="none" aria-hi
 function renderTabs() {
   const row = document.getElementById('catTabs');
   row.innerHTML = CATS.map(c => {
-    const count = c.key === 'alle' ? BEERS.length : BEERS.filter(b => b.cat === c.key).length;
     const pressed = c.key === activeCat;
+    const count = c.key === 'distribusjon' ? DISTRIBUSJON.length : beersIn(c.key).length;
     return `<button type="button" class="cat-tab" data-cat="${c.key}" aria-pressed="${pressed}">${c.label}<span class="count">${count}</span></button>`;
   }).join('');
   row.querySelectorAll('.cat-tab').forEach(t => t.addEventListener('click', () => setActiveCat(t.dataset.cat)));
@@ -351,6 +442,7 @@ function ticketHTML(b) {
   const photo = b.file
     ? `<img src="Beers/${b.file}" alt="" width="467" height="1024" loading="lazy" style="transform:translate(${shiftX}px,${shiftY}px) scale(${scale})" />`
     : BOTTLE_ICON;
+  const foot = b.foot || [b.style, b.abv].filter(Boolean).join(' · ');
   return `<li class="ticket-item">
     <button type="button" class="ticket" data-name="${b.name}" style="--ink:${b.ink}" aria-haspopup="dialog" aria-label="Les meir om ${b.name}">
       <span class="ticket-shape block">
@@ -359,17 +451,45 @@ function ticketHTML(b) {
         <span class="ticket-info block">
           <span class="ticket-rule block"></span>
           <span class="ticket-name block">${b.name}</span>
-          <span class="ticket-foot block">${b.style} · ${b.abv}</span>
+          <span class="ticket-foot block">${foot}</span>
         </span>
       </span>
     </button>
   </li>`;
 }
 
+function distribusjonHTML() {
+  return `<article class="dist-sheet">
+    <span class="dist-roof" aria-hidden="true">${ROOF_GLYPH}</span>
+    <div class="dist-inner">
+      <p class="dist-eyebrow">Distribusjon</p>
+      <h2 class="dist-title">Kor du får tak i Lomb</h2>
+      <hr class="dist-rule"/>
+      <p class="dist-lead">Ølet vårt er tilgjengeleg gjennom desse grossistledda og kjedene. Skal du ha Lomb i eige utsal eller på eigen skjenkestad, ta kontakt — så finn vi vegen som passar deg best.</p>
+      <ul class="dist-grid">
+        ${DISTRIBUSJON.map(d => `<li class="dist-item"><span class="dist-line"></span><span class="dist-name">${d}</span></li>`).join('')}
+      </ul>
+      <a class="dist-cta" href="index.html#kontakt">Ta kontakt om bestilling
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </article>`;
+}
+
 function renderGrid() {
   const grid = document.getElementById('ticketGrid');
-  const beers = activeCat === 'alle' ? BEERS : BEERS.filter(b => b.cat === activeCat);
-  grid.innerHTML = beers.map(ticketHTML).join('');
+  const dist = document.getElementById('distPanel');
+  if (activeCat === 'distribusjon') {
+    grid.innerHTML = '';
+    grid.hidden = true;
+    dist.innerHTML = distribusjonHTML();
+    dist.hidden = false;
+    return;
+  }
+  dist.innerHTML = '';
+  dist.hidden = true;
+  grid.hidden = false;
+  grid.innerHTML = beersIn(activeCat).map(ticketHTML).join('');
 }
 
 function setActiveCat(key) {
@@ -389,9 +509,13 @@ const showcaseCard = document.getElementById('showcaseCard');
 const showcaseClose = document.getElementById('showcaseClose');
 let lastTicketBtn = null;
 
-function tagRow(el, text) {
+// Områdespesifikke øl carry no recipe yet, so the whole row — label included —
+// stays out of the card rather than sitting there empty.
+function tagRow(el, text, label) {
   const items = (text || '').split(',').map(s => s.trim()).filter(Boolean);
   el.innerHTML = items.map(i => `<span class="showcase-tag">${i}</span>`).join('');
+  el.hidden = items.length === 0;
+  if (label) label.hidden = items.length === 0;
 }
 
 function openShowcase(name, sourceBtn) {
@@ -403,9 +527,9 @@ function openShowcase(name, sourceBtn) {
   document.getElementById('showcaseStyle').textContent = b.style;
   document.getElementById('showcaseTitle').textContent = b.name;
   document.getElementById('showcaseDesc').textContent = b.desc;
-  document.getElementById('showcaseAbvStamp').textContent = b.abv;
-  tagRow(document.getElementById('showcaseIng'), b.ing);
-  tagRow(document.getElementById('showcaseFood'), b.food);
+  document.getElementById('showcaseAbvStamp').textContent = b.abv || '';
+  tagRow(document.getElementById('showcaseIng'), b.ing, document.getElementById('showcaseIngLabel'));
+  tagRow(document.getElementById('showcaseFood'), b.food, document.getElementById('showcaseFoodLabel'));
   const photoWrap = document.getElementById('showcasePhoto');
   const scale = b.imgScale || 1;
   photoWrap.innerHTML = b.file

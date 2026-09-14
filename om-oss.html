@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Om oss — Lom Bryggeri</title>
-<meta name="description" content="Bryggeriet på Grjotheim i Lom. Lager brygget med fjellvann og lokale råvarer siden 2016."/>
+<meta name="description" content="Bryggeriet på Grjotheim i Lom. Lagerøl brygga med fjellvatn og lokale råvarer sidan 2016 — og historia bak."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -70,7 +70,29 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   .person-info{position:relative;z-index:1;padding:14px 16px 20px;}
   .person-rule{height:3px;background:var(--brown);margin:0 0 10px;}
 
-  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}.person:hover{transform:none;}}
+  /* ── Historia: stasjonar langs ei linje som fyller seg opp medan du rullar ── */
+  .tl-wrap{position:relative;}
+  .tl-line{position:absolute;top:0;bottom:0;left:20px;width:2px;background:rgba(195,179,147,.1);}
+  .tl-progress{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(to bottom,rgba(195,179,147,.9),rgba(195,179,147,.35));}
+  .tl-item{position:relative;padding-left:64px;}
+  .tl-dot{position:absolute;left:20px;top:10px;transform:translateX(-50%);width:16px;height:16px;border-radius:9999px;background:#12160f;border:2px solid rgba(195,179,147,.3);transition:border-color .4s ease,box-shadow .4s ease;}
+  .tl-dot::after{content:"";position:absolute;inset:4px;border-radius:9999px;background:rgba(195,179,147,.35);transition:background .4s ease,transform .4s cubic-bezier(.34,1.45,.64,1);}
+  .tl-item.active .tl-dot{border-color:#c3b393;box-shadow:0 0 0 6px rgba(195,179,147,.12);}
+  .tl-item.active .tl-dot::after{background:#c3b393;transform:scale(1.15);}
+  .tl-media{opacity:0;transform:scale(.93) translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.3,1.3,.5,1);}
+  .tl-text{opacity:0;transform:translateY(20px);transition:opacity .6s ease .1s,transform .6s cubic-bezier(.22,1,.36,1) .1s;}
+  .tl-item.active .tl-media,.tl-item.active .tl-text{opacity:1;transform:none;}
+
+  @media(min-width:768px){
+    .tl-line{left:50%;transform:translateX(-50%);}
+    .tl-item{padding-left:0;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .tl-dot{left:50%;top:50%;transform:translate(-50%,-50%);}
+    .tl-item:nth-child(even) .tl-media{order:2;}
+    .tl-item:nth-child(even) .tl-text{order:1;text-align:right;}
+    .tl-item:nth-child(even) .tl-text .tl-eyebrow{justify-content:flex-end;}
+  }
+
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}.person:hover{transform:none;}.tl-media,.tl-text{opacity:1!important;transform:none!important;}}
 
   .hamburger-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:none;cursor:pointer;padding:0;border-radius:4px;}
   .hamburger-btn span{display:block;width:22px;height:1.5px;background:#f2ede0;border-radius:2px;transition:transform 0.3s cubic-bezier(.22,1,.36,1),opacity 0.3s ease;}
@@ -82,25 +104,24 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 </style>
 </head>
 <body class="bg-background text-on-background font-body">
-<a href="#hovedinnhold" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhold</a>
+<a href="#hovudinnhald" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhald</a>
 
 <header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
-  <nav aria-label="Hovedmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
-    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — hjem">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
     <div class="hidden md:flex flex-1 items-center justify-center gap-5">
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsal</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html" aria-current="page">Om oss</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
     </div>
     <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="tel:+4795844455">Ring 95 84 44 55</a>
     <div class="md:hidden flex-1 flex justify-end">
-      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span><span id="hbar2"></span><span id="hbar3"></span>
       </button>
     </div>
@@ -109,13 +130,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
 <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
   <nav class="flex flex-col" aria-label="Mobilmeny">
-    <a class="mobile-nav-link" href="index.html">Hjem</a>
+    <a class="mobile-nav-link" href="index.html">Heim</a>
     <a class="mobile-nav-link" href="olene.html">Våre øl</a>
     <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
-    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsal</a>
     <a class="mobile-nav-link" href="pub.html">Pub</a>
     <a class="mobile-nav-link" href="om-oss.html" aria-current="page">Om oss</a>
-    <a class="mobile-nav-link" href="historie.html">Historie</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
     <a class="btn-nav inline-flex" href="tel:+4795844455">Ring 95 84 44 55</a>
@@ -126,11 +146,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   </div>
 </div>
 
-<main id="hovedinnhold">
+<main id="hovudinnhald">
 
   <!-- Photo behind, card in front. -->
   <div class="relative isolate overflow-hidden h-[46vh] md:h-[60vh]">
-    <img src="Pictures/brygg.jpg" alt="Lom Bryggeri en vinterkveld på Grjotheim" width="2048" height="1152" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover"/>
+    <img src="Pictures/brygg.jpg" alt="Lom Bryggeri ein vinterkveld på Grjotheim" width="2048" height="1152" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover"/>
     <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg,rgba(18,22,15,.35) 0%,rgba(18,22,15,.15) 45%,rgba(18,22,15,.9) 100%);"></div>
   </div>
 
@@ -143,27 +163,27 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
         <h1 class="h-ink mt-5" style="font-size:clamp(2.2rem,6vw,4.25rem)">Bryggeriet på Grjotheim</h1>
         <hr class="rule-ink mt-7" style="max-width:5.5rem"/>
 
-        <p class="lead-ink mt-9 max-w-[38ch]" style="font-size:clamp(1.25rem,2.6vw,1.85rem)">Vi ryddet plass i den gamle låven i 2016. Der holder vi fortsatt til.</p>
+        <p class="lead-ink mt-9 max-w-[38ch]" style="font-size:clamp(1.25rem,2.6vw,1.85rem)">Vi rydda plass i den gamle låven i 2016. Der held vi framleis til.</p>
 
         <div class="mt-10 grid gap-x-14 gap-y-7 md:grid-cols-2 max-w-[62rem]">
-          <p class="body-ink" style="font-size:1.0625rem">Alt vi lager er lager — kaldt gjæret og lenge lagret. Det tar tid, men gir et renere øl. Vannet henter vi fra fjellet rett bak.</p>
-          <p class="body-ink" style="font-size:1.0625rem">Maltet kommer fra Skjåk, humlen dyrker vi selv, og resten finner vi i skogen omkring: einer, pors, bjørk og kvann.</p>
+          <p class="body-ink" style="font-size:1.0625rem">Alt vi lagar er lagerøl — kaldt gjæra og lenge lagra. Det tek tid, men gjev eit reinare øl. Vatnet hentar vi frå fjellet rett bak.</p>
+          <p class="body-ink" style="font-size:1.0625rem">Malten kjem frå Skjåk, humla dyrkar vi sjølve, og resten finn vi i skogen omkring: eine, pors, bjørk og kvann.</p>
         </div>
 
-        <p class="body-ink mt-7 max-w-[52ch]" style="font-size:1.0625rem">Navnene på flaskene står for steder og folk herfra — Galdhøpiggen, Høgruta, reinjegeren Jo Gjende. <a class="link-ink" href="historie.html">Les hele historien</a>.</p>
+        <p class="body-ink mt-7 max-w-[52ch]" style="font-size:1.0625rem">Namna på flaskene står for stader og folk herifrå — Galdhøpiggen, Høgruta, reinsdyrjegaren Jo Gjende. <a class="link-ink" href="#historie">Les heile historia</a>.</p>
 
         <hr class="hair-ink mt-12"/>
         <dl class="mt-8 grid grid-cols-3 gap-6">
           <div>
-            <dt class="eyebrow-ink" style="font-size:.56rem">Siden</dt>
+            <dt class="eyebrow-ink" style="font-size:.56rem">Sidan</dt>
             <dd class="h-ink mt-2" style="font-size:clamp(1.5rem,3.4vw,2.5rem)">2016</dd>
           </div>
           <div>
-            <dt class="eyebrow-ink" style="font-size:.56rem">Øl i sortimentet</dt>
-            <dd class="h-ink mt-2" style="font-size:clamp(1.5rem,3.4vw,2.5rem)">Tjue</dd>
+            <dt class="eyebrow-ink" style="font-size:.56rem">Øl i sortimanget</dt>
+            <dd class="h-ink mt-2" style="font-size:clamp(1.5rem,3.4vw,2.5rem)">Nitten</dd>
           </div>
           <div>
-            <dt class="eyebrow-ink" style="font-size:.56rem">Haner på kran</dt>
+            <dt class="eyebrow-ink" style="font-size:.56rem">Kranar i puben</dt>
             <dd class="h-ink mt-2" style="font-size:clamp(1.5rem,3.4vw,2.5rem)">Tolv</dd>
           </div>
         </dl>
@@ -179,42 +199,132 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     <ul class="grid gap-6 grid-cols-2 lg:grid-cols-4" role="list">
       <li class="person reveal">
         <span class="person-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
-        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kommer" width="640" height="800" loading="lazy"/></div>
+        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kjem" width="640" height="800" loading="lazy"/></div>
         <div class="person-info">
           <div class="person-rule"></div>
-          <p class="item-name" style="font-size:1.05rem">[Navn]</p>
+          <p class="item-name" style="font-size:1.05rem">[Namn]</p>
           <p class="foot-ink mt-1.5" style="font-size:.78rem">[Rolle]</p>
         </div>
       </li>
       <li class="person reveal">
         <span class="person-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
-        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kommer" width="640" height="800" loading="lazy"/></div>
+        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kjem" width="640" height="800" loading="lazy"/></div>
         <div class="person-info">
           <div class="person-rule"></div>
-          <p class="item-name" style="font-size:1.05rem">[Navn]</p>
+          <p class="item-name" style="font-size:1.05rem">[Namn]</p>
           <p class="foot-ink mt-1.5" style="font-size:.78rem">[Rolle]</p>
         </div>
       </li>
       <li class="person reveal">
         <span class="person-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
-        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kommer" width="640" height="800" loading="lazy"/></div>
+        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kjem" width="640" height="800" loading="lazy"/></div>
         <div class="person-info">
           <div class="person-rule"></div>
-          <p class="item-name" style="font-size:1.05rem">[Navn]</p>
+          <p class="item-name" style="font-size:1.05rem">[Namn]</p>
           <p class="foot-ink mt-1.5" style="font-size:.78rem">[Rolle]</p>
         </div>
       </li>
       <li class="person reveal">
         <span class="person-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
-        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kommer" width="640" height="800" loading="lazy"/></div>
+        <div class="person-photo"><img src="https://placehold.co/640x800/c9bba7/6b5843?text=+" alt="Portrett kjem" width="640" height="800" loading="lazy"/></div>
         <div class="person-info">
           <div class="person-rule"></div>
-          <p class="item-name" style="font-size:1.05rem">[Navn]</p>
+          <p class="item-name" style="font-size:1.05rem">[Namn]</p>
           <p class="foot-ink mt-1.5" style="font-size:.78rem">[Rolle]</p>
         </div>
       </li>
     </ul>
-    <p class="font-body text-sm text-on-surface-variant/40 mt-7">Bytt ut plassholderne med portretter og navn når dere har bildene klare.</p>
+    <p class="font-body text-sm text-on-surface-variant/40 mt-7">Byt ut plasshaldarane med portrett og namn når de har bileta klare.</p>
+  </section>
+
+  <!-- Historia — same fane som om oss, som eigen del lenger nede på sida. -->
+  <section id="historie" class="border-t border-white/5 scroll-mt-24">
+    <div class="max-w-container-max mx-auto px-margin-edge pt-16 md:pt-24 pb-4">
+      <p class="reveal eyebrow-light">Historie · sidan 2016</p>
+      <h2 class="reveal h-light mt-4" style="font-size:clamp(1.9rem,4.4vw,2.9rem)">Vår historie</h2>
+      <p class="reveal font-display font-normal text-on-surface-variant/70 mt-5 max-w-[46ch] leading-[1.45]" style="font-size:clamp(1.05rem,2.1vw,1.4rem)">Bryggeriet vart starta av folk som meinte fjellbygda hadde alt eit bryggeri treng — reint vatn, ville urter og ein matkultur som strekkjer seg langt tilbake.</p>
+    </div>
+
+    <div class="max-w-container-max mx-auto px-margin-edge py-12 md:py-20">
+      <div class="tl-wrap" id="tlWrap">
+        <div class="tl-line" aria-hidden="true"><div class="tl-progress" id="tlProgress"></div></div>
+        <div class="space-y-20 md:space-y-32">
+
+          <article class="tl-item" id="st-2015">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="https://placehold.co/800x600/1e1b17/4d4540?text=2015" alt="Frå planlegginga i 2015 — bilete kjem" width="800" height="600" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">2015</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Ideen tek form</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">Det heile starta med ein tanke: kvifor finst det ikkje eit skikkeleg handverksbryggeri i Lom? Fjellbygda hadde alt — reint vatn, eit rikt urtetilfang og eit lokalsamfunn med stoltheit over eigen matkultur. Planlegginga byrja i stille, og Grjotheim-garden vart vald som heim for bryggeriet.</p>
+            </div>
+          </article>
+
+          <article class="tl-item" id="st-2016">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="Pictures/beertanks.avif" alt="Dei første bryggjetankane i låven" width="1920" height="1080" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">2016</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Bryggeriet opnar</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">Lom Bryggeri slo opp dørene i 2016. Dei første ølsortane var enkle lagrar brygga på fjellvatn og byggmalt — reindyrka og utan unødvendige tilsetningar. Målet var klart frå starten: lag øl som smakar av staden det kjem frå. Ljost og Raudt vart dei første ølane i fast sortimang.</p>
+            </div>
+          </article>
+
+          <article class="tl-item" id="st-urter">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="Pictures/classics.webp" alt="Øl smaksett med ville urter — mellom anna Myrt, brygga med pors" width="1287" height="1020" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">Inspirasjon</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Fjellnaturen som oppskrift</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">Rundt Lom finst det eit rikt tilfang av ville urter — fjellkvann, mjødurt, eine, krekling og bjørkeskot. Bryggarane byrja å eksperimentere med å bruke desse i øl, og det opna seg ei heilt ny smaksverd. Tradisjonell norsk bryggjekultur — der pors og eine var vanlege ingrediensar lenge før humla kom — fekk nytt liv.</p>
+            </div>
+          </article>
+
+          <article class="tl-item" id="st-vekst">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="Pictures/classics2.webp" alt="Sortimanget veks — klassikarane frå Lom Bryggeri" width="1200" height="900" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">Vekst</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Frå to til nitten</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">Det gjekk ikkje lenge før sortimanget voks. Øl vart oppkalla etter lokale legender som Jo Gjende og Peer Gynt, etter fjellruter som Høgruta, og etter fjelltoppen Galdhøpiggen (2469 moh.). I dag tel sortimanget nitten øl gjennom grossist, frå lettdrikkelege lagrar til kraftige vinterlagrar — og fleire som berre er å få tak i på staden.</p>
+            </div>
+          </article>
+
+          <article class="tl-item" id="st-pub">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="Pictures/Flereglass.jpg" alt="Fulle glas i gardspuben på Grjotheim" width="1200" height="800" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">Grjotheim</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Låven vert til pub</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">Den romslege låven vart gjord om til ein pub der gjestene kan smake ølane på kran, og eit gardsutsal der dei kan kjøpe med seg favorittane heim. Puben er ikkje berre ein skjenkestad — det er ein møteplass for lokale og tilreisande, eit levande rom midt i det som ein gong var arbeidsstad på garden.</p>
+            </div>
+          </article>
+
+          <article class="tl-item" id="st-idag">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-media relative overflow-hidden rounded-xl aspect-[4/3] border border-white/5" style="box-shadow:0 30px 60px -25px rgba(0,0,0,0.7);">
+              <img src="Pictures/Glass.jpg" alt="Ølglas med Lom Bryggeri-logo" width="2880" height="1920" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
+            </div>
+            <div class="tl-text mt-8 md:mt-0">
+              <span class="tl-eyebrow inline-flex font-label text-[0.65rem] uppercase tracking-[0.28em] text-[#c3b393]/75">I dag</span>
+              <h3 class="font-display font-semibold text-on-surface mt-3 leading-[1.1]" style="font-size:clamp(1.5rem,3.2vw,2.2rem)">Handverk frå fjellbygda</h3>
+              <p class="font-body text-on-surface-variant/70 mt-4 leading-[1.8]">I dag er Lom Bryggeri eit heiltidsbryggeri med brygging, pub, gardsutsal og ølsmaking som oppleving. Vi bryggjer med tolmod, nyfikne og respekt for råvarene — og vi er stolte av å vere ein del av kulturlivet i Lom. Kvar flaske er eit utsnitt av fjelldalen vi er glade i å kalle heimen vår.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
@@ -224,21 +334,20 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
     <div class="md:col-span-4">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
-      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gårdspub i hjertet av Lom. Håndverk siden 2016.</p>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
       <div class="flex gap-4 mt-6">
         <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
         <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
       </div>
     </div>
     <div class="md:col-span-2">
-      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-camel mb-5">Snarveier</h2>
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-camel mb-5">Snarveiar</h2>
       <ul class="space-y-3">
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsal</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
       </ul>
     </div>
     <div class="md:col-span-6">
@@ -266,12 +375,44 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     }, { threshold: 0.05, rootMargin: '0px 0px -4% 0px' });
     revealEls.forEach(el => io.observe(el));
   }
+
+  // ── Historia: kvar stasjon poppar fram éin gong, og linja fyller seg
+  //    opp etter kor langt ned på sida du har kome. ──
+  const items = document.querySelectorAll('.tl-item');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    items.forEach(it => it.classList.add('active'));
+  } else {
+    const popIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); popIo.unobserve(e.target); } });
+    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+    items.forEach(it => popIo.observe(it));
+  }
+
+  const wrap = document.getElementById('tlWrap');
+  const progress = document.getElementById('tlProgress');
+  function updateProgress() {
+    if (!wrap || !progress) return;
+    const r = wrap.getBoundingClientRect();
+    const mid = window.innerHeight / 2;
+    const pct = Math.max(0, Math.min(1, (mid - r.top) / r.height));
+    progress.style.height = (pct * 100) + '%';
+  }
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { updateProgress(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateProgress();
+
   (function(){
     var btn=document.getElementById('menuBtn'),menu=document.getElementById('mobileMenu');
     var b1=document.getElementById('hbar1'),b2=document.getElementById('hbar2'),b3=document.getElementById('hbar3');
     if(!btn||!menu) return;
     function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
-    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Åpne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
     btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
     menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});

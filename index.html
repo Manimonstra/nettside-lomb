@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lom Bryggeri — Bryggeri, ølsmaking og gårdspub i Lom</title>
+<title>Lom Bryggeri — bryggeri, ølsmaking og gardspub i Lom</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -151,26 +151,25 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 </style>
 </head>
 <body class="bg-background text-on-background font-body">
-<a href="#hovedinnhold" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhold</a>
+<a href="#hovudinnhald" class="sr-only focus:not-sr-only focus:fixed focus:z-[80] focus:top-3 focus:left-3 focus:bg-surface-container-high focus:text-on-surface focus:px-4 focus:py-2 focus:rounded">Hopp til innhald</a>
 
 <!-- Header — centered nav -->
 <header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
-  <nav aria-label="Hovedmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
-    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — hjem">
+  <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
     <div class="hidden md:flex flex-1 items-center justify-center gap-5">
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-current="page">Hjem</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-current="page">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsalg</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsal</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="historie.html">Historie</a>
     </div>
     <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#kontakt">Ta kontakt</a>
     <div class="md:hidden flex-1 flex justify-end">
-      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Åpne meny" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span>
         <span id="hbar2"></span>
         <span id="hbar3"></span>
@@ -182,13 +181,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <!-- Mobile menu -->
 <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
   <nav class="flex flex-col" aria-label="Mobilmeny">
-    <a class="mobile-nav-link" href="index.html" aria-current="page">Hjem</a>
+    <a class="mobile-nav-link" href="index.html" aria-current="page">Heim</a>
     <a class="mobile-nav-link" href="olene.html">Våre øl</a>
     <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
-    <a class="mobile-nav-link" href="utsalg.html">Utsalg</a>
+    <a class="mobile-nav-link" href="utsalg.html">Utsal</a>
     <a class="mobile-nav-link" href="pub.html">Pub</a>
     <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
-    <a class="mobile-nav-link" href="historie.html">Historie</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
     <a class="btn-nav inline-flex" href="#kontakt">Ta kontakt</a>
@@ -199,7 +197,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   </div>
 </div>
 
-<main id="hovedinnhold">
+<main id="hovudinnhald">
 
 <!-- Hero — Explore grid -->
 <section class="bg-[#12160f] text-white overflow-hidden" id="explore-section">
@@ -212,8 +210,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       </video>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
-      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Lager øl</h2>
-      <a href="olene.html" class="btn-hero relative z-10">Se alle sorter<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Lagerøl</h2>
+      <a href="olene.html" class="btn-hero relative z-10">Sjå alle sortar<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <!-- Panel 2 -->
@@ -224,7 +222,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Ølsmaking</h2>
-      <a href="olsmaking.html" class="btn-hero relative z-10">Les mer<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="olsmaking.html" class="btn-hero relative z-10">Les meir<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <!-- Panel 3 -->
@@ -234,8 +232,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       </video>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
-      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gårdspub</h2>
-      <a href="pub.html#program" class="btn-hero relative z-10">Se programmet<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gardspub</h2>
+      <a href="pub.html#program" class="btn-hero relative z-10">Sjå programmet<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
   </div>
@@ -252,10 +250,10 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <div class="px-margin-edge mb-10 flex flex-wrap items-end justify-between gap-4">
       <div>
-        <span class="font-label text-xs uppercase tracking-[0.22em] text-on-surface-variant/50">Sortiment</span>
+        <span class="font-label text-xs uppercase tracking-[0.22em] text-on-surface-variant/50">Sortimang</span>
         <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mt-3 leading-[1.1]">Alle våre øl</h2>
       </div>
-      <p class="font-body text-sm text-on-surface-variant/45 max-w-[26ch]">Trykk på et øl for å lese mer om det.</p>
+      <p class="font-body text-sm text-on-surface-variant/45 max-w-[26ch]">Trykk på eit øl for å lese meir om det.</p>
     </div>
 
     <div class="relative" id="carousel-wrap" role="group" aria-label="Navigasjon for ølkarusell">
@@ -296,8 +294,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
         <hr class="rule-ink mt-6" style="max-width:5.5rem"/>
 
         <div class="order-box mt-9">
-          <p class="item-name" style="font-size:1.15rem">Ring eller send en e-post</p>
-          <p class="body-ink mt-2 max-w-[54ch]" style="font-size:1rem">Spørsmål, bestilling eller booking — det raskeste er å ta en telefon. Vi svarer som regel samme dag.</p>
+          <p class="item-name" style="font-size:1.15rem">Ring eller send ein e-post</p>
+          <p class="body-ink mt-2 max-w-[54ch]" style="font-size:1rem">Spørsmål, bestilling eller booking — det raskaste er å ta ein telefon. Me svarar som regel same dag.</p>
           <div class="mt-5 flex flex-wrap gap-3">
             <a class="pill-solid" href="tel:+4795844455">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -315,11 +313,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
         <div class="mt-10">
           <h3 class="item-name" style="font-size:1.3rem">Eller skriv til oss her</h3>
-          <p class="body-ink mt-2 max-w-[52ch]">Felt merket med * må fylles ut.</p>
+          <p class="body-ink mt-2 max-w-[52ch]">Felt merka med * må fyllast ut.</p>
           <form id="kontaktForm" class="mt-8 grid gap-6 sm:grid-cols-2 max-w-[46rem]" novalidate aria-describedby="kStatus">
-            <div class="fp sm:col-span-1"><label for="knavn">Navn *</label><input id="knavn" name="navn" type="text" autocomplete="name" required aria-required="true" placeholder="Ola Nordmann"/><p class="err">Fyll inn navn.</p></div>
-            <div class="fp sm:col-span-1"><label for="kepost">E-post *</label><input id="kepost" name="epost" type="email" autocomplete="email" required aria-required="true" placeholder="deg@epost.no"/><p class="err">Skriv inn en gyldig e-postadresse.</p></div>
-            <div class="fp sm:col-span-2"><label for="kmelding">Melding *</label><textarea id="kmelding" name="melding" rows="4" required aria-required="true" placeholder="Hva gjelder det?"></textarea><p class="err">Skriv en kort melding.</p></div>
+            <div class="fp sm:col-span-1"><label for="knavn">Namn *</label><input id="knavn" name="navn" type="text" autocomplete="name" required aria-required="true" placeholder="Ola Nordmann"/><p class="err">Fyll inn namn.</p></div>
+            <div class="fp sm:col-span-1"><label for="kepost">E-post *</label><input id="kepost" name="epost" type="email" autocomplete="email" required aria-required="true" placeholder="deg@epost.no"/><p class="err">Skriv inn ei gyldig e-postadresse.</p></div>
+            <div class="fp sm:col-span-2"><label for="kmelding">Melding *</label><textarea id="kmelding" name="melding" rows="4" required aria-required="true" placeholder="Kva gjeld det?"></textarea><p class="err">Skriv ei kort melding.</p></div>
             <div class="sm:col-span-2 flex flex-wrap items-center gap-5">
               <button type="submit" id="kSubmit" class="btn-submit">Send melding</button>
               <p id="kStatus" role="status" aria-live="polite" class="body-ink" style="font-size:.92rem"></p>
@@ -352,7 +350,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <p class="showcase-tags-label">Passer til</p>
       <div class="showcase-tags" id="showcaseFood"></div>
       <a href="olene.html" class="showcase-more">
-        Se alle sortene
+        Sjå alle sortane
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -365,21 +363,20 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
     <div class="md:col-span-4">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
-      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gårdspub i hjertet av Lom. Håndverk siden 2016.</p>
+      <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
       <div class="flex gap-4 mt-6">
         <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
         <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
       </div>
     </div>
     <div class="md:col-span-2">
-      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c3b393]/60 mb-5">Snarveier</h2>
+      <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c3b393]/60 mb-5">Snarveiar</h2>
       <ul class="space-y-3">
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsalg</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsal</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
         <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="historie.html">Historie</a></li>
       </ul>
     </div>
     <div class="md:col-span-6">
@@ -398,65 +395,63 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
 <script>
   const BEERS = [
-    { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', abv:'4,7 %', style:'Lys lager', ink:'#3f9fc7',
-      desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkelig og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
+    // Same data som olene.html — sortimanget som er å få tak i gjennom grossist.
+    { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f9fc7',
+      desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkeleg og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
       ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
-    { name:'Skei', file:'LOMB-SKEI-vanlig-467x1024.png', abv:'4,7 %', style:'Pils', ink:'#d4b942',
-      desc:'Ein tørr og frisk pils. Klassisk og reindyrka — utan unødvendige tilsetningar.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Stekt fisk, chips, lett kvardagsmat' },
-    { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', abv:'4,7 %', style:'Pale lager', ink:'#3f7a45', imgScale:0.95,
+    { name:'Mor Åse', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager', ink:'#c9ac5a',
+      desc:'Mild og rund i smaken. Ein lager for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
+      ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
+    { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med mjødurt', ink:'#d81b60',
+      desc:'Ljos lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
+      ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
+    { name:'Skjaak', file:'LOMB-SKJAAK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager med lokal malt frå Skjåk', ink:'#a89a3a',
+      desc:'Ljos lager brygga med lokal malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bøndene sjølve styrer vatnet.',
+      ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøt' },
+    { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med bjørkeskot', ink:'#93a13c',
+      desc:'Ljos og frisk lager, smaksett med bjørkeskot. Skota gjev ein søtare og meir delikat smak enn ferdig utspungne blad.',
+      ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskot, gjær', food:'Grillmat, kylling, gardsmat' },
+    { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med kveitemalt', ink:'#d9c15a',
+      desc:'Mjukt og fyldig, brygga med kveitemalt. Ein lager av den avslappa sorten — rund og lettdrikkeleg.',
+      ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
+    { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.95,
       desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
       ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
-    { name:'Bjørk', file:'LOMB-BJORK-vanlig-467x1024.png', abv:'4,7 %', style:'Bjørkelager', ink:'#93a13c',
-      desc:'Lyst og frisk øl, smaksett med bjørkeskotkonsentrat. Skota gjev ein søtare og delikat smak samanlikna med ferdig utspungne blad.',
-      ing:'Vatn, byggmalt, kveitemalt, humle, bjørkeskotkonsentrat, gjær', food:'Grillmat, kylling, gardsmat' },
-    { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', abv:'4,7 %', style:'Einerlager', ink:'#2f9098',
-      desc:'Brygga etter tradisjonell oppskrift med einerbær. Bæra gjev ein naturleg bitter smak og er eit av dei eldste bryggingsingrediensane vi kjenner til. Gullgul og tørr i avslutinga.',
-      ing:'Vatn, byggmalt, humle, einerbær, gjær', food:'Vilt, kraftig ost, smørbrød' },
-    { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', abv:'4,7 %', style:'Porslager', ink:'#6b2438',
-      desc:'Mørk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
-      ing:'Vatn, byggmalt, pors, gjær', food:'Røkt kjøtt, sterk ost, mørk sjokolade' },
-    { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', abv:'4,7 %', style:'Kvannlager', ink:'#4a8f3f',
-      desc:'Krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
-      ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
-    { name:'Mjødurt', file:'LOMB-MJODURT-vanlig-467x1024.png', abv:'4,7 %', style:'Urtelager', ink:'#d81b60',
-      desc:'Lys lager smaksett med mjødurt — ei urt som veks naturleg i fjellskogen og langs bekkar her i Lom. Når ho blømer, spreier ho ein sterk og søt aroma som minner om nyklypt høy.',
-      ing:'Vatn, byggmalt, humle, mjødurt, gjær', food:'Kylling, grillmat, sommarsalatar' },
-    { name:'4 Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', abv:'4,7 %', style:'Fire-kornlager', ink:'#d9722a',
-      desc:'Fire korn i same brygg: bygg, havre, rug og kveite. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
-      ing:'Vatn, byggmalt, havremalt, rugmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, kjøtt og potet' },
-    { name:'Kveite', file:null, abv:'4,7 %', style:'Hvetelager', ink:'#d9c15a',
-      desc:'Mjukt og fyldig, brygga på kveite. Ein lagar av den avslappa sorten — rund og lettdrikkelig.',
-      ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
-    { name:'Skjåk', file:'LOMB-SKJAAK-vanlig-467x1024.png', abv:'4,7 %', style:'Bygglager', ink:'#a89a3a',
-      desc:'Brygga på malt frå nabobygda Skjåk — ein av dei tørraste stadene i Noreg, der bønder sjølv styrer vatnet. Maltet kjem frå Malteriet på Kongsberg.',
-      ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Tradisjonell norsk mat, pølser, grillkjøtt' },
-    { name:'Mor Åse', file:null, abv:'4,7 %', style:'Blond lager', ink:'#c9ac5a',
-      desc:'Mild og rund i smaken. Ein lagar for dei som vil ha noko velbalansert og tilgjengeleg — utan skarpe kantar.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Lett mat, sjømat, fersk ost' },
-    { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', abv:'4,7 %', style:'Amber lager', ink:'#4a8f4a',
-      desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ein mjuk avslutning.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgerar' },
-    { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', abv:'4,7 %', style:'Raudlager', ink:'#e0185a',
+    { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager', ink:'#4a8f4a',
+      desc:'Ravgul og maltrik amber lager. Varm og innbydande, med eit hint av karamell og ei mjuk avslutning.',
+      ing:'Vatn, byggmalt, humle, gjær', food:'Grillmat, pulled pork, hamburgarar' },
+    { name:'4-Korn', file:'LOMB-4_KORN-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med fire kornsortar', ink:'#d9722a',
+      desc:'Fire kornsortar i same brygg: bygg, kveite, rug og spelt. Gjev eit rundt og fyldig øl med kompleks maltkarakter.',
+      ing:'Vatn, byggmalt, kveitemalt, rugmalt, speltmalt, humle, gjær', food:'Pizza, pasta, kjøt og potet' },
+    { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Gyllen Lager', ink:'#a08a3a',
+      desc:'Gyllen lager brygga utelukkande med norsk malt. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
+      ing:'Vatn, norsk byggmalt, humle, gjær', food:'Røykt mat, sterk ost, viltgryte' },
+    { name:'Eine', file:'LOMB-EINE-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Eine Lager', ink:'#2f9098',
+      desc:'Brygga etter tradisjonell oppskrift med einebær. Bæra gjev ein naturleg bitter smak og er ein av dei eldste bryggjeingrediensane vi kjenner til. Gullgul og tørr i avslutninga.',
+      ing:'Vatn, byggmalt, humle, einebær, gjær', food:'Vilt, kraftig ost, smørbrød' },
+    { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#a8422c',
+      desc:'Amber lager krydra med eine og krekling frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
+      ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, tradisjonell norsk mat, sterk ost' },
+    { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#9c3b28',
+      desc:'Amber lager krydra med eine og krekling — dei vanlegaste vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
+      ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, røykt reinkjøt, sterk ost' },
+    { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager brygga med eine og krekling', ink:'#b8543a',
+      desc:'Amber lager krydra med eine og krekling. Oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, her i Lom kommune. 2469 meter over havet.',
+      ing:'Vatn, byggmalt, humle, eine, krekling, gjær', food:'Vilt, kraftige ostar, nøtter' },
+    { name:'Raudt', file:'LOMB-RAUDT-vanlig-2-467x1024.png', cat:'fast', abv:'4,7 %', style:'Amber Lager', ink:'#e0185a',
       desc:'Fem forskjellige byggmalt som mellom anna gjev ølet ei fin raudfarge. Mild humle og eit snev av sødme frå malten.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Kjøtt, vilt, kraftige ostar' },
-    { name:'Døl', file:'LOMB-DOL-vanlig-2-467x1024.png', abv:'4,7 %', style:'Mørk lager', ink:'#a08a3a',
-      desc:'Mørk og brødaktig, brygga på bygg dyrka i den tørre dalbotnen i Skjåk. «Gjev Vårherre oss sol, så skal oss sjølv skaffe væte.»',
-      ing:'Vatn, byggmalt frå Skjåk, humle, gjær', food:'Røkt mat, sterk ost, viltgryte' },
-    { name:'Jo Gjende', file:'LOMB-JO-GJENDE-vanlig-1-467x1024.png', abv:'4,7 %', style:'Mørk lager', ink:'#9c3b28',
-      desc:'Krydra med krekling og einer — dei mest vanlege vekstene i fjellområda der Jo Gjende vanka. Oppkalla etter den legendariske reinsdyrjegaren frå Lom.',
-      ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, røkt reinkjøtt, sterk ost' },
-    { name:'Peer Gynt', file:'LOMB-PEER_GYNT-vanlig-1-467x1024.png', abv:'4,7 %', style:'Mørk lager', ink:'#a8422c',
-      desc:'Krydra med krekling og einer frå fjella rundt Lom. Oppkalla etter den dramatiske soga — og den historiske Per Gynt som Ibsen møtte her i 1862.',
-      ing:'Vatn, byggmalt, humle, krekling, einerbær, gjær', food:'Vilt, tradisjonsnorsk mat, sterk ost' },
-    { name:'2469', file:'LOMB-2469-vanlig-1-467x1024.png', abv:'6,5 %', sterk:true, style:'Sterk lager', ink:'#a8422c',
-      desc:'Sterk og fyldig lager, oppkalla etter høgda på Galdhøpiggen — Noregs høgaste fjell, rett her i Lom kommune. 2469 meter over havet.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Sjokoladedessert, kraftige ostar, nøtter' },
-    { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', abv:'6,5 %', sterk:true, style:'Vinterlager', ink:'#5b3f7a',
-      desc:'Mørk og krydra vinterlager. Brygga til dei lange, mørke nettene i fjelldalen — best servert ved peisen.',
-      ing:'Vatn, byggmalt, humle, gjær', food:'Julemiddag, ribbegryte, mørk sjokolade' },
-    { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', abv:'6,5 %', sterk:true, style:'Festlager', ink:'#4a2620',
-      desc:'Sterk og fyldig festlager. Til dei gongene noko verkeleg skal feirast.',
+      ing:'Vatn, byggmalt, humle, gjær', food:'Kjøt, vilt, kraftige ostar' },
+    { name:'Fjellkvann', file:'LOMB-FJELLKVANN-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lager brygga med fjellkvann', ink:'#4a8f3f',
+      desc:'Myrk lager krydra med fjellkvann — ei urt med lange røter i norsk mat- og folkemedisin. Karakteristisk aromatisk og urteleg i smaken.',
+      ing:'Vatn, byggmalt, humle, fjellkvann, gjær', food:'Kvit fisk, sjømat, urtekrydra mat' },
+    { name:'Myrt', file:'LOMB-MYRT-vanlig-1-467x1024.png', cat:'fast', abv:'4,7 %', style:'Myrk Lager', ink:'#6b2438',
+      desc:'Myrk lager med fem forskjellige byggmalt. Smak av rista malt og sjokolade, med mild humle. Brygga med pors — slik det vart gjort på desse kantar lenge før humla kom til landet.',
+      ing:'Vatn, byggmalt, pors, gjær', food:'Røykt kjøt, sterk ost, myrk sjokolade' },
+    { name:'Vinternatt', file:'LOMB-VINTERNATT-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lager', ink:'#5b3f7a',
+      desc:'Myrk lager med ein maserasjon av økologiske appelsin, ceylonkanel, stjerneanis og nellikspikar.',
+      ing:'Vatn, byggmalt, humle, appelsin, ceylonkanel, stjerneanis, nellikspikar, gjær', food:'Julemat, ribbe, myrk sjokolade' },
+    { name:'Fest', file:'LOMB-FEST-vanlig-1-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Myrk Lagerøl', ink:'#4a2620',
+      desc:'Myrk lagerøl. Til dei gongene noko verkeleg skal feirast.',
       ing:'Vatn, byggmalt, humle, gjær', food:'Festmat, ost- og kjøtbord, dessert' },
   ];
 
@@ -509,7 +504,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       btn.className = 'beer-card group';
       btn.dataset.name = name;
       btn.setAttribute('aria-haspopup', 'dialog');
-      btn.setAttribute('aria-label', 'Les mer om ' + name);
+      btn.setAttribute('aria-label', 'Les meir om ' + name);
       const scale = imgScale || 1;
       const img = file
         ? `<img src="Beers/${file}" alt="" width="467" height="1024" loading="lazy" draggable="false"
@@ -670,7 +665,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     var b3=document.getElementById('hbar3');
     if(!btn||!menu) return;
     function openMob(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-label','Lukk meny');document.body.style.overflow='hidden';b1.style.transform='translateY(6.5px) rotate(45deg)';b2.style.opacity='0';b3.style.transform='translateY(-6.5px) rotate(-45deg)';}
-    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Åpne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
+    function closeMob(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Opne meny');document.body.style.overflow='';b1.style.transform='';b2.style.opacity='';b3.style.transform='';}
     btn.addEventListener('click',function(){menu.classList.contains('open')?closeMob():openMob();});
     menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMob);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))closeMob();});
@@ -688,9 +683,9 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       e.preventDefault();
       var inputs=Array.from(form.querySelectorAll('input,textarea'));var allOk=true;var firstBad=null;
       inputs.forEach(function(input){var ok=validateField(input);if(!ok&&!firstBad)firstBad=input;if(!ok)allOk=false;});
-      if(!allOk){kStatus.textContent='Sjekk de merkede feltene.';if(firstBad)firstBad.focus();return;}
+      if(!allOk){kStatus.textContent='Sjekk dei merkte felta.';if(firstBad)firstBad.focus();return;}
       var btn=document.getElementById('kSubmit');btn.classList.add('is-loading');btn.setAttribute('aria-disabled','true');kStatus.textContent='';
-      setTimeout(function(){btn.classList.remove('is-loading');btn.removeAttribute('aria-disabled');form.reset();form.querySelectorAll('.fp').forEach(function(f){f.classList.remove('is-invalid');});kStatus.textContent='Takk for meldingen — vi svarer så fort vi kan. Haster det, ring 95 84 44 55.';},1100);
+      setTimeout(function(){btn.classList.remove('is-loading');btn.removeAttribute('aria-disabled');form.reset();form.querySelectorAll('.fp').forEach(function(f){f.classList.remove('is-invalid');});kStatus.textContent='Takk for meldinga — vi svarar så fort vi kan. Hastar det, ring 95 84 44 55.';},1100);
     });
   })();
 </script>
