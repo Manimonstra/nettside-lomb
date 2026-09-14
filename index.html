@@ -9,6 +9,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#15181a","surface":"#12160f","surface-dim":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-highest":"#3d4345","surface-container-lowest":"#171410","surface-bright":"#454b4d","surface-variant":"#313638","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","primary-fixed":"#e8ddc0","on-primary":"#22201a","outline":"#8a8578","outline-variant":"#3a3f41","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
+<script src="lang.js"></script>
 <style>
   body{background-color:#12160f;margin:0;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}
 
@@ -159,7 +160,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
-    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+    <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-current="page">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
@@ -167,8 +168,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#kontakt">Ta kontakt</a>
-    <div class="md:hidden flex-1 flex justify-end">
+    <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
+      <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-switch-label">English</span>
+    </button>
+    <a class="btn-nav flex-shrink-0 hidden lg:inline-flex" href="#kontakt">Ta kontakt</a>
+    <div class="lg:hidden flex justify-end ml-3">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span>
         <span id="hbar2"></span>
@@ -205,9 +210,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <!-- Panel 1 -->
     <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
-      <video aria-hidden="true" autoplay="" data-loop-frac="0.45" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
-        <source src="https://videos.pexels.com/video-files/5538051/5538051-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
-      </video>
+      <img src="Pictures/classics.webp" alt="" width="1287" height="1020" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Lagerøl</h2>
@@ -216,9 +219,10 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <!-- Panel 2 -->
     <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group border-y md:border-y-0 md:border-x border-white/10">
-      <video aria-hidden="true" autoplay="" data-loop-frac="0.6" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
-        <source src="https://videos.pexels.com/video-files/5530399/5530399-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
-      </video>
+      <!-- Biletet er høgformat og fyller panelet i breidda, så object-position
+           har ingen slark å flytte sidelengs på. Ein brearare boks forskyv til
+           venstre gjev mannen plass til venstre for «Les meir»-knappen. -->
+      <img src="Pictures/Ølsmaking.jpg" alt="" width="1920" height="2880" fetchpriority="high" class="absolute top-0 left-[-24%] h-full w-[124%] max-w-none object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 45%;"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Ølsmaking</h2>
@@ -227,13 +231,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <!-- Panel 3 -->
     <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
-      <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" loop="" muted="" playsinline="">
-        <source src="https://videos.pexels.com/video-files/29966866/12860203_2160_3840_30fps.mp4" type="video/mp4"/>
-      </video>
+      <img src="Pictures/Butikk.jpg" alt="" width="2863" height="1909" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 40%;"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
-      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gardspub</h2>
-      <a href="pub.html#program" class="btn-hero relative z-10">Sjå programmet<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gardsutsal</h2>
+      <a href="utsalg.html" class="btn-hero relative z-10">Sjå kva vi sel<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
   </div>
@@ -250,8 +252,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <div class="px-margin-edge mb-10 flex flex-wrap items-end justify-between gap-4">
       <div>
-        <span class="font-label text-xs uppercase tracking-[0.22em] text-on-surface-variant/50">Sortimang</span>
-        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-on-surface mt-3 leading-[1.1]">Alle våre øl</h2>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-on-surface leading-[1.1]">Alle våre øl</h2>
       </div>
       <p class="font-body text-sm text-on-surface-variant/45 max-w-[26ch]">Trykk på eit øl for å lese meir om det.</p>
     </div>
@@ -289,8 +290,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-16" style="padding-top:calc(var(--peak) + 2.5rem);padding-bottom:3.25rem;">
 
-        <p class="eyebrow-ink">Kontakt</p>
-        <h2 class="h-ink mt-4" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Ta kontakt</h2>
+        <h2 class="h-ink" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Ta kontakt</h2>
         <hr class="rule-ink mt-6" style="max-width:5.5rem"/>
 
         <div class="order-box mt-9">
@@ -315,6 +315,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
           <h3 class="item-name" style="font-size:1.3rem">Eller skriv til oss her</h3>
           <p class="body-ink mt-2 max-w-[52ch]">Felt merka med * må fyllast ut.</p>
           <form id="kontaktForm" class="mt-8 grid gap-6 sm:grid-cols-2 max-w-[46rem]" novalidate aria-describedby="kStatus">
+            <!-- Felle for spam-robotar: usynleg for folk, skal stå tomt. -->
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
             <div class="fp sm:col-span-1"><label for="knavn">Namn *</label><input id="knavn" name="navn" type="text" autocomplete="name" required aria-required="true" placeholder="Ola Nordmann"/><p class="err">Fyll inn namn.</p></div>
             <div class="fp sm:col-span-1"><label for="kepost">E-post *</label><input id="kepost" name="epost" type="email" autocomplete="email" required aria-required="true" placeholder="deg@epost.no"/><p class="err">Skriv inn ei gyldig e-postadresse.</p></div>
             <div class="fp sm:col-span-2"><label for="kmelding">Melding *</label><textarea id="kmelding" name="melding" rows="4" required aria-required="true" placeholder="Kva gjeld det?"></textarea><p class="err">Skriv ei kort melding.</p></div>
@@ -393,6 +395,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   </div>
 </footer>
 
+<script src="skjema.js"></script>
 <script>
   const BEERS = [
     // Same data som olene.html — sortimanget som er å få tak i gjennom grossist.
@@ -476,9 +479,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     }
 
     // ── Video segment looping ──
-    // Some clips end on a long static shot (e.g. the full beer glass).
-    // data-loop-frac says how much of the clip to play before restarting:
-    // 0.45 = restart at 45 % of the duration. Tweak per video.
+    // Panela er bilete for tida, så denne gjer ingenting. Han står att til
+    // eigne videoar er klare: byt <img> mot <video ... data-loop-frac="0.45">,
+    // så tek han over igjen. data-loop-frac seier kor mykje av klippet som
+    // skal spelast før det startar på nytt — 0.45 = start om att på 45 %.
+    // Nyttig når eit klipp endar på eit langt, stillestående bilete.
     if (!prefersReduced) {
       document.querySelectorAll('video[data-loop-frac]').forEach((v) => {
         const frac = parseFloat(v.dataset.loopFrac);
@@ -498,7 +503,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     const prevBtn = document.getElementById('beer-prev');
     const nextBtn = document.getElementById('beer-next');
 
-    BEERS.forEach(({ name, file, imgScale }) => {
+    // Beers still waiting on a product photo fall in behind the rest, so the
+    // slider opens on bottles instead of placeholder outlines.
+    const CAROUSEL = [...BEERS.filter(b => b.file), ...BEERS.filter(b => !b.file)];
+
+    CAROUSEL.forEach(({ name, file, imgScale }) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'beer-card group';
@@ -678,14 +687,31 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     var kStatus=document.getElementById('kStatus');
     function setState(field,ok){field.classList.toggle('is-invalid',!ok);var i=field.querySelector('input,textarea');if(i)i.setAttribute('aria-invalid',ok?'false':'true');}
     function validateField(input){var field=input.closest('.fp');var val=input.value.trim();var ok=true;if(input.hasAttribute('required')&&!val)ok=false;else if(input.type==='email'&&val)ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);setState(field,ok);return ok;}
-    form.querySelectorAll('input,textarea').forEach(function(input){input.addEventListener('blur',function(){if(input.value.trim()||input.hasAttribute('required'))validateField(input);});input.addEventListener('input',function(){if(input.closest('.fp').classList.contains('is-invalid'))validateField(input);});});
+    form.querySelectorAll('.fp input,.fp textarea').forEach(function(input){input.addEventListener('blur',function(){if(input.value.trim()||input.hasAttribute('required'))validateField(input);});input.addEventListener('input',function(){if(input.closest('.fp').classList.contains('is-invalid'))validateField(input);});});
     form.addEventListener('submit',function(e){
       e.preventDefault();
-      var inputs=Array.from(form.querySelectorAll('input,textarea'));var allOk=true;var firstBad=null;
+      var btn=document.getElementById('kSubmit');
+      if(btn.classList.contains('is-loading'))return;
+      var inputs=Array.from(form.querySelectorAll('.fp input,.fp textarea'));var allOk=true;var firstBad=null;
       inputs.forEach(function(input){var ok=validateField(input);if(!ok&&!firstBad)firstBad=input;if(!ok)allOk=false;});
       if(!allOk){kStatus.textContent='Sjekk dei merkte felta.';if(firstBad)firstBad.focus();return;}
-      var btn=document.getElementById('kSubmit');btn.classList.add('is-loading');btn.setAttribute('aria-disabled','true');kStatus.textContent='';
-      setTimeout(function(){btn.classList.remove('is-loading');btn.removeAttribute('aria-disabled');form.reset();form.querySelectorAll('.fp').forEach(function(f){f.classList.remove('is-invalid');});kStatus.textContent='Takk for meldinga — vi svarar så fort vi kan. Hastar det, ring 95 84 44 55.';},1100);
+      btn.classList.add('is-loading');btn.setAttribute('aria-disabled','true');kStatus.textContent='';
+      var val=function(id){return document.getElementById(id).value.trim();};
+      // Send til post@lomb.no via skjema.js. Svar i e-posten går rett til avsendaren.
+      sendSkjema({
+        _subject:'Melding frå nettsida — '+val('knavn'),
+        _replyto:val('kepost'),
+        _honey:form.elements._honey.value,
+        'Namn':val('knavn'),
+        'E-post':val('kepost'),
+        'Melding':val('kmelding')
+      }).then(function(ok){
+        btn.classList.remove('is-loading');btn.removeAttribute('aria-disabled');
+        // Går det gale, står teksten att i felta så dei kan prøve igjen.
+        if(!ok){kStatus.textContent='Det gjekk ikkje å sende. Prøv igjen, eller ring 95 84 44 55.';return;}
+        form.reset();form.querySelectorAll('.fp').forEach(function(f){f.classList.remove('is-invalid');});
+        kStatus.textContent='Takk for meldinga — vi svarar så fort vi kan. Hastar det, ring 95 84 44 55.';
+      });
     });
   })();
 </script>

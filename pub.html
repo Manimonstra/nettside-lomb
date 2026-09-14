@@ -4,12 +4,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Pub — Lom Bryggeri</title>
-<meta name="description" content="Gardspuben i låven på Grjotheim. Tolv kranar, opningstider, program og leige av lokalet."/>
+<meta name="description" content="Gardspuben i låven på Grjotheim. Tolv kranar, program og leige av lokalet."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-lowest":"#171410","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
+<script src="lang.js"></script>
 <style>
   :root{
     --paper:#d8cab8; --paper-2:#e6ddcf; --ink:#241e17; --ink-soft:rgba(36,30,23,.74); --ink-faint:rgba(36,30,23,.5);
@@ -39,19 +40,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   /* Type matched to olene.html */
   .h-ink{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#1a1712;}
   .h-light{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#f2ede0;}
-  .eyebrow-ink{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);}
   .rule-ink{height:3px;background:var(--brown);border:0;margin:0;}
   .lead-ink{font-family:'Fraunces',serif;font-weight:400;color:#1a1712;line-height:1.42;}
   .body-ink{font-family:'Work Sans',sans-serif;color:var(--ink-soft);line-height:1.85;}
   .foot-ink{font-family:'Fraunces',serif;font-style:italic;color:var(--ink-faint);}
   .item-name{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.02em;color:#1a1712;}
-
-  /* Hours inside the card */
-  .hrs div{display:flex;align-items:baseline;justify-content:space-between;gap:1.25rem;padding:.7rem 0;}
-  .hrs div + div{border-top:1px solid rgba(75,54,33,.2);}
-  .hrs dt{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);}
-  .hrs dd{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem;color:#1a1712;}
-  .hrs dd.shut{color:rgba(36,30,23,.32);font-size:1rem;}
 
   /* Light-on-dark type, for the sections that sit straight on the ground */
   .eyebrow-light{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--camel);}
@@ -103,7 +96,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
-    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+    <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
@@ -111,8 +104,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html" aria-current="page">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#leie">Leie lokalet</a>
-    <div class="md:hidden flex-1 flex justify-end">
+    <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
+      <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-switch-label">English</span>
+    </button>
+    <a class="btn-nav flex-shrink-0 hidden lg:inline-flex" href="#leie">Leie lokalet</a>
+    <div class="lg:hidden flex justify-end ml-3">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span><span id="hbar2"></span><span id="hbar3"></span>
       </button>
@@ -142,7 +139,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
   <!-- Photo behind, card in front. -->
   <div class="relative isolate overflow-hidden h-[46vh] md:h-[60vh]">
-    <img src="Pictures/Ølsmaking.jpg" alt="Bak disken i gardspuben hjå Lom Bryggeri" width="1920" height="2880" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 28%;"/>
+    <img src="Pictures/beersontap.avif" alt="Rekkja med kranar i gardspuben, med Ljost og Høgruta fremst" width="1500" height="850" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 50%;"/>
     <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg,rgba(18,22,15,.35) 0%,rgba(18,22,15,.15) 45%,rgba(18,22,15,.9) 100%);"></div>
   </div>
 
@@ -151,36 +148,21 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-20" style="padding-top:calc(var(--peak) + 2.75rem);padding-bottom:3.25rem;">
 
-        <p class="eyebrow-ink">Gardspub · Grjotheim</p>
-        <h1 class="h-ink mt-5" style="font-size:clamp(2.2rem,6vw,4.25rem)">Gardspuben</h1>
+        <h1 class="h-ink" style="font-size:clamp(2.2rem,6vw,4.25rem)">Gardspuben</h1>
         <hr class="rule-ink mt-7" style="max-width:5.5rem"/>
 
-        <div class="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-7">
-            <p class="lead-ink max-w-[32ch]" style="font-size:clamp(1.25rem,2.6vw,1.85rem)">Her kan me ta det saman.</p>
-            <p class="body-ink mt-7 max-w-[50ch]" style="font-size:1.0625rem">Tolv kranar rett ved tankane ølet kjem frå — fast sortimang og roterande sesongøl. <a class="link-ink" href="olene.html">Sjå heile sortimanget</a>.</p>
-          </div>
-          <div class="lg:col-span-5">
-            <p class="eyebrow-ink" style="font-size:.56rem">Ope</p>
-            <dl class="hrs mt-4">
-              <div><dt>Måndag–onsdag</dt><dd class="shut">Stengt</dd></div>
-              <div><dt>Torsdag–fredag</dt><dd>16–23</dd></div>
-              <div><dt>Laurdag</dt><dd>13–23</dd></div>
-              <div><dt>Søndag</dt><dd>13–20</dd></div>
-            </dl>
-          </div>
-        </div>
+        <p class="lead-ink mt-10 max-w-[32ch]" style="font-size:clamp(1.25rem,2.6vw,1.85rem)">Tolv kranar, rett ved tankane ølet kjem frå.</p>
+        <p class="body-ink mt-7 max-w-[50ch]" style="font-size:1.0625rem">Fast sortimang og roterande sesongøl på kran. <a class="link-ink" href="olene.html">Sjå heile sortimanget</a>.</p>
       </div>
     </article>
   </section>
 
   <!-- Programme — straight on the dark ground, no sheet. -->
   <section id="program" class="max-w-container-max mx-auto px-margin-edge py-16 md:py-24 scroll-mt-24">
-    <p class="reveal eyebrow-light">Program</p>
-    <h2 class="reveal h-light mt-4" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Kommande program</h2>
+    <h2 class="reveal h-light" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Kommande program</h2>
     <hr class="reveal rule-light mt-6" style="max-width:5.5rem"/>
     <div id="progList" class="reveal mt-12"></div>
-    <p id="progEmpty" class="hidden font-body text-on-surface-variant/60 py-10 leading-[1.85]">Programmet for neste sesong kjem snart.</p>
+    <p id="progEmpty" class="hidden font-body text-on-surface-variant/60 py-10 leading-[1.85]">Program kjem</p>
     <p class="font-display italic text-on-surface-variant/45 mt-10" style="font-size:.9rem">Ting som dukkar opp på kort varsel legg vi ut på Instagram.</p>
   </section>
 
@@ -190,8 +172,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-16" style="padding-top:calc(var(--peak) + 2.5rem);padding-bottom:3.25rem;">
 
-        <p class="eyebrow-ink">Arrangement</p>
-        <h2 class="h-ink mt-4" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Leige låven til selskap</h2>
+        <h2 class="h-ink" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Leige låven til selskap</h2>
         <hr class="rule-ink mt-6" style="max-width:5.5rem"/>
 
         <p class="lead-ink mt-9 max-w-[44ch]" style="font-size:clamp(1.15rem,2.3vw,1.55rem)">Plass til om lag 80, heile sortimanget på kran, og omvising i bryggeriet om de vil ha det.</p>
@@ -256,22 +237,14 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 </footer>
 
 <script>
-  const EVENTS = [
-    { date:'2026-07-16', time:'19:00', title:'Quizkveld i låven', tag:'Quiz',
-      desc:'Lagvis quiz om alt frå fjell og folk til musikk og mat. Maks seks på laget.' },
-    { date:'2026-08-07', time:'16:00', title:'Slipp: Mjødurt på kran', tag:'Slipp',
-      desc:'Årets mjødurt kjem på kran, og bryggaren fortel om urta han er smakt til med.' },
-    { date:'2026-08-22', time:'15:00', title:'Smaking og omvisning', tag:'Smaking',
-      desc:'Ein runde i bryggeriet og tre–fire øl frå ljost til myrkt. Avgrensa tal på plassar.' },
-    { date:'2026-09-18', time:'20:00', title:'Haustfest med livemusikk', tag:'Fest',
-      desc:'Levande musikk, grillmat frå garden og heile sortimanget på kran.' },
-    { date:'2026-10-15', time:'19:00', title:'Quizkveld i låven', tag:'Quiz',
-      desc:'Haustens quiz. Same reglar som sist.' },
-    { date:'2026-11-13', time:'16:00', title:'Slipp av Vinternatt', tag:'Slipp',
-      desc:'Årets vinterlager kjem på kran, med litt å bite i.' },
-    { date:'2026-12-11', time:'19:00', title:'Julebryggfest', tag:'Fest',
-      desc:'Juleøl, varm mat og fullt hus. Kom tidleg om du vil ha sitjeplass.' },
-  ];
+  // Legg inn arrangementa her når dei er klare. Kvart innslag treng dato,
+  // klokkeslett, tittel, ei merkelapp og ein kort tekst:
+  //   { date:'2026-11-13', time:'19:00', title:'Quizkveld i låven', tag:'Quiz',
+  //     desc:'Lagvis quiz. Maks seks på laget.' },
+  // Er lista tom, viser sida «Program kjem»
+  // Arrangement som har vore, fell automatisk ut av lista.
+  // Engelsk versjon: legg tittel, merkelapp og tekst inn i ordlista i lang.js òg.
+  const EVENTS = [];
   const MND = ['jan','feb','mar','apr','mai','jun','jul','aug','sep','okt','nov','des'];
   const DAG = ['Søndag','Måndag','Tysdag','Onsdag','Torsdag','Fredag','Laurdag'];
   const eventDate = ev => new Date(ev.date + 'T' + ev.time + ':00');
@@ -292,6 +265,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   const list = document.getElementById('progList');
 
   if (!upcoming.length) {
+    // Skjul den tomme lista òg, elles står det att eit tomrom over meldinga.
+    list.hidden = true;
     document.getElementById('progEmpty').classList.remove('hidden');
   } else {
     list.innerHTML = upcoming.map((ev,i) => {

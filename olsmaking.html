@@ -10,6 +10,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-lowest":"#171410","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
+<script src="lang.js"></script>
 <style>
   :root{
     --paper:#d8cab8; --paper-2:#e6ddcf; --ink:#241e17; --ink-soft:rgba(36,30,23,.74); --ink-faint:rgba(36,30,23,.5);
@@ -98,7 +99,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
-    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+    <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html" aria-current="page">Ølsmaking</a>
@@ -106,8 +107,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="#book">Book smaking</a>
-    <div class="md:hidden flex-1 flex justify-end">
+    <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
+      <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-switch-label">English</span>
+    </button>
+    <a class="btn-nav flex-shrink-0 hidden lg:inline-flex" href="#book">Book smaking</a>
+    <div class="lg:hidden flex justify-end ml-3">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span><span id="hbar2"></span><span id="hbar3"></span>
       </button>
@@ -137,7 +142,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
   <!-- Photo behind, card in front. -->
   <div class="relative isolate overflow-hidden h-[46vh] md:h-[60vh]">
-    <img src="Pictures/Flereglass.jpg" alt="Glass satt fram til ølsmaking hos Lom Bryggeri" width="2816" height="1877" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover"/>
+    <img src="Pictures/classics.webp" alt="Ljost, Høgruta, 4-Korn og Myrt på rekkje" width="1287" height="1020" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 62%;"/>
     <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg,rgba(18,22,15,.35) 0%,rgba(18,22,15,.15) 45%,rgba(18,22,15,.9) 100%);"></div>
   </div>
 
@@ -146,8 +151,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-20" style="padding-top:calc(var(--peak) + 2.75rem);padding-bottom:3.5rem;">
 
-        <p class="eyebrow-ink">Oppleving · Grjotheim</p>
-        <h1 class="h-ink mt-5" style="font-size:clamp(2.2rem,6vw,4.25rem)">Ølsmaking i bryggerilokala</h1>
+        <h1 class="h-ink" style="font-size:clamp(2.2rem,6vw,4.25rem)">Ølsmaking i bryggerilokala</h1>
         <hr class="rule-ink mt-7" style="max-width:5.5rem"/>
 
         <p class="lead-ink mt-9 max-w-[36ch]" style="font-size:clamp(1.25rem,2.6vw,1.85rem)">Tre–fire øl, ein runde i bryggeriet, og dei som brygga dei til å svare på det du lurer på.</p>
@@ -164,7 +168,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
             </div>
             <div class="step">
               <span class="step-no">03</span>
-              <div><h2 class="step-t">Bli sitjande</h2><p class="step-d">Puben er open etterpå, om de vil ta eit glas til av det de likte best.</p></div>
+              <div><h2 class="step-t">Etterpå</h2><p class="step-d">Etter ølsmakinga er det høve til å besøke utsalet i underetasja, eller ta nokre øl i puben.</p></div>
             </div>
           </div>
 
@@ -197,8 +201,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-16" style="padding-top:calc(var(--peak) + 2.5rem);padding-bottom:3.25rem;">
 
-        <p class="eyebrow-ink">Booking</p>
-        <h2 class="h-ink mt-4" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Book ei ølsmaking</h2>
+        <h2 class="h-ink" style="font-size:clamp(1.9rem,4.6vw,3.1rem)">Book ei ølsmaking</h2>
         <hr class="rule-ink mt-6" style="max-width:5.5rem"/>
 
         <div class="order-box mt-9">
@@ -223,6 +226,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
           <p class="body-ink mt-2 max-w-[52ch]">Send oss ønskt dato og tal på personar, så stadfestar vi tilbake. Felt merka med * må fyllast ut.</p>
 
           <form id="bookForm" class="mt-8 grid gap-6 sm:grid-cols-2 max-w-[46rem]" novalidate aria-describedby="bookStatus">
+            <!-- Felle for spam-robotar: usynleg for folk, skal stå tomt. -->
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
             <div class="fp sm:col-span-1"><label for="bnavn">Namn *</label><input id="bnavn" type="text" autocomplete="name" required aria-required="true" placeholder="Ola Nordmann"/><p class="err">Fyll inn namn.</p></div>
             <div class="fp sm:col-span-1"><label for="bepost">E-post *</label><input id="bepost" type="email" autocomplete="email" required aria-required="true" placeholder="deg@epost.no"/><p class="err">Skriv inn ei gyldig e-postadresse.</p></div>
             <div class="fp sm:col-span-1"><label for="btlf">Telefon</label><input id="btlf" type="tel" autocomplete="tel" inputmode="tel" placeholder="+47 000 00 000"/><p class="err">Sjekk telefonnummeret.</p></div>
@@ -277,6 +282,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   </div>
 </footer>
 
+<script src="skjema.js"></script>
 <script>
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('.reveal');
@@ -304,14 +310,16 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       input.setAttribute('aria-invalid', ok ? 'false' : 'true');
       return ok;
     }
-    form.querySelectorAll('input,textarea').forEach(input => {
+    form.querySelectorAll('.fp input,.fp textarea').forEach(input => {
       input.addEventListener('blur', () => { if (input.value.trim() || input.hasAttribute('required')) validateField(input); });
       input.addEventListener('input', () => { if (input.closest('.fp').classList.contains('is-invalid')) validateField(input); });
     });
     form.addEventListener('submit', e => {
       e.preventDefault();
+      const btn = document.getElementById('bookSubmit');
+      if (btn.classList.contains('is-loading')) return;
       let allOk = true, firstBad = null;
-      form.querySelectorAll('input,textarea').forEach(input => {
+      form.querySelectorAll('.fp input,.fp textarea').forEach(input => {
         if (input.hasAttribute('required') || input.value.trim()) {
           const ok = validateField(input);
           if (!ok && !firstBad) firstBad = input;
@@ -319,13 +327,29 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
         }
       });
       if (!allOk) { status.textContent = 'Sjekk dei merkte felta.'; if (firstBad) firstBad.focus(); return; }
-      const btn = document.getElementById('bookSubmit');
       btn.classList.add('is-loading'); btn.setAttribute('aria-disabled','true'); status.textContent = '';
-      setTimeout(() => {
+
+      // Send til post@lomb.no via skjema.js. Svar i e-posten går rett til avsendaren.
+      const val = id => document.getElementById(id).value.trim();
+      const [y, m, d] = val('bdato').split('-');
+      const dato = Number(d) + '.' + Number(m) + '.' + y;
+      sendSkjema({
+        _subject: 'Booking av ølsmaking — ' + dato + ' (' + val('bantall') + ' personar)',
+        _replyto: val('bepost'),
+        _honey: form.elements._honey.value,
+        'Namn': val('bnavn'),
+        'E-post': val('bepost'),
+        'Telefon': val('btlf') || '–',
+        'Tal på personar': val('bantall'),
+        'Ønskt dato': dato,
+        'Melding': val('bmelding') || '–'
+      }).then(ok => {
         btn.classList.remove('is-loading'); btn.removeAttribute('aria-disabled');
+        // Går det gale, står teksten att i felta så dei kan prøve igjen.
+        if (!ok) { status.textContent = 'Det gjekk ikkje å sende. Prøv igjen, eller ring 95 84 44 55.'; return; }
         form.reset(); form.querySelectorAll('.fp').forEach(f => f.classList.remove('is-invalid'));
         status.textContent = 'Takk! Vi stadfestar så snart vi har sett på datoen. Hastar det, ring 95 84 44 55.';
-      }, 1100);
+      });
     });
   })();
 

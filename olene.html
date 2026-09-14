@@ -10,6 +10,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#15181a","surface":"#12160f","surface-dim":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-highest":"#3d4345","surface-container-lowest":"#171410","surface-bright":"#454b4d","surface-variant":"#313638","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","primary-fixed":"#e8ddc0","on-primary":"#22201a","outline":"#8a8578","outline-variant":"#3a3f41","kraft":"#ddd7c4"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
+<script src="lang.js"></script>
 <style>
   body{background-color:#12160f;margin:0;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}
   .btn-nav{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:9999px;border:1.5px solid rgba(242,237,224,.3);background:rgba(242,237,224,.04);color:#f2ede0;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease;}
@@ -46,15 +47,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   @media(min-width:640px){.ticket-grid{grid-template-columns:repeat(3,1fr);gap:30px 20px;}}
   @media(min-width:900px){.ticket-grid{grid-template-columns:repeat(4,1fr);}}
   @media(min-width:1200px){.ticket-grid{grid-template-columns:repeat(5,1fr);}}
-  /* The brewer's style names run from "Ljos Lager" to "Amber Lager brygga med
-     eine og krekling", so the caption is one or two lines depending on the
-     beer. Cards stretch to the tallest in the row and the photo area absorbs
-     the difference, keeping the kraft edges on one line across the grid. */
-  .ticket{position:relative;display:block;width:100%;height:100%;background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;}
+  .ticket{position:relative;display:block;width:100%;background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent;}
   .ticket:focus-visible{outline:2px solid var(--ink);outline-offset:6px;border-radius:2px;}
   .ticket:active{background:none;}
 
-  .ticket-shape{position:relative;display:flex;flex-direction:column;height:100%;box-sizing:border-box;background-color:#ddd7c4;clip-path:polygon(0 22px,50% 0,100% 22px,100% 100%,0 100%);transition:transform .4s cubic-bezier(.22,1,.36,1),filter .3s ease;
+  .ticket-shape{position:relative;display:flex;flex-direction:column;background-color:#ddd7c4;clip-path:polygon(0 22px,50% 0,100% 22px,100% 100%,0 100%);transition:transform .4s cubic-bezier(.22,1,.36,1),filter .3s ease;
     box-shadow:
       0 1px 2px rgba(0,0,0,.22),
       0 10px 16px -8px rgba(0,0,0,.4),
@@ -72,14 +69,17 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .ticket-roof-inside svg{display:block;width:100%;height:100%;}
   .ticket-roof-inside polygon{fill:#221f19;fill-opacity:.22;}
 
-  .ticket-photo{position:relative;flex:1 0 auto;min-height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
+  .ticket-photo{position:relative;flex:0 0 auto;height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
   .ticket-photo img{position:relative;max-height:100%;max-width:82%;width:auto;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(34,31,25,.28));}
   .ticket-icon{position:relative;color:#221f19;opacity:.35;height:76%;width:auto;}
 
   .ticket-info{position:relative;padding:0 16px 22px;}
   .ticket-rule{position:relative;height:3px;background:var(--ink);margin:0 0 11px;}
   .ticket-name{position:relative;font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem;letter-spacing:.01em;text-transform:uppercase;color:#221f19;line-height:1.05;}
-  .ticket-foot{position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:.7rem;color:rgba(34,31,25,.62);margin-top:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  /* Two lines are reserved: the brewer's style names run from "Ljos Lager" to
+     "Amber Lager brygga med eine og krekling", and a fixed caption box keeps
+     the card bottoms level without touching the photo area above. */
+  .ticket-foot{position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:.7rem;color:rgba(34,31,25,.62);margin-top:8px;line-height:1.4;min-height:1.96rem;}
 
   .ticket-item{list-style:none;}
 
@@ -97,7 +97,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .dist-inner{position:relative;z-index:1;padding:calc(var(--peak) + 2.25rem) 1.75rem 2.75rem;}
   @media(min-width:768px){.dist-inner{padding:calc(var(--peak) + 2.75rem) 3.5rem 3.25rem;}}
   .dist-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#4b3621;}
-  .dist-title{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#1a1712;font-size:clamp(1.8rem,4.2vw,2.8rem);margin-top:1rem;}
+  .dist-title{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#1a1712;font-size:clamp(1.8rem,4.2vw,2.8rem);}
   .dist-rule{height:3px;background:#4b3621;border:0;margin:1.6rem 0 0;max-width:5.5rem;}
   .dist-lead{font-family:'Work Sans',sans-serif;color:rgba(36,30,23,.74);line-height:1.85;font-size:1.0625rem;max-width:58ch;margin-top:1.9rem;}
   .dist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem 2rem;list-style:none;margin:2.6rem 0 0;padding:0;}
@@ -177,7 +177,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
-    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+    <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html" aria-current="page">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
@@ -185,8 +185,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="index.html#kontakt">Ta kontakt</a>
-    <div class="md:hidden flex-1 flex justify-end">
+    <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
+      <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-switch-label">English</span>
+    </button>
+    <a class="btn-nav flex-shrink-0 hidden lg:inline-flex" href="index.html#kontakt">Ta kontakt</a>
+    <div class="lg:hidden flex justify-end ml-3">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span>
         <span id="hbar2"></span>
@@ -218,8 +222,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <main id="hovudinnhald">
 
   <section class="max-w-container-max mx-auto px-margin-edge pt-20 pb-14 md:pt-28 md:pb-16">
-    <span class="reveal font-label text-[0.65rem] uppercase tracking-[0.28em] text-primary/70">Sortimang</span>
-    <h1 class="reveal font-display font-semibold tracking-tight text-on-surface mt-4 leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Våre øl</h1>
+    <h1 class="reveal font-display font-semibold tracking-tight text-on-surface leading-[1.05]" style="font-size:clamp(2.8rem,7vw,5.5rem)">Våre øl</h1>
 
     <div class="mt-8 grid gap-9 lg:grid-cols-12 lg:gap-14 lg:items-start">
       <p class="reveal font-body text-lg text-on-surface-variant/80 leading-[1.75] lg:col-span-7">Lom bryggeri brygger lagerøl under merkevara Lomb. Me forsøker å få til eit mest mogleg lokalt preg på våre ølsortar både når det gjeld innhald, namn og profil. Det vart tidleg gjort eit val at me utelukkande skulle brygge lagerøl av forskjellige variantar. Dette er noko me stolt fortsett med i dag.</p>
@@ -462,7 +465,6 @@ function distribusjonHTML() {
   return `<article class="dist-sheet">
     <span class="dist-roof" aria-hidden="true">${ROOF_GLYPH}</span>
     <div class="dist-inner">
-      <p class="dist-eyebrow">Distribusjon</p>
       <h2 class="dist-title">Kor du får tak i Lomb</h2>
       <hr class="dist-rule"/>
       <p class="dist-lead">Ølet vårt er tilgjengeleg gjennom desse grossistledda og kjedene. Skal du ha Lomb i eige utsal eller på eigen skjenkestad, ta kontakt — så finn vi vegen som passar deg best.</p>

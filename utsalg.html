@@ -10,6 +10,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-lowest":"#171410","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
+<script src="lang.js"></script>
 <style>
   :root{
     --paper:#d8cab8; --paper-2:#e6ddcf; --ink:#241e17; --ink-soft:rgba(36,30,23,.74); --ink-faint:rgba(36,30,23,.5);
@@ -89,7 +90,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
       <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
-    <div class="hidden md:flex flex-1 items-center justify-center gap-5">
+    <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
@@ -97,8 +98,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
       <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
     </div>
-    <a class="btn-nav flex-shrink-0 hidden md:inline-flex" href="tel:+4795844455">Ring 95 84 44 55</a>
-    <div class="md:hidden flex-1 flex justify-end">
+    <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
+      <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-switch-label">English</span>
+    </button>
+    <a class="btn-nav flex-shrink-0 hidden lg:inline-flex" href="tel:+4795844455">Ring 95 84 44 55</a>
+    <div class="lg:hidden flex justify-end ml-3">
       <button class="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-surface" id="menuBtn" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileMenu">
         <span id="hbar1"></span><span id="hbar2"></span><span id="hbar3"></span>
       </button>
@@ -137,8 +142,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       <span class="sheet-roof" aria-hidden="true"><svg viewBox="0 0 200 40" preserveAspectRatio="none"><polygon points="0,40 100,0 100,13 9,40"/><polygon points="200,40 100,0 100,13 191,40"/></svg></span>
       <div class="sheet-inner px-7 sm:px-12 md:px-20" style="padding-top:calc(var(--peak) + 2.75rem);padding-bottom:3.5rem;">
 
-        <p class="eyebrow-ink">Utsal · Grjotheim</p>
-        <h1 class="h-ink mt-5" style="font-size:clamp(2.2rem,6vw,4.25rem)">Gardsutsal</h1>
+        <h1 class="h-ink" style="font-size:clamp(2.2rem,6vw,4.25rem)">Gardsutsal</h1>
         <hr class="rule-ink mt-7" style="max-width:5.5rem"/>
 
         <div class="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
