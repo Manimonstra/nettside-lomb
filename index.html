@@ -417,7 +417,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med kveitemalt', ink:'#d9c15a',
       desc:'Mjukt og fyldig, brygga med kveitemalt. Ein lager av den avslappa sorten — rund og lettdrikkeleg.',
       ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
-    { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.95,
+    { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.93,
       desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
       ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
     { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager', ink:'#4a8f4a',
@@ -515,13 +515,17 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       btn.setAttribute('aria-haspopup', 'dialog');
       btn.setAttribute('aria-label', 'Les meir om ' + name);
       const scale = imgScale || 1;
+      // Høgda vert rekna frå kortbreidda (219cqw = full breidd for ei 467×1024-flaske),
+      // ikkje frå breidda til biletet — elles vert tett skorne PNG-ar som Høgruta
+      // større enn dei andre på mobil. Skaleringa krympar mot botnen, så alle står likt.
       const img = file
         ? `<img src="/Beers/${file}" alt="" width="467" height="1024" loading="lazy" draggable="false"
-             class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-2"/>`
+             style="height:min(100cqh,219cqw);width:auto;max-width:none"
+             class="transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-2"/>`
         : `<span class="font-display leading-none text-on-surface-variant/10 select-none transition-transform duration-500 group-hover:scale-105" style="font-size:6rem">${name[0]}</span>`;
       btn.innerHTML = `
-        <div class="h-[360px] flex items-end justify-center">
-          <div class="h-full w-full flex items-end justify-center" style="transform:scale(${scale})">${img}</div>
+        <div class="h-[360px] flex items-end justify-center" style="container-type:size">
+          <div class="h-full w-full flex items-end justify-center" style="transform:scale(${scale});transform-origin:50% 100%">${img}</div>
         </div>
         <p class="mt-3 text-center font-label text-[0.65rem] uppercase tracking-[0.2em] text-on-surface-variant/50 group-hover:text-on-surface transition-colors duration-300">${name}</p>
       `;
