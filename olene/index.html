@@ -69,8 +69,14 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   .ticket-roof-inside svg{display:block;width:100%;height:100%;}
   .ticket-roof-inside polygon{fill:#221f19;fill-opacity:.22;}
 
-  .ticket-photo{position:relative;flex:0 0 auto;height:clamp(295px,40vw,378px);padding:34px 12px 6px 50px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box;}
-  .ticket-photo img{position:relative;max-height:100%;max-width:82%;width:auto;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(34,31,25,.28));}
+  /* Flaskene står midt i kortet og nede ved fargelinja, og er like høge på mobil
+     og PC. Høgda vert rekna frå feltet si breidd (150cqw, som gjev ei vanleg
+     467×1024-flaske om lag 68 % av breidda), ikkje frå breidda til sjølve biletet.
+     Då vert ikkje tett skorne PNG-ar som Høgruta større enn dei andre.
+     NB: ikkje gje .ticket-photo Tailwind-klassen «block» — han overstyrer flex. */
+  .ticket-photo{position:relative;flex:0 0 auto;height:clamp(295px,40vw,378px);padding:34px 12px 8px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;box-sizing:border-box;container-type:size;}
+  .ticket-photo img{position:relative;height:min(100cqh,150cqw);width:auto;max-width:none;transform-origin:50% 100%;filter:drop-shadow(0 14px 18px rgba(34,31,25,.28));}
+  @media(max-width:639px){.ticket-photo{padding:30px 6px 8px;}}
   .ticket-icon{position:relative;color:#221f19;opacity:.35;height:76%;width:auto;}
 
   .ticket-info{position:relative;padding:0 16px 22px;}
@@ -276,8 +282,8 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <img src="/customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
       <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
       <div class="flex gap-4 mt-6">
-        <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-        <a href="#" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/lombryggeri/" target="_blank" rel="noopener" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/lombryggeri/" target="_blank" rel="noopener" aria-label="Facebook" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
       </div>
     </div>
     <div class="md:col-span-2">
@@ -325,7 +331,7 @@ const BEERS = [
   { name:'Kveite', file:null, cat:'spesial', abv:'4,7 %', style:'Ljos Lager brygga med kveitemalt', ink:'#d9c15a',
     desc:'Mjukt og fyldig, brygga med kveitemalt. Ein lager av den avslappa sorten — rund og lettdrikkeleg.',
     ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Sjømat, salatar, lett sommarmat' },
-  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.92, imgShiftX:24, imgShiftY:6,
+  { name:'Høgruta', file:'Illustrasjonsbilde-HOGRUTA-47_LOMB-mars2023-314x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f7a45', imgScale:0.93,
     desc:'Balansert aroma av frukt, humle og malt. Oppkalla etter den fem dagar lange skiturstien gjennom Jotunheimen — over åtte brear og sju toppar over 2000 meter. IBU 22.',
     ing:'Vatn, byggmalt, kveitemalt, humle, gjær', food:'Pizza, pasta, grillmat' },
   { name:'Vagle', file:'LOMB-VAGLE-vanlig-467x1024.png', cat:'spesial', abv:'4,7 %', style:'Amber Lager', ink:'#4a8f4a',
@@ -450,7 +456,7 @@ function ticketHTML(b) {
     <button type="button" class="ticket" data-name="${b.name}" style="--ink:${b.ink}" aria-haspopup="dialog" aria-label="Les meir om ${b.name}">
       <span class="ticket-shape block">
         <span class="ticket-roof-inside" aria-hidden="true">${ROOF_GLYPH}</span>
-        <span class="ticket-photo block">${photo}</span>
+        <span class="ticket-photo">${photo}</span>
         <span class="ticket-info block">
           <span class="ticket-rule block"></span>
           <span class="ticket-name block">${b.name}</span>
