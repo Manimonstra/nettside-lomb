@@ -9,7 +9,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#15181a","surface":"#12160f","surface-dim":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-highest":"#3d4345","surface-container-lowest":"#171410","surface-bright":"#454b4d","surface-variant":"#313638","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","primary-fixed":"#e8ddc0","on-primary":"#22201a","outline":"#8a8578","outline-variant":"#3a3f41","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"24px","stack-sm":"8px","stack-md":"16px","stack-lg":"32px","section-gap":"120px","container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
-<script src="lang.js"></script>
+<script src="/lang.js"></script>
 <style>
   body{background-color:#12160f;margin:0;overflow-x:hidden;-webkit-tap-highlight-color:transparent;}
 
@@ -157,16 +157,16 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <!-- Header — centered nav -->
 <header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
   <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
-    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
-      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/" aria-label="Lom Bryggeri — heim">
+      <img src="/customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
     <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-current="page">Heim</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html">Utsal</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/" aria-current="page">Heim</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/olene/">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/olsmaking/">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/utsalg/">Utsal</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/pub/">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/om-oss/">Om oss</a>
     </div>
     <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
       <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -186,12 +186,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 <!-- Mobile menu -->
 <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
   <nav class="flex flex-col" aria-label="Mobilmeny">
-    <a class="mobile-nav-link" href="index.html" aria-current="page">Heim</a>
-    <a class="mobile-nav-link" href="olene.html">Våre øl</a>
-    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
-    <a class="mobile-nav-link" href="utsalg.html">Utsal</a>
-    <a class="mobile-nav-link" href="pub.html">Pub</a>
-    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="/" aria-current="page">Heim</a>
+    <a class="mobile-nav-link" href="/olene/">Våre øl</a>
+    <a class="mobile-nav-link" href="/olsmaking/">Ølsmaking</a>
+    <a class="mobile-nav-link" href="/utsalg/">Utsal</a>
+    <a class="mobile-nav-link" href="/pub/">Pub</a>
+    <a class="mobile-nav-link" href="/om-oss/">Om oss</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
     <a class="btn-nav inline-flex" href="#kontakt">Ta kontakt</a>
@@ -210,11 +210,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
 
     <!-- Panel 1 -->
     <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
-      <img src="Pictures/classics.webp" alt="" width="1287" height="1020" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"/>
+      <img src="/Pictures/classics.webp" alt="" width="1287" height="1020" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Lagerøl</h2>
-      <a href="olene.html" class="btn-hero relative z-10">Sjå alle sortar<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="/olene/" class="btn-hero relative z-10">Sjå alle sortar<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <!-- Panel 2 -->
@@ -222,20 +222,20 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <!-- Biletet er høgformat og fyller panelet i breidda, så object-position
            har ingen slark å flytte sidelengs på. Ein brearare boks forskyv til
            venstre gjev mannen plass til venstre for «Les meir»-knappen. -->
-      <img src="Pictures/Ølsmaking.jpg" alt="" width="1920" height="2880" fetchpriority="high" class="absolute top-0 left-[-24%] h-full w-[124%] max-w-none object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 45%;"/>
+      <img src="/Pictures/Ølsmaking.jpg" alt="" width="1920" height="2880" fetchpriority="high" class="absolute top-0 left-[-24%] h-full w-[124%] max-w-none object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 45%;"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Ølsmaking</h2>
-      <a href="olsmaking.html" class="btn-hero relative z-10">Les meir<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="/olsmaking/" class="btn-hero relative z-10">Les meir<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <!-- Panel 3 -->
     <div class="relative flex flex-col items-center justify-center text-center gap-5 md:gap-7 p-8 md:p-12 min-h-[380px] md:min-h-[660px] overflow-hidden group">
-      <img src="Pictures/Butikk.jpg" alt="" width="2863" height="1909" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 40%;"/>
+      <img src="/Pictures/Butikk.jpg" alt="" width="2863" height="1909" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0" style="object-position:50% 40%;"/>
       <div aria-hidden="true" class="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-500 z-[1]"></div>
       <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-black/35 z-[2]"></div>
       <h2 class="font-display text-3xl md:text-[2.75rem] font-semibold leading-[1.05] tracking-tight relative z-10 max-w-[14ch] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">Gardsutsal</h2>
-      <a href="utsalg.html" class="btn-hero relative z-10">Sjå kva vi sel<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="/utsalg/" class="btn-hero relative z-10">Sjå kva vi sel<svg class="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
   </div>
@@ -351,7 +351,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       <div class="showcase-tags" id="showcaseIng"></div>
       <p class="showcase-tags-label">Passer til</p>
       <div class="showcase-tags" id="showcaseFood"></div>
-      <a href="olene.html" class="showcase-more">
+      <a href="/olene/" class="showcase-more">
         Sjå alle sortane
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -364,7 +364,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(195,179,147,.4),transparent);"></div>
   <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
     <div class="md:col-span-4">
-      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <img src="/customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
       <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
       <div class="flex gap-4 mt-6">
         <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
@@ -374,11 +374,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
     <div class="md:col-span-2">
       <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-[#c3b393]/60 mb-5">Snarveiar</h2>
       <ul class="space-y-3">
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsal</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/olene/">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/olsmaking/">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/utsalg/">Utsal</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/pub/">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/om-oss/">Om oss</a></li>
       </ul>
     </div>
     <div class="md:col-span-6">
@@ -395,10 +395,10 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
   </div>
 </footer>
 
-<script src="skjema.js"></script>
+<script src="/skjema.js"></script>
 <script>
   const BEERS = [
-    // Same data som olene.html — sortimanget som er å få tak i gjennom grossist.
+    // Same data som olene/index.html — sortimanget som er å få tak i gjennom grossist.
     { name:'Ljost', file:'LOMB-LJOST-vanlig-467x1024.png', cat:'fast', abv:'4,7 %', style:'Ljos Lager', ink:'#3f9fc7',
       desc:'Eit ljost og friskt lagerøl. Den klassiske lageren frå Lom — lettdrikkeleg og tilgjengeleg, brygga med reint fjellvatn frå Jotunheimen.',
       ing:'Vatn, byggmalt, humle, gjær', food:'Fisk, sjømat, lettare salatar' },
@@ -516,7 +516,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       btn.setAttribute('aria-label', 'Les meir om ' + name);
       const scale = imgScale || 1;
       const img = file
-        ? `<img src="Beers/${file}" alt="" width="467" height="1024" loading="lazy" draggable="false"
+        ? `<img src="/Beers/${file}" alt="" width="467" height="1024" loading="lazy" draggable="false"
              class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-2"/>`
         : `<span class="font-display leading-none text-on-surface-variant/10 select-none transition-transform duration-500 group-hover:scale-105" style="font-size:6rem">${name[0]}</span>`;
       btn.innerHTML = `
@@ -619,7 +619,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#1
       const photoWrap = document.getElementById('showcasePhoto');
       const scale = b.imgScale || 1;
       photoWrap.innerHTML = b.file
-        ? `<img src="Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="eager" style="transform:scale(${scale})"/>`
+        ? `<img src="/Beers/${b.file}" alt="${b.name}" width="467" height="1024" loading="eager" style="transform:scale(${scale})"/>`
         : `<span class="font-display leading-none select-none" style="font-size:7rem;color:${b.ink}33">${b.name[0]}</span>`;
 
       showcaseBackdrop.classList.add('open');

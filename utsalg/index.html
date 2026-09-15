@@ -10,7 +10,7 @@
 <script id="tailwind-config">
 tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","surface-container-low":"#202426","surface-container":"#262a2c","surface-container-high":"#313638","surface-container-lowest":"#171410","on-surface":"#f2ede0","on-surface-variant":"#cebeac","on-background":"#f2ede0","background":"#12160f","primary":"#c3b393","paper":"#d8cab8","paper-2":"#e6ddcf","ink":"#241e17","brown":"#4b3621","camel":"#c19a6b"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"container-max":"1440px","margin-edge":"40px"},fontFamily:{display:["Fraunces","serif"],body:["Work Sans","sans-serif"],label:["Space Grotesk","sans-serif"],stamp:["Oswald","sans-serif"]}}}}
 </script>
-<script src="lang.js"></script>
+<script src="/lang.js"></script>
 <style>
   :root{
     --paper:#d8cab8; --paper-2:#e6ddcf; --ink:#241e17; --ink-soft:rgba(36,30,23,.74); --ink-faint:rgba(36,30,23,.5);
@@ -37,7 +37,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   .sheet-roof polygon{fill:#241e17;fill-opacity:.15;}
   .sheet-inner{position:relative;z-index:1;}
 
-  /* Type matched to olene.html */
+  /* Type matched to olene/index.html */
   .h-ink{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;color:#1a1712;}
   .eyebrow-ink{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);}
   .rule-ink{height:3px;background:var(--brown);border:0;margin:0;}
@@ -87,16 +87,16 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
 <header class="sticky top-0 z-50 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-white/5">
   <nav aria-label="Hovudmeny" class="flex items-center px-margin-edge py-4 w-full max-w-container-max mx-auto">
-    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html" aria-label="Lom Bryggeri — heim">
-      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
+    <a class="flex-shrink-0 flex items-center rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/" aria-label="Lom Bryggeri — heim">
+      <img src="/customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="79" height="48" class="h-12 w-auto"/>
     </a>
     <div class="hidden lg:flex flex-1 items-center justify-center gap-5">
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="index.html">Heim</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olene.html">Våre øl</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="olsmaking.html">Ølsmaking</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="utsalg.html" aria-current="page">Utsal</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="pub.html">Pub</a>
-      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="om-oss.html">Om oss</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/">Heim</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/olene/">Våre øl</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/olsmaking/">Ølsmaking</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/utsalg/" aria-current="page">Utsal</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/pub/">Pub</a>
+      <a class="font-label text-xs uppercase tracking-[0.16em] text-on-surface-variant hover:text-on-surface transition-colors duration-300 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-on-surface" href="/om-oss/">Om oss</a>
     </div>
     <button type="button" class="lang-switch ml-auto lg:ml-0 lg:mr-3" data-lang-set="en" lang="en" aria-label="View in English" data-i18n-skip>
       <svg class="lang-switch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -113,12 +113,12 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
 <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
   <nav class="flex flex-col" aria-label="Mobilmeny">
-    <a class="mobile-nav-link" href="index.html">Heim</a>
-    <a class="mobile-nav-link" href="olene.html">Våre øl</a>
-    <a class="mobile-nav-link" href="olsmaking.html">Ølsmaking</a>
-    <a class="mobile-nav-link" href="utsalg.html" aria-current="page">Utsal</a>
-    <a class="mobile-nav-link" href="pub.html">Pub</a>
-    <a class="mobile-nav-link" href="om-oss.html">Om oss</a>
+    <a class="mobile-nav-link" href="/">Heim</a>
+    <a class="mobile-nav-link" href="/olene/">Våre øl</a>
+    <a class="mobile-nav-link" href="/olsmaking/">Ølsmaking</a>
+    <a class="mobile-nav-link" href="/utsalg/" aria-current="page">Utsal</a>
+    <a class="mobile-nav-link" href="/pub/">Pub</a>
+    <a class="mobile-nav-link" href="/om-oss/">Om oss</a>
   </nav>
   <div class="mt-auto pt-8 border-t border-white/10">
     <a class="btn-nav inline-flex" href="tel:+4795844455">Ring 95 84 44 55</a>
@@ -133,7 +133,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
 
   <!-- Photo behind, card in front. -->
   <div class="relative isolate overflow-hidden h-[46vh] md:h-[60vh]">
-    <img src="Pictures/Butikk.jpg" alt="Hyllene i gardsutsalet, med flasker, glas og gåveøskjer" width="2863" height="1909" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 40%;"/>
+    <img src="/Pictures/Butikk.jpg" alt="Hyllene i gardsutsalet, med flasker, glas og gåveøskjer" width="2863" height="1909" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover" style="object-position:50% 40%;"/>
     <div aria-hidden="true" class="absolute inset-0" style="background:linear-gradient(180deg,rgba(18,22,15,.35) 0%,rgba(18,22,15,.15) 45%,rgba(18,22,15,.9) 100%);"></div>
   </div>
 
@@ -153,7 +153,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
               <li><span class="what">Gåveøskjer og glas</span><span class="note">til å ta med</span></li>
               <li><span class="what">Kjøt og spekemat</span><span class="note">frå området</span></li>
             </ul>
-            <p class="body-ink mt-7 max-w-[46ch]">Veit du kva du er ute etter? <a class="link-ink" href="olene.html">Sjå heile sortimanget</a> før du kjem.</p>
+            <p class="body-ink mt-7 max-w-[46ch]">Veit du kva du er ute etter? <a class="link-ink" href="/olene/">Sjå heile sortimanget</a> før du kjem.</p>
           </div>
 
           <div class="lg:col-span-5">
@@ -197,7 +197,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
   <div aria-hidden="true" class="absolute inset-x-0 top-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(216,202,184,.35),transparent);"></div>
   <div class="max-w-container-max mx-auto grid gap-12 md:grid-cols-12">
     <div class="md:col-span-4">
-      <img src="customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
+      <img src="/customer_assets/logo_lomb_cream.png" alt="Lom Bryggeri" width="105" height="64" class="h-16 w-auto opacity-90"/>
       <p class="font-body text-sm text-on-surface-variant/55 mt-5 leading-relaxed max-w-xs">Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.</p>
       <div class="flex gap-4 mt-6">
         <a href="#" aria-label="Instagram" class="text-on-surface-variant/45 hover:text-on-surface transition-colors duration-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
@@ -207,11 +207,11 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     <div class="md:col-span-2">
       <h2 class="font-label text-[0.62rem] uppercase tracking-[0.22em] text-camel mb-5">Snarveiar</h2>
       <ul class="space-y-3">
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olene.html">Våre øl</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="olsmaking.html">Ølsmaking</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="utsalg.html">Utsal</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="pub.html">Pub</a></li>
-        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="om-oss.html">Om oss</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/olene/">Våre øl</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/olsmaking/">Ølsmaking</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/utsalg/">Utsal</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/pub/">Pub</a></li>
+        <li><a class="font-body text-sm text-on-surface-variant/60 hover:text-on-surface transition-colors duration-300" href="/om-oss/">Om oss</a></li>
       </ul>
     </div>
     <div class="md:col-span-6">
