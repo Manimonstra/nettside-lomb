@@ -177,6 +177,13 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
     </article>
   </section>
 
+  <!-- FOLKA PÅ GRJOTHEIM — skjult frå den publiserte sida til portretta er klare.
+       Innhald i <template> vert verken vist eller lasta ned av nettlesaren.
+       Slik viser du seksjonen igjen:
+         1. Slett linja <template id="folka"> og linja </template> rundt seksjonen.
+         2. Byt ut plasshaldarbileta (placehold.co) og [Namn]/[Rolle] med ekte portrett og namn.
+       Engelsk omsetjing av overskrifta ligg allereie i lang.js. -->
+  <template id="folka">
   <!-- Folka: each portrait is an ølene ticket, at portrait size. -->
   <section class="max-w-container-max mx-auto px-margin-edge pb-24 md:pb-32">
     <h2 class="h-light mb-10" style="font-size:clamp(1.9rem,4.4vw,2.9rem)">Folka på Grjotheim</h2>
@@ -220,6 +227,7 @@ tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#12160f","su
       </li>
     </ul>
   </section>
+  </template>
 
   <!-- Historia — same fane som om oss, som eigen del lenger nede på sida. -->
   <section id="historie" class="border-t border-white/5 scroll-mt-24">

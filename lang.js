@@ -258,10 +258,10 @@
     "Skal du ha mange kassar, gåveøskjer til firmaet eller noko vi ikkje har ståande — ring eller send ein e-post, så legg vi det klart til deg.": "Need lots of crates, gift boxes for your company or something we don't keep in stock? Call or send an email, and we'll have it ready for you.",
 
     // ── Pub ──
-    "Gardspuben i låven på Grjotheim. Tolv kranar, program og leige av lokalet.": "The farm pub in the barn at Grjotheim. Twelve taps, events and venue hire.",
+    "Gardspuben i låven på Grjotheim. Program og leige av lokalet.": "The farm pub in the barn at Grjotheim. Events and venue hire.",
     "Rekkja med kranar i gardspuben, med Ljost og Høgruta fremst": "The row of taps in the farm pub, with Ljost and Høgruta in front",
     "Gardspuben": "The farm pub",
-    "Tolv kranar, rett ved tankane ølet kjem frå.": "Twelve taps, right next to the tanks the beer comes from.",
+    "Puben ligg i låven, rett ved tankane ølet kjem frå.": "The pub is in the barn, right next to the tanks the beer comes from.",
     "Fast sortimang og roterande sesongøl på kran.": "Core range and rotating seasonal beers on tap.",
     "Sjå heile sortimanget": "See the full range",
     "Kommande program": "Upcoming events",
@@ -277,7 +277,7 @@
     "Neste": "Next",
     "Legg i kalenderen": "Add to calendar",
     "Leige låven til selskap": "Hire the barn for your event",
-    "Plass til om lag 80, heile sortimanget på kran, og omvising i bryggeriet om de vil ha det.": "Room for around 80, the full range on tap, and a brewery tour if you'd like one.",
+    "Plass til om lag 80, store deler av sortimanget på kran, og omvising i bryggeriet om de vil ha det.": "Room for around 80, much of our range on tap, and a brewery tour if you'd like one.",
     "Bestill eller spør oss": "Book or ask us",
     "Ring eller send ein e-post, så ordnar vi resten. Me svarar som regel same dag.": "Call or send an email, and we'll take care of the rest. We usually reply the same day.",
     "Sei gjerne frå om høve, tal på gjester og ønskt dato med éin gong, så går det raskare.": "Let us know the occasion, number of guests and preferred date right away — it speeds things up.",
