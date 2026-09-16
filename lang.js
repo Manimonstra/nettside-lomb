@@ -33,6 +33,7 @@
     "Bryggeri, ølsmaking og gardspub i hjartet av Lom. Handverk sidan 2016.": "Brewery, beer tasting and farm pub in the heart of Lom. Brewing by hand since 2016.",
     "Snarveiar": "Shortcuts",
     "Kontakt": "Contact",
+    "Alkohol kan gje helseskadar. Les meir på": "Alcohol can damage your health. Read more at",
 
     // ── Skjema (framside og ølsmaking) ──
     "Felt merka med * må fyllast ut.": "Fields marked * are required.",
@@ -277,7 +278,7 @@
     "Neste": "Next",
     "Legg i kalenderen": "Add to calendar",
     "Leige låven til selskap": "Hire the barn for your event",
-    "Plass til om lag 80, store delar av sortimanget på kran, og omvising i bryggeriet om de vil ha det.": "Room for around 80, much of our range on tap, and a brewery tour if you'd like one.",
+    "Plass til om lag 40, store delar av sortimanget på kran, og omvising i bryggeriet om de vil ha det.": "Room for around 40, much of our range on tap, and a brewery tour if you'd like one.",
     "Bestill eller spør oss": "Book or ask us",
     "Ring eller send ein e-post, så ordnar vi resten. Me svarar som regel same dag.": "Call or send an email, and we'll take care of the rest. We usually reply the same day.",
     "Sei gjerne frå om høve, tal på gjester og ønskt dato med éin gong, så går det raskare.": "Let us know the occasion, number of guests and preferred date right away — it speeds things up.",
